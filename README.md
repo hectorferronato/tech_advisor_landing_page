@@ -18,9 +18,9 @@ Open the local server in your own development environment. All paths are relativ
 - `index.html`: homepage, services, background, process, FAQ.
 - `founder-build-sprint.html`, `technical-advisory.html`: detailed service pages.
 - `assets/style.css`: shared responsive design; warm neutrals, deep teal, editorial serif headings, system sans-serif body text, reduced-motion support.
-- `assets/config.js`: public application URLs, contact email, LinkedIn fallback, portrait path, availability, optional analytics.
+- `assets/config.js`: public application URLs, contact email, LinkedIn fallback, local photo paths, availability, optional local analytics.
 - `assets/site.js`: progressive enhancement of working static links. Without JavaScript, LinkedIn remains available.
-- `assets/build.svg`, `assets/advisory.svg`: original product illustrations used while requested stock photographs are unavailable.
+- `assets/build.svg`, `assets/advisory.svg`: original local product illustrations; retained unless local photos are configured.
 - `.nojekyll`: bypasses Jekyll.
 
 Edit prices and engagement details in the homepage service cards and corresponding service pages together. Edit FAQ scope statements when changing an engagement. Search for `$2,500`, `$2,000`, `8 hours`, and `4 hours`. Update availability through `assets/config.js`; keep the static homepage fallback in sync. Shared header/footer markup is intentionally duplicated across only three pages; update all three when changing navigation or contact wording.
@@ -31,19 +31,23 @@ Set `buildApplicationUrl` and `advisoryApplicationUrl` separately to full HTTPS 
 
 Recommended hosted form fields: name, email, company, optional website, service, current stage, primary challenge, desired outcome, budget, and timeline. Configure appropriate privacy disclosures and response handling on the form host. Never add secrets to this public repository.
 
-## Portrait and stock photos — outstanding
+## Local photography
 
-LinkedIn and Unsplash access were blocked by the environment's network policy during implementation. The site currently uses an HF monogram and two original illustrations; it does not contain Hector's LinkedIn portrait or stock photographs yet.
+The design works with its local illustrations and HF monogram. No LinkedIn download, stock-image service, external API, or environment publication is required. Supplied photos can replace the illustrations without changing the layout:
 
-Download your actual LinkedIn profile photo (or supply the original), save as `assets/hector.jpg`, and set `portraitUrl: "assets/hector.jpg"`. The monogram stays visible if the image fails to load. Do not use an expiring LinkedIn CDN URL in production.
+| Photo | Local filename | Configuration field |
+| --- | --- | --- |
+| Square headshot | `assets/hector-profile.jpg` | `portraitUrl` |
+| Working at a laptop | `assets/hector-building.jpg` | `buildImageUrl` |
+| Discussing architecture | `assets/hector-advisory.jpg` | `advisoryImageUrl` |
 
-For the two requested stock photographs, download appropriately licensed images of a software-building workspace and architectural/technical planning (no meeting stock photos). Save optimized local files and replace the two illustration sources on the homepage and corresponding service pages. Use empty alt for decorative card images; describe meaningful images on detail pages. Record the source, photographer, and license here. Keep exactly two distinct stock photographs.
+Set each field to its project-relative filename after adding the file. Portrait and service photo slots accept only same-origin assets. If a file cannot load, the existing visual remains. Image frames crop responsively; the service cards use decorative alt text, and detail pages describe the photo without claiming a client engagement or outcome.
 
-Prefer locally hosted images under 200 KB each; no external image requests occur in the current site.
+Photo configuration is optional and remains blank until the corresponding files are present. The site works with its existing local visuals.
 
 ## GitHub Pages deployment
 
-Pages has **not** been enabled by this implementation. After reviewing and merging the site into `main`:
+Pages has **not** been enabled by this implementation. When the site files are on the deployment branch (`main` below):
 
 1. Go to the repository **Settings → Pages**.
 2. Under Build and deployment choose **Deploy from a branch**.
@@ -58,14 +62,18 @@ Configure and verify the domain in repository Pages settings, add the DNS record
 
 ## Optional analytics
 
-Analytics are disabled. `analyticsScriptUrl` can load an HTTPS analytics script; `analyticsSiteId` becomes `data-website-id` (compatible with services using that attribute). Other providers may require adapting `assets/site.js`. Configure a provider only after assessing consent/disclosure obligations and adding an appropriate privacy notice. No API keys belong in this file.
+Analytics are disabled. `analyticsScriptUrl` can load a same-origin, locally hosted analytics script; `analyticsSiteId` becomes `data-website-id` (compatible with services using that attribute). Other providers may require adapting `assets/site.js`. Configure a provider only after assessing consent/disclosure obligations and adding an appropriate privacy notice. No API keys belong in this file.
 
 ## Pre-launch checklist
 
-- Supply and review the real portrait and two licensed stock images.
-- Configure both hosted applications or a verified contact email; test submission on the host.
+- Optionally add the supplied local photos; existing visuals work without them.
+- Confirm the LinkedIn contact fallback, or optionally configure hosted applications/email.
 - Confirm copy, prices, time limits, boundaries, availability, and scheduling expectations.
 - Confirm no employer/client details or unsupported claims are present.
 - Run static checks and test keyboard navigation, native FAQ controls, and mobile layouts.
 - Verify metadata/social preview, all navigation, and images at the deployed project URL.
 - Enable Pages and confirm deployment. Enable analytics only when ready.
+
+## Change delivery
+
+Commit directly on the working branch. Do not create a new pull request unless requested. The user has already handled the initial PR. No network or environment changes are prerequisites for completing local work.

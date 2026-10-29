@@ -1,6 +1,13 @@
 (() => {
   'use strict';
   const config = window.SITE_CONFIG || {};
+  const localAsset = value => {
+    if (typeof value !== 'string' || !value.trim()) return '';
+    try {
+      const url = new URL(value, document.baseURI);
+      return url.origin === location.origin && ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+    } catch { return ''; }
+  };
   const https = value => {
     try { const url = new URL(value); return url.protocol === 'https:' ? url.href : ''; }
     catch { return ''; }
@@ -31,18 +38,31 @@
   document.querySelectorAll('[data-availability]').forEach(el => {
     if (typeof config.availability === 'string' && config.availability.trim()) el.textContent = config.availability;
   });
-  if (config.portraitUrl) {
-    try {
-      const url = new URL(config.portraitUrl, document.baseURI);
-      if (url.origin === location.origin || url.protocol === 'https:') {
-        const img = new Image();
-        img.alt = 'Hector Ferronato';
-        img.onload = () => document.querySelectorAll('[data-portrait]').forEach(el => el.replaceChildren(img));
-        img.src = url.href;
-      }
-    } catch { /* Keep the monogram when a portrait cannot be loaded. */ }
+  const portrait = localAsset(config.portraitUrl);
+  if (portrait) {
+    const img = new Image();
+    img.alt = 'Hector Ferronato';
+    img.width = 800;
+    img.height = 800;
+    img.onload = () => document.querySelectorAll('[data-portrait]').forEach(el => el.replaceChildren(img.cloneNode()));
+    img.src = portrait;
   }
-  const analytics = https(config.analyticsScriptUrl);
+  const serviceImages = [
+    ['build', config.buildImageUrl, 'Hector working on a laptop'],
+    ['advisory', config.advisoryImageUrl, 'Hector discussing software architecture']
+  ];
+  serviceImages.forEach(([service, value, alt]) => {
+    const source = localAsset(value);
+    if (!source) return;
+    const image = new Image();
+    image.onload = () => document.querySelectorAll(`[data-service-image="${service}"]`).forEach(el => {
+      el.src = source;
+      if (!el.closest('[aria-hidden="true"]')) el.alt = alt;
+      el.classList.add('service-photo');
+    });
+    image.src = source;
+  });
+  const analytics = localAsset(config.analyticsScriptUrl);
   if (analytics) {
     const script = document.createElement('script');
     script.defer = true;

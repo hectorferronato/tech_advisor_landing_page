@@ -3,3 +3,6 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 .arrow-icon{display:inline-block;width:14px;height:14px;vertical-align:-2px;flex-shrink:0}.panel-bottom .arrow-icon{width:25px;height:25px}
+
+/* Local photos share the existing editorial frames without changing layout. */
+.portrait img{object-position:center 35%}.detail-image.service-photo{width:100%;aspect-ratio:9/7;object-fit:cover;object-position:center}.service-image .service-photo{object-position:center 40%}

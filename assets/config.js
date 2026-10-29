@@ -4,8 +4,10 @@ window.SITE_CONFIG = {
   advisoryApplicationUrl: "",
   contactEmail: "", // Optional verified business email; blank uses LinkedIn
   linkedInUrl: "https://www.linkedin.com/in/hectorferronato/",
-  portraitUrl: "", // Local path, e.g. assets/hector.jpg. Use your actual photo.
+  portraitUrl: "", // Local portrait file, e.g. assets/hector-profile.jpg
+  buildImageUrl: "", // Local building-at-a-laptop photo, e.g. assets/hector-building.jpg
+  advisoryImageUrl: "", // Local advisory photo, e.g. assets/hector-advisory.jpg
   availability: "A small, selective advisory practice",
-  analyticsScriptUrl: "", // Optional HTTPS script; enable only after privacy review
+  analyticsScriptUrl: "", // Optional locally hosted script; disabled by default
   analyticsSiteId: ""
 };

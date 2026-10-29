@@ -17,15 +17,19 @@ Includes responsive editorial styling, keyboard-operable FAQs, service scope and
 - Chromium: nine page renders at 375, 768, and 1440 pixels under `/tech_advisor_landing_page/`; no overflow, broken images, HTTP errors, or JavaScript errors.
 - Verified keyboard FAQ interaction, LinkedIn fallback, and independent hosted form configurations.
 - Inspected desktop and mobile screenshots.
+- Offline browser rerun: zero external page requests; verified local photo replacement and rejection of cross-origin photo/analytics URLs. Local SVG assets served as photo-loading fixtures; supplied photos are not included.
 
 ## Deployment
 
 After merge: Settings → Pages → Deploy from a branch → main → /(root) → Save. No build workflow or backend required. Pages has not been enabled by this change.
 
-## Before launch
+## Contact and optional photography
 
-- Configure hosted application URLs or a verified contact email in `assets/config.js`.
-- Add Hector's actual LinkedIn portrait and replace the two illustrations with licensed stock photos. Asset downloads were blocked by the current environment network policy; no substitute person or fabricated photo is used.
+- LinkedIn is the working contact fallback. Hosted application URLs and email are optional configuration.
+- The design uses local illustrations and a monogram. Local-only photo slots are ready for the supplied headshot, building photo, and advisory photo. The inline chat images were not exposed as files in the execution workspace, so the photographs are not included in this commit.
+- No external API, stock-photo request, LinkedIn download, or environment change is required.
 - Review pricing, scope, availability, and deployed navigation.
 
-Cloud startup instructions and network-domain additions were saved separately in the environment configuration draft; review/save and publish there to activate them.
+## Delivery
+
+The user handled the initial PR. Further changes are committed directly on the existing branch, without creating another PR. This offline task does not fetch, push, or call GitHub APIs.
