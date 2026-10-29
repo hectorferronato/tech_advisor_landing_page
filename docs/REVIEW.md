@@ -1,35 +1,28 @@
-## Summary
+# Dark minimal redesign review
 
-Create a three-page static website for Hector Ferronato's independent advisory practice, with Founder Build Sprint ($2,500 / three weeks / up to eight advisor hours) and AI Product & Technical Advisory (from $2,000/month / up to four advisor hours). Copy reflects programming since 2009, full-stack experience, and building businesses since 2022.
+The homepage now has exactly two sections: a name-led introduction and two service panels. A consistent #101216 / #191D23 palette, sans-serif typography, restrained icy-blue accent, subtle borders, and a compact footer replace the light editorial design and decorative content.
 
-Includes responsive editorial styling, keyboard-operable FAQs, service scope and boundaries, configurable application links with an honest LinkedIn/email fallback, metadata, social image, favicon, optional analytics, and GitHub Pages-compatible relative paths.
-
-## Files
-
-- `index.html`, `founder-build-sprint.html`, `technical-advisory.html`
-- `assets/`: shared styles, client script, public configuration, favicon, social image, two original product illustrations
-- `.nojekyll`, `scripts/check.py`, expanded `README.md`
+The two existing service routes keep their prices, advisor-hour limits, founder responsibilities, scope boundaries, and contact/application behavior. Static image sources now point to the requested JPGs on the homepage and each respective detail page. SVG service illustrations are no longer rendered. Metadata, social image, favicon, and theme colors match the redesign.
 
 ## Validation
 
-- Static checker: three pages and 49 local links/assets pass; headings, fragments, metadata, image alt attributes checked.
-- Node syntax checks pass for both scripts.
-- Chromium: nine page renders at 375, 768, and 1440 pixels under `/tech_advisor_landing_page/`; no overflow, broken images, HTTP errors, or JavaScript errors.
-- Verified keyboard FAQ interaction, LinkedIn fallback, and independent hosted form configurations.
-- Inspected desktop and mobile screenshots.
-- Offline browser rerun: zero external page requests; verified local photo replacement and rejection of cross-origin photo/analytics URLs. Local SVG assets served as photo-loading fixtures; supplied photos are not included.
+- JavaScript syntax checks pass for `assets/config.js` and `assets/site.js`.
+- Static validation passes for three page structures, 35 relative links, anchors, metadata, heading hierarchy, two homepage sections, and exact static JPG references with accurate illustrative-scene alt text.
+- Local Chromium checks pass for 12 layouts: all three pages at 320, 375, 768, and 1440 pixels. No horizontal overflow; desktop panels have equal columns and mobile panels stack.
+- Keyboard skip links, LinkedIn fallbacks, independent configured application URLs, and JavaScript-disabled static navigation/image references were verified.
+- Desktop/mobile screenshots were inspected. No external page requests or JavaScript errors occurred.
+- Full validation remains **failed** because required photos are missing. Browser image requests return 404. Image loading, image identity, and face/crop acceptance cannot pass until files are supplied.
 
-## Deployment
+## Required assets
 
-After merge: Settings → Pages → Deploy from a branch → main → /(root) → Save. No build workflow or backend required. Pages has not been enabled by this change.
+The following paths were absent in both the working checkout and the latest fetched `main`:
 
-## Contact and optional photography
+- `assets/hector-building.jpg`
+- `assets/hector-advisory.jpg`
+- `assets/hector-profile.jpg`
 
-- LinkedIn is the working contact fallback. Hosted application URLs and email are optional configuration.
-- The design uses local illustrations and a monogram. Local-only photo slots are ready for the supplied headshot, building photo, and advisory photo. The inline chat images were not exposed as files in the execution workspace, so the photographs are not included in this commit.
-- No external API, stock-photo request, LinkedIn download, or environment change is required.
-- Review pricing, scope, availability, and deployed navigation.
+Upload the actual files at these exact paths. No replacement images or hidden fallbacks have been added. The optional headshot is omitted, but its configured path is ready. After upload, run `python3 scripts/check.py` and recheck source image identity and face framing at desktop/mobile widths. The service images must show separately on the homepage and on their respective detail pages.
 
 ## Delivery
 
-The user handled the initial PR. Further changes are committed directly on the existing branch, without creating another PR. This offline task does not fetch, push, or call GitHub APIs.
+Changes are prepared on `redesign/dark-minimal`. `main` and the live GitHub Pages deployment are unchanged pending review. No PR is created. After review, deploy the approved branch contents through the existing Pages deployment branch; no build workflow or environment change is needed.
