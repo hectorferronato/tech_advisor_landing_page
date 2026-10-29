@@ -56,6 +56,10 @@
     const source = localAsset(value);
     const slots = [...document.querySelectorAll(`[data-service-media="${service}"]`)];
     if (!source || !slots.length) return;
+    if (slots.every(slot => {
+      const current = slot.querySelector('img');
+      return current && current.src === source;
+    })) return;
     const image = new Image();
     image.alt = alt;
     image.className = 'service-photo';

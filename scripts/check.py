@@ -29,7 +29,6 @@ class Document(HTMLParser):
             if attrs.get(name):
                 self.links.append(attrs[name])
         if 'data-service-media' in attrs:
-            assert 'hidden' in attrs, 'Optional image slot must not reserve space before loading'
             self.media.append(attrs['data-service-media'])
         if tag == 'img':
             assert 'alt' in attrs, f'Missing image alt in {self.path}'
@@ -57,12 +56,15 @@ for path, doc in docs.items():
 home = docs[ROOT / 'index.html']
 assert home.sections == 3, 'Homepage must have introduction, services, and experience sections'
 assert 'experience' in home.ids, 'Missing experience section'
-for service, detail in [
-    ('build', 'founder-build-sprint.html'),
-    ('advisory', 'technical-advisory.html'),
+for service, detail, filename in [
+    ('build', 'founder-build-sprint.html', 'founder-build-sprint.jpg'),
+    ('advisory', 'technical-advisory.html', 'technical-advisory.jpg'),
 ]:
     for doc in [home, docs[ROOT / detail]]:
-        assert doc.media.count(service) == 1, f'Missing optional photo slot for {service} in {doc.path}'
+        assert doc.media.count(service) == 1, f'Missing photo slot for {service} in {doc.path}'
+        images = [image for image in doc.images if image.get('data-service-image') == service]
+        assert len(images) == 1 and images[0]['src'] == f'assets/{filename}', f'Incorrect static photo for {service} in {doc.path}'
+        assert 'AI-generated illustrative scene' in images[0]['alt'], 'Missing accurate scene alt text'
 # A missing configured image is a deployment error; an unconfigured optional image is not requested.
 config = (ROOT / 'assets/config.js').read_text()
 for field in ('portraitUrl', 'buildImageUrl', 'advisoryImageUrl'):
@@ -72,7 +74,7 @@ for field in ('portraitUrl', 'buildImageUrl', 'advisoryImageUrl'):
         assert target.is_relative_to(ROOT), f'Configured image escapes site: {value}'
         if not target.is_file():
             missing.add(value)
-print(f'PASS: {len(docs)} page structures, {count} relative links, metadata, anchors, three homepage sections, and optional photo slots')
+print(f'PASS: {len(docs)} page structures, {count} relative links, metadata, anchors, three homepage sections, and distinct static service photos')
 if missing:
     print('FAIL: referenced files missing:')
     for filename in sorted(missing):

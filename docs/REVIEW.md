@@ -1,32 +1,23 @@
-# Missing-photo and layout repair
+# Hero, footer, and service photography update
 
-The merged redesign referenced JPGs that were never present in the repository. This left broken image icons and large empty panels. The repair uses the complete dark text-only layout until actual image files are available. It introduces no substitute photos or illustrations.
+The hero places enlarged introductory text on the left and the smaller Hector Ferronato heading on the right. On mobile the smaller right-aligned identity stacks above the statement. The experience section remains below both services. A larger Get in touch button occupies its own centered footer row on all three pages, with contact/application links beneath.
 
-Photo slots start hidden, appear only after a configured local image loads successfully, and expand the detail-page layout only when needed. All three pages version their shared stylesheet and scripts so cached files from the old light design cannot mix with the new markup. Application links and the LinkedIn fallback are unchanged.
+The two image files arrived on main during the layout update. Those uploads were preserved, and their actual filenames are now referenced directly in HTML and the default configuration:
+
+- `assets/founder-build-sprint.jpg`: 964 × 809, used for Founder Build Sprint.
+- `assets/technical-advisory.jpg`: 829 × 941, used for Technical Advisory.
+
+Both photos render separately on the homepage and on their corresponding detail pages, including without JavaScript. Alt text accurately identifies the AI-generated illustrative scenes. Source proportions and responsive crops were visually inspected for face visibility. No substitute photos or SVGs are used.
 
 ## Validation
 
-- `python3 scripts/check.py` passes: all rendered/configured files exist; three page structures, 31 relative references, anchors, metadata, three homepage sections, and optional photo slots are valid.
-- JavaScript syntax checks and `git diff --check` pass.
-- Chromium checks pass across all three pages at 320, 375, 768, and 1440 pixels, with screenshots inspected on desktop/mobile.
-- No broken images, visible empty frames, horizontal overflow, HTTP errors, JavaScript errors, or external page requests occur with the default configuration.
-- Every internal navigation link returns HTTP 200 under the GitHub Pages project subdirectory.
-- The correct dark styles load even when the test supplies stale CSS for the old unversioned URL.
-- Keyboard skip links, contact fallbacks, configured form links, and JavaScript-disabled pages pass.
-- Optional photo loading and detail layout expansion pass using an existing local test image. This tests behavior only; no replacement photo is deployed.
+- Static validation: three pages, 35 local references, valid metadata/anchors, three homepage sections, distinct static service image sources, and existing rendered/configured files.
+- JavaScript syntax and whitespace checks pass.
+- Chromium: all three pages at 320, 375, 768, and 1440 pixels; actual JPEG decoding, correct source identity and natural dimensions verified.
+- Desktop/mobile screenshots inspected, including the Advisory detail photo.
+- Smaller name/right-side placement, enlarged statement, experience order, footer centering and button dimensions verified.
+- All internal links return HTTP 200 under the GitHub Pages project subdirectory. No overflow, broken images, empty frames, HTTP errors, JavaScript errors, or external page requests.
+- Keyboard skip links, LinkedIn/email fallback, configured application links, and JavaScript-disabled pages pass.
+- Shared assets have versioned URLs to avoid stale stylesheet/script combinations.
 
-The actual files `assets/hector-building.jpg`, `assets/hector-advisory.jpg`, and `assets/hector-profile.jpg` remain absent. Their configuration fields stay blank. Actual photo identity and face framing cannot be checked until those files exist.
-
-This repair targets `main`, where the user has already merged and reviewed the redesign. The live GitHub Pages deployment cannot be verified through this environment's restricted public-site access.
-
-## Typography, experience, and contact update
-
-Reduced the name's maximum size from 184px to 128px, with smaller tablet/mobile sizing. Added an experience section immediately after the service panels, using confirmed programming-since-2009 and business-building-since-2022 dates plus the VP of Engineering background. Added a Get in touch footer button on all three pages using the configured email/LinkedIn fallback. Shared asset versions were bumped.
-
-The 12-layout Chromium checks pass with these changes, including experience placement, the smaller computed name size, both contact destinations, and the existing link/layout checks. All actual photo files remain absent in both the local checkout and the latest fetched main branch.
-
-## Split hero and centered contact update
-
-The homepage now places the enlarged introductory paragraph on the left and the smaller Hector Ferronato heading on the right at desktop/tablet widths. The name has a 76px maximum, and the statement uses 23–32px text. On mobile, the smaller right-aligned identity appears above the introduction. The footer contact action sits on its own centered row across all three pages, with a minimum 280px width, 18px text, and larger padding. Contact links and identity details follow below. Shared asset URLs are versioned again.
-
-All 12 responsive page checks pass, including geometric assertions for the split hero and the centered button's size/position. No actual photo files exist in the repository; photo inclusion remains pending receipt of the original files.
+The reviewed work targets main without a new PR. Live GitHub Pages deployment has not been independently verified from this environment.

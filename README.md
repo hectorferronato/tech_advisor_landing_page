@@ -33,19 +33,18 @@ Recommended hosted form fields: name, email, company, optional website, service,
 
 ## Local photography
 
-The repository does not currently contain the supplied JPG photos. The site therefore uses a complete text-only layout, with no substitute images, missing-image requests, or empty photo frames.
+The two supplied service photographs are included directly in HTML on the homepage and their respective detail pages, so they render without JavaScript:
 
-To add the actual files later, place them at these paths and set the matching field in `assets/config.js`:
+| Asset | Usage |
+| --- | --- |
+| `assets/founder-build-sprint.jpg` | Founder Build Sprint panel and detail page |
+| `assets/technical-advisory.jpg` | Technical Advisory panel and detail page |
 
-| Asset | Configuration | Usage |
-| --- | --- | --- |
-| `assets/hector-building.jpg` | `buildImageUrl` | Build Sprint panel and detail page |
-| `assets/hector-advisory.jpg` | `advisoryImageUrl` | Advisory panel and detail page |
-| `assets/hector-profile.jpg` | `portraitUrl` | Optional headshot; currently omitted |
+Matching `buildImageUrl` and `advisoryImageUrl` defaults are in `assets/config.js`. Optional same-origin overrides can be configured there. The default paths use the actual uploaded filenames. The square headshot is not included in this layout; `portraitUrl` remains blank.
 
-Leave a field blank while its file is unavailable. Photo slots are hidden until a configured same-origin image loads successfully, so a failed image cannot leave a broken icon or reserve space. The default page layout and contact links also work without JavaScript.
+The service scenes are AI-generated illustrations, not documentary photos of client engagements. Alt text states this. Framing uses `object-fit: cover` with individual positions, preserving face visibility. Both photographs have been visually checked on desktop and mobile. The old SVG illustrations are unused.
 
-The service scenes are AI-generated illustrations, not documentary photos of client engagements. Their alt text states this. Framing uses `object-fit: cover` and separate positions for the two compositions; detail pages retain their source proportions. Check face framing once the actual files are available. `scripts/check.py` rejects missing files that are rendered or configured; it does not require unused optional assets.
+Run `python3 scripts/check.py` after replacing an image: it verifies both distinct static JPG references and that rendered/configured assets exist.
 
 ## GitHub Pages deployment
 
