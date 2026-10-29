@@ -1,25 +1,23 @@
-# Header, whole-card navigation, and deployment refresh
+# Experience page and third hero action
 
-Pulled the user's latest image uploads from main before making changes. The updated advisory image now has 1122 × 1402 intrinsic dimensions, reflected in the markup. Uploaded bytes are preserved. All image and shared-asset URLs are versioned so browsers request the new files rather than cached copies.
+Added a third homepage action, “Hector’s experience,” linking directly to `experience.html`. Explore services remains the filled primary action; the existing project-contact fallback is preserved. On mobile the experience link uses its own full-width row so all three actions remain easy to tap.
 
-Both service cards now have one native link stretched across the entire panel. Duplicate title links are removed. Clicking the heading, photo, description, or whitespace follows the same service destination; configured form URLs continue to target the correct service. Keyboard focus draws a visible full-card outline. No JavaScript card click handlers or nested links were introduced.
+The new page uses the established charcoal palette, real headshot, editorial columns, restrained typography, and thin timeline rules. It introduces Hector's practical engineering/business perspective, two dated experience entries, leadership and Applied AI approach, and a short personal background paragraph. Links return to the homepage and both services, with the same header and centered contact footer used throughout the site.
 
-The real headshot, VP of Engineering / Founder & Operator / Applied AI credentials, and full-stack experience line move to the right-aligned header on all three pages. The Services and Discuss your project header links are removed; the hero retains its two customer-focused actions. On mobile, the credentials occupy a compact right-aligned second header row.
+All biographical copy stays within previously supplied facts: programming since 2009, full-stack experience, VP of Engineering, building businesses since 2022, Computer Science/Economics studies in the United States, and Brazil public-school background. No degrees, employers, tenure dates, case-study results, or testimonials were invented.
 
-The footer Get in touch action is centered, larger, and highlighted as a light button, with identity/copyright and LinkedIn details beneath. Prices, scope, application configuration, two-section homepage, and existing detail routes are unchanged.
+The page includes its own title, description, canonical URL, Open Graph metadata, and real-portrait social image. Shared asset versions are bumped across all four pages. The homepage still has exactly two main sections; pricing, application destinations, full-card click behavior, and uploaded image files are unchanged. No new JavaScript or dependencies were needed.
 
 ## Validation
 
-- Static checks pass for all three pages, 35 local references, metadata, image paths, pricing/hour limits, and two homepage sections.
-- JavaScript syntax and whitespace checks pass.
-- 15 local Chromium renders cover three pages at 320, 375, 768, 1024, and 1440px.
-- Verified header right alignment, removed header links, centered footer button dimensions/position, updated image decoding, and no overflow or broken assets.
-- Actual mouse clicks on card photos and descriptions navigate to each service detail page. Native keyboard Enter and no-JavaScript card navigation work.
-- Hit testing confirms the link covers the full card, with exactly one interactive target in each panel.
-- With separate hosted form URLs configured, full-card clicks reach the correct corresponding form. Invalid URLs preserve working defaults. Test form destinations were intercepted locally; no external requests occurred.
-- Internal navigation, contact/email fallbacks, metadata, and all photo paths pass. No HTTP/JavaScript errors.
-- Desktop, mobile, and tablet screenshots inspected. Latest image bytes remain untouched by this change.
+- Static checker passes across four pages and 48 local references, including metadata, anchors, real images, pricing consistency, and homepage structure.
+- Node syntax checks and whitespace checks pass.
+- 20 responsive renders cover all four pages at 320, 375, 768, 1024, and 1440px widths; final experience layout also rechecked at mobile/desktop after removing a duplicate credential line.
+- Actual hero-button navigation to experience and Back to home navigation pass.
+- Verified the three hero actions, mobile full-width experience action, confirmed dates, real portrait decoding, no horizontal overflow, and all internal routes under the GitHub Pages project subdirectory.
+- Existing full-card mouse/keyboard/no-JavaScript behavior, contact fallbacks, and configured forms remain verified. No HTTP/JavaScript errors or external page requests occurred.
+- Desktop/mobile screenshots inspected and an independent review found no visual blockers or unsupported claims.
 
 ## Delivery
 
-The user merged the value-first redesign and explicitly authorized direct main updates. This change goes directly to main without a PR and uses the existing GitHub Pages branch deployment. No environment settings or deployment workflow changes are needed. Live deployment status is not independently verified from this environment.
+This authorized update goes directly to main without a PR and uses the existing GitHub Pages deployment. No environment settings or workflow changes are required. Live deployment is not independently verified from this environment.

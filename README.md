@@ -26,7 +26,8 @@ Run `python3 scripts/check.py` to validate local links/assets, anchors, heading 
 
 ## Files and editing
 
-- `index.html`: customer-focused hero, small credibility strip, and two stage-specific service panels with visible pricing.
+- `index.html`: customer-focused hero with three actions (services, contact, and experience), plus two stage-specific service panels with visible pricing.
+- `experience.html`: editorial profile with the actual portrait, confirmed engineering/business dates, leadership perspective, and background.
 - `founder-build-sprint.html`, `technical-advisory.html`: unchanged public routes with fuller scope and explanations.
 - `assets/style.css`: charcoal palette, shared layouts, responsive crops, focus/hover states, and reduced-motion support.
 - `assets/config.js`: public application URLs, contact fallback, local photo overrides, and optional local analytics.
@@ -34,7 +35,7 @@ Run `python3 scripts/check.py` to validate local links/assets, anchors, heading 
 - `assets/social.png`, `assets/favicon.svg`: social preview and favicon consistent with the current visual direction.
 - `.nojekyll`: bypasses Jekyll for GitHub Pages.
 
-Update prices/time limits in the homepage, corresponding detail page, SEO/Open Graph descriptions, README table, and static check expectations together. Header/footer markup is shared by convention across the three HTML files; update all three. Bump the shared stylesheet/script query version in all three pages when publishing asset changes.
+Update prices/time limits in the homepage, corresponding detail page, SEO/Open Graph descriptions, README table, and static check expectations together. Header/footer markup is shared by convention across all four HTML pages; update all four. Bump the shared stylesheet/script query version in all four pages when publishing asset changes.
 
 ## Contact and application configuration
 
@@ -44,6 +45,7 @@ Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTT
 - A valid configured form URL changes only its matching whole-card service action to **Apply for a Build Sprint** or **Request advisory**, opening the correct form.
 - Detail-page application actions use their matching form URL, otherwise the verified `contactEmail`, otherwise the configured LinkedIn profile.
 - The hero **Discuss your project** and centered footer **Get in touch** button use the email/LinkedIn contact fallback.
+- **Hector’s experience** opens `experience.html` directly, independent of form configuration. It spans a full action row on mobile.
 - Invalid/non-HTTPS form URLs retain the working defaults. No fake form, booking UI, or response collection is implemented here.
 
 Optional hosted intake fields: name, email, company, website, service, current stage, primary challenge, desired outcome, budget, and timeline. Form responses belong on the hosted form service. Never add secrets to this public repository.
@@ -56,7 +58,7 @@ All images use the requested direct local paths, with no JavaScript replacement 
 | --- | --- | --- |
 | `assets/hector-building.jpg` | Sprint card and detail page | `assets/founder-build-sprint.jpg` |
 | `assets/hector-advisory.jpg` | Advisory card and detail page | `assets/technical-advisory.jpg` |
-| `assets/hector-profile.jpg` | Small real headshot in the right-aligned header credentials | `assets/hector profile photo.jpeg` |
+| `assets/hector-profile.jpg` | Header credentials and the experience-page portrait | `assets/hector profile photo.jpeg` |
 
 The files use the uploaded images, including replacements pulled from main. Original filenames remain available for compatibility. Image URLs include a version query to avoid stale cached copies; bump it in the HTML and matching config defaults when replacing images. The two service scenes are AI-generated illustrations, not documentary photos of client engagements; alt text states this. The portrait is the actual headshot.
 
@@ -68,7 +70,7 @@ The existing branch-based deployment setup is unchanged. After review and approv
 
 Expected URL: https://hectorferronato.github.io/tech_advisor_landing_page/
 
-All navigation, styles, scripts, and image paths work under that project subdirectory. No build workflow is needed. Check both detail routes after deployment. Canonical/Open Graph URLs use the project URL; update them in all three pages if moving domains.
+All navigation, styles, scripts, and image paths work under that project subdirectory. No build workflow is needed. Check both detail routes and `experience.html` after deployment. Canonical/Open Graph URLs use the project URL; update them in all four pages if moving domains.
 
 For a custom domain, configure it in Pages, add the documented DNS records, enable HTTPS, and add the exact hostname to `CNAME` if needed. Update canonical/social URLs and verify redirects.
 
