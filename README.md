@@ -1,6 +1,6 @@
 # Hector Ferronato — independent technical advisory
 
-A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. Hector's name is the header brand; his larger real portrait sits beside the hero promise, with his name and credentials beneath the photograph. Each service card presents its audience, price, and duration before a supporting image.
+A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. There is no site header. Hector's larger real portrait sits beside the desktop hero promise, with his name and credentials beneath the photograph. Mobile uses a centered introduction and portrait, a full-width primary contact action, and two secondary actions that stack on narrow screens. Each service card presents its audience, price, and duration before a supporting image.
 
 Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No framework, build step, backend, database, or installation is required.
 
@@ -36,7 +36,7 @@ Run `python3 scripts/check.py` to validate local links/assets, anchors, heading 
 - `assets/social.png`, `assets/favicon.svg`: social preview and favicon consistent with the current visual direction.
 - `.nojekyll`: bypasses Jekyll for GitHub Pages.
 
-Update prices/time limits in the homepage, corresponding detail page, SEO/Open Graph descriptions, README table, and static check expectations together. Header/footer markup is shared by convention across all four HTML pages; update all four. Bump the shared stylesheet/script query version in all four pages when publishing asset changes.
+Update prices/time limits in the homepage, corresponding detail page, SEO/Open Graph descriptions, README table, and static check expectations together. Footer markup is shared by convention across all four HTML pages; update all four. Bump the shared stylesheet/script query version in all four pages when publishing asset changes.
 
 ## Contact and application configuration
 
@@ -46,7 +46,7 @@ Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTT
 - Detail-page application actions use their matching form URL, otherwise the verified `contactEmail`, otherwise the configured LinkedIn profile.
 - The hero uses **Discuss your project** only when a valid HTTPS `projectInquiryUrl` is configured. Otherwise its label explicitly names the actual method: **Message me on LinkedIn**, or **Email me about your project** when `contactEmail` is set. Its supporting copy follows the selected route. Neither service application is reused for the general inquiry.
 - `projectInquiryUrl` is currently empty: a real general inquiry URL still needs configuration if a dedicated project intake is desired. LinkedIn remains the working default. The centered footer **Get in touch** keeps the email/LinkedIn fallback.
-- **Hector’s experience** opens `experience.html` directly, independent of form configuration. It spans a full action row on mobile.
+- **Hector’s experience** opens `experience.html` directly, independent of form configuration. It shares the secondary action row with Compare services on mobile; all three hero actions stack on narrow screens.
 - Invalid/non-HTTPS form URLs retain the working defaults. No fake form, booking UI, or response collection is implemented here.
 
 Optional hosted intake fields: name, email, company, website, service, current stage, primary challenge, desired outcome, budget, and timeline. Form responses belong on the hosted form service. Never add secrets to this public repository.
