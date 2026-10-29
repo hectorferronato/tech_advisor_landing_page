@@ -15,7 +15,8 @@
   const linkedIn = https(config.linkedInUrl) || 'https://www.linkedin.com/in/hectorferronato/';
   const email = typeof config.contactEmail === 'string' ? config.contactEmail.trim() : '';
   const fallback = /^[^\s@?&#]+@[^\s@?&#]+\.[^\s@?&#]+$/.test(email) ? `mailto:${email}` : linkedIn;
-  document.querySelectorAll('[data-contact]').forEach(link => { link.href = fallback; });
+  const inquiry = https(config.projectInquiryUrl);
+  document.querySelectorAll('[data-contact]').forEach(link => { link.href = inquiry || fallback; });
   const applications = {
     build: https(config.buildApplicationUrl),
     advisory: https(config.advisoryApplicationUrl)
@@ -40,16 +41,15 @@
     link.href = application || fallback;
     setActionLabel(link, application ? (build ? 'Apply for a Build Sprint' : 'Request advisory') : (build ? 'Discuss a Build Sprint' : 'Discuss advisory'));
   });
-  // Explore actions always explain the offer first; applications stay on detail pages.
-  const inquiry = https(config.projectInquiryUrl);
+  // General messages remain separate from the service-specific applications.
   const byEmail = fallback.startsWith('mailto:');
   document.querySelectorAll('[data-inquiry]').forEach(link => {
     link.href = inquiry || fallback;
-    setActionLabel(link, inquiry ? 'Discuss your project' : (byEmail ? 'Email me about your project' : 'Message me on LinkedIn'));
+    setActionLabel(link, inquiry ? 'Message me' : (byEmail ? 'Email me about your project' : 'Message me on LinkedIn'));
   });
   document.querySelectorAll('[data-inquiry-note]').forEach(note => {
     note.textContent = inquiry
-      ? 'Share what you’re building. We’ll determine whether a sprint or advisory engagement fits.'
+      ? 'Send a question or share what you’re building through the message form.'
       : (byEmail ? 'Email me' : 'Message me on LinkedIn') + ' with what you’re building. We’ll determine whether a sprint or advisory engagement fits.';
   });
   document.querySelectorAll('[data-contact-note]').forEach(note => {

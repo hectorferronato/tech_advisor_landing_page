@@ -42,10 +42,10 @@ Update prices/time limits in the homepage, corresponding detail page, SEO/Open G
 
 Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTTPS hosted form URLs, such as Tally. Current destinations: Founder Build Sprint uses https://tally.so/r/J11QEz; Technical Advisory uses https://tally.so/r/DqqjEj. Keep each detail page’s static application link and label in sync for no-JavaScript visitors.
 
-- Homepage **Explore the Sprint** and **Explore Advisory** always go to their existing detail pages. The whole card is one native link, including its title, photo, description, and whitespace; keyboard and no-JavaScript navigation work too.
+- Each homepage card has a dedicated **Apply for a Build Sprint** or **Request advisory** button for its matching form and a separate **See details** link to its local detail page. Card backgrounds, titles, photos, and description text are not links. Both actions work with keyboard and no-JavaScript navigation.
 - Detail-page application actions use their matching form URL, otherwise the verified `contactEmail`, otherwise the configured LinkedIn profile.
-- The hero uses **Discuss your project** only when a valid HTTPS `projectInquiryUrl` is configured. Otherwise its label explicitly names the actual method: **Message me on LinkedIn**, or **Email me about your project** when `contactEmail` is set. Its supporting copy follows the selected route. Neither service application is reused for the general inquiry.
-- `projectInquiryUrl` is currently empty: a real general inquiry URL still needs configuration if a dedicated project intake is desired. LinkedIn remains the working default. The centered footer **Get in touch** keeps the email/LinkedIn fallback.
+- Hero actions are ordered **Compare services**, then **Message me**. The message action uses the valid HTTPS `projectInquiryUrl`; otherwise its label explicitly names the email/LinkedIn fallback. Neither service application is reused for general messages.
+- `projectInquiryUrl` is https://tally.so/r/Eqq29l for general messages. The hero **Message me** and centered **Get in touch** footer buttons on all pages use this destination. If it is unset or invalid, email/LinkedIn remains the fallback. Keep static HTML links in sync with config for no-JavaScript visitors.
 - **Read my story and experience →** sits beneath the portrait credentials and opens `experience.html` directly, independent of form configuration. The two hero buttons stack on mobile.
 - Invalid/non-HTTPS form URLs retain the working defaults. No fake form, booking UI, or response collection is implemented here.
 
