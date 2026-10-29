@@ -22,17 +22,18 @@ cd /workspace/tech_advisor_landing_page
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Run `python3 scripts/check.py` to validate local links/assets, anchors, heading hierarchy, metadata, homepage structure, prices, and advisor-hour limits. With Node available, run `node --check assets/site.js` and `node --check assets/config.js`. The site also works with JavaScript disabled using its static image and navigation paths.
+Run `python3 scripts/check.py` to validate local links/assets, anchors, heading hierarchy, metadata, homepage structure, prices, and advisor-hour limits. With Node available, run `node --check assets/site.js`, `node --check assets/config.js`, and `node --check assets/forms.js`. The site also works with JavaScript disabled using its static image and navigation paths.
 
 ## Files and editing
 
-- `index.html`: customer-focused hero with a visible engineering/founder/teaching credibility paragraph, two action buttons (contact and services), and a portrait-associated story link, plus two stage-specific service panels with visible pricing.
+- `index.html`: customer-focused hero with three editorial proof points and a teaching statement, two action buttons (contact and services), and a portrait-associated story link, plus two stage-specific service panels with visible pricing.
 - `experience.html`: first-person credibility page covering engineering leadership, education, teaching, and selected ventures with honest role/status labels.
 - `assets/experience.css`: page-specific editorial columns, reading widths, and responsive venture rows.
 - `founder-build-sprint.html`, `technical-advisory.html`: unchanged public routes with fuller scope and explanations.
 - `assets/style.css`: charcoal palette, shared layouts, responsive crops, focus/hover states, and reduced-motion support.
 - `assets/config.js`: public general inquiry and separate service application URLs, contact fallback, local photo overrides, and optional local analytics.
 - `assets/site.js`: applies configured destinations and same-origin image overrides while retaining working static defaults.
+- `assets/forms.js`: lazy native-dialog Tally embeds, visible close/new-tab controls, and ordinary new-tab fallbacks; no remote widget script or backend.
 - `assets/social.png`, `assets/favicon.svg`: social preview and favicon consistent with the current visual direction.
 - `.nojekyll`: bypasses Jekyll for GitHub Pages.
 
@@ -44,12 +45,17 @@ Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTT
 
 - Each homepage card has a dedicated **Apply for a Build Sprint** or **Request advisory** button for its matching form and a separate **See details** link to its local detail page. Card backgrounds, titles, photos, and description text are not links. Both actions work with keyboard and no-JavaScript navigation.
 - Detail-page application actions use their matching form URL, otherwise the verified `contactEmail`, otherwise the configured LinkedIn profile.
-- Hero actions are ordered **Compare services**, then **Message me**. The message action uses the valid HTTPS `projectInquiryUrl`; otherwise its label explicitly names the email/LinkedIn fallback. Neither service application is reused for general messages.
+- Hero actions are ordered **Message me**, then **Compare services**, following the latest hero brief. The message action uses the valid HTTPS `projectInquiryUrl`; otherwise its label explicitly names the email/LinkedIn fallback. Neither service application is reused for general messages.
 - `projectInquiryUrl` is https://tally.so/r/Eqq29l for general messages. The hero **Message me** and centered **Get in touch** footer buttons on all pages use this destination. If it is unset or invalid, email/LinkedIn remains the fallback. Keep static HTML links in sync with config for no-JavaScript visitors.
 - **Read my story and experience →** sits beneath the portrait credentials and opens `experience.html` directly, independent of form configuration. The two hero buttons stack on mobile.
-- Invalid/non-HTTPS form URLs retain the working defaults. No fake form, booking UI, or response collection is implemented here.
+- Normal clicks on the configured Tally actions open a native popup containing a lazily loaded hosted iframe. A persistent **Open form in a new tab** link keeps the original URL available. Close/Escape from the dialog controls restore focus to the opener. When focus is inside the cross-origin form, use the visible Close control (reachable by keyboard); its key events are controlled by Tally. Ctrl/Cmd/Shift clicks, missing JavaScript, unsupported dialogs, and dialog-open failures retain native new-tab navigation.
+- No Tally requests occur before an explicit form click. No hosted form submissions, fields, or response data are processed by this site. Invalid/non-HTTPS form URLs retain the existing email/LinkedIn fallbacks.
 
 Optional hosted intake fields: name, email, company, website, service, current stage, primary challenge, desired outcome, budget, and timeline. Form responses belong on the hosted form service. Never add secrets to this public repository.
+
+## Hero proof points
+
+The credentials in `index.html` are supplied by Hector: 17 years of programming experience, 100+ engineers under his leadership, and 4 ventures founded or co-founded. Update the programming-years text manually; no precise start date or automatic anniversary is assumed. These values do not describe executive tenure, direct-report counts, exits, or current venture activity.
 
 ## Photographs
 
