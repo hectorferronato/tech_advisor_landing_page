@@ -47,11 +47,6 @@
     link.href = inquiry || fallback;
     setActionLabel(link, inquiry ? 'Message me' : (byEmail ? 'Email me about your project' : 'Message me on LinkedIn'));
   });
-  document.querySelectorAll('[data-inquiry-note]').forEach(note => {
-    note.textContent = inquiry
-      ? 'Share what you’re building, or ask a question.'
-      : (byEmail ? 'Email me' : 'Message me on LinkedIn') + ' with what you’re building. We’ll determine whether a sprint or advisory engagement fits.';
-  });
   document.querySelectorAll('[data-contact-note]').forEach(note => {
     const action = note.closest('.service-intro').querySelector('[data-apply]');
     const service = action.dataset.apply;

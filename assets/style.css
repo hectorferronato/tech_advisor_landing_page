@@ -30,6 +30,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .hero { padding-block: 48px 24px; }
 .hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) var(--portrait-size); align-items: start; column-gap: 64px; }
 .hero-message { grid-column: 1; grid-row: 1; }
+.hero-evidence { grid-column: 1; grid-row: 2; }
 .hero-message .eyebrow { margin-bottom: 17px; }
 .hero h1 { font-size: clamp(38px, 3.6vw, 52px); line-height: 1.12; letter-spacing: -.046em; max-width: 670px; }
 .hero h1 > span { color: var(--accent); }
@@ -39,8 +40,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .hero-proof .proof-unit { font-size: .7em; }
 .proof-label { display: block; margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.45; }
 .hero-teaching { max-width: 650px; margin: 16px 0 0; font-size: 15px; line-height: 1.7; }
-.hero-actions { grid-column: 1; grid-row: 2; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-.inquiry-note { grid-column: 1; grid-row: 3; max-width: 720px; margin: 12px 0 0; font-size: 12px; line-height: 1.65; }
+.hero-actions { grid-column: 1; grid-row: 3; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
 .button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 48px; padding: 12px 20px; background: var(--text); border: 1px solid var(--text); border-radius: 2px; color: var(--background); font-size: 13px; font-weight: 500; transition: background .18s, border-color .18s; }
 .button:hover { background: var(--accent); border-color: var(--accent); color: var(--background); }
 .button.secondary { background: transparent; border-color: #606b72; color: var(--text); }
@@ -82,15 +82,14 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .panel-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-inline: var(--inset); padding-block: 16px 18px; border-top: 1px solid var(--border); }
 .panel-actions .button { min-width: 0; justify-content: center; padding-inline: 10px; gap: 8px; }
 .panel-details { align-self: stretch; white-space: normal; }
-/* A centered contact action, with quieter footer details below. */
-.footer { border-top: 1px solid var(--border); padding-bottom: 27px; }
-.footer-action { display: flex; justify-content: center; padding-block: 34px; }
-.footer-meta { display: flex; justify-content: space-between; align-items: center; gap: 24px; border-top: 1px solid var(--border); padding-top: 21px; }
+/* Contact shares one compact footer with the identity and social link. */
+.footer { border-top: 1px solid var(--border); padding-block: 22px; }
+.footer-meta { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 24px; }
 .footer-identity { display: flex; flex-direction: column; gap: 4px; font-size: 12px; }
 .footer-identity span { font-size: 10px; color: var(--muted); }
-.footer nav { display: flex; align-items: center; gap: 25px; font-size: 12px; }
+.footer nav { display: flex; align-items: center; justify-self: end; gap: 25px; font-size: 12px; }
 .footer nav a { display: inline-flex; align-items: center; gap: 15px; min-height: 44px; }
-.footer-contact { justify-content: center; min-width: 270px; min-height: 58px; padding: 15px 30px; font-size: 17px; gap: 30px; background: var(--surface); border-color: var(--border); color: var(--muted); }
+.footer-contact { justify-content: center; min-width: 180px; min-height: 44px; padding: 10px 18px; font-size: 14px; gap: 16px; background: var(--surface); border-color: var(--border); color: var(--muted); }
 .footer-contact:hover { background: var(--surface-hover); border-color: #606b72; color: var(--text); }
 .skip { position: absolute; top: -100px; left: 20px; padding: 10px 18px; background: var(--text); color: var(--background); z-index: 10; }
 .skip:focus { top: 10px; }
@@ -159,8 +158,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .wrap { width: calc(100% - 40px); }
   .hero { padding-block: 44px 30px; }
   .hero-layout { grid-template-columns: 1fr; gap: 0; }
-  .hero-message, .hero-actions, .inquiry-note { grid-column: auto; grid-row: auto; }
-  .hero-message { text-align: center; }
+  .hero-message, .hero-evidence, .hero-actions { grid-column: auto; grid-row: auto; }
+  .hero-message, .hero-evidence { text-align: center; }
   .hero-message .eyebrow { font-size: 9px; letter-spacing: .08em; margin-bottom: 16px; }
   .hero h1 { font-size: clamp(32px, 7.8vw, 40px); line-height: 1.15; letter-spacing: -.04em; text-wrap: balance; }
   .hero-support { font-size: 16px; line-height: 1.65; margin: 16px auto 0; max-width: 38ch; }
@@ -174,7 +173,6 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .hero-actions { display: grid; grid-template-columns: 1fr; width: 100%; gap: 10px; margin-top: 20px; }
   .hero-actions .button { min-width: 0; min-height: 50px; font-size: 12px; padding: 12px; gap: 10px; justify-content: center; }
   .hero-actions .arrow-icon { width: 12px; height: 12px; }
-  .inquiry-note { text-align: center; max-width: 42ch; margin-inline: auto; }
   .services { padding-top: 26px; padding-bottom: 28px; }
   .section-heading { display: block; margin-bottom: 22px; }
   .section-heading h2 { font-size: 25px; }
@@ -189,10 +187,11 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .service-audience { font-size: 16px; }
   .engagement { padding-block: 16px 18px; }
   .price { font-size: 27px; }
-  .footer { padding-bottom: 22px; }
-  .footer-action { padding-block: 28px; }
-  .footer-meta { gap: 20px; padding-top: 20px; }
-  .footer nav { gap: 15px; font-size: 11px; flex-wrap: wrap; justify-content: flex-end; }
+  .footer { padding-block: 18px; }
+  .footer-meta { grid-template-columns: minmax(0, 1fr) auto; gap: 0 16px; }
+  .footer-identity { grid-column: 1; grid-row: 1; }
+  .footer-contact { grid-column: 2; grid-row: 1 / span 2; min-width: 0; padding-inline: 14px; font-size: 13px; gap: 12px; }
+  .footer nav { grid-column: 1; grid-row: 2; justify-self: start; gap: 15px; font-size: 11px; flex-wrap: wrap; }
   .footer nav a { gap: 8px; }
   .footer .arrow-icon { width: 12px; height: 12px; }
   .service-intro { padding-top: 22px; padding-bottom: 32px; }
@@ -219,7 +218,6 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .hero-proof li { display: grid; grid-template-columns: minmax(0, 140px) minmax(0, 1fr); align-items: center; gap: 12px; text-align: left; }
   .proof-label { margin-top: 0; }
   .hero-actions .button { padding-inline: 16px; }
-  .footer nav { justify-content: flex-start; gap: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

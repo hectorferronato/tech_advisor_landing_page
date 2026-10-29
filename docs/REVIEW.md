@@ -1,19 +1,23 @@
-# Consistent pricing and clearer navigation
+# Compact footer and mobile hero order
 
-Founder Build Sprint is $3,000 / 3 weeks. Technical Advisory is $2,000 / month. Both prices now agree across the homepage, detail pages, search/Open Graph descriptions, social-sharing image, README, and static checks. Advisory is displayed as a fixed monthly price. The existing hour limits, direct-message access, service scope, and all three Tally destinations are unchanged.
+The helper sentence beneath the hero actions has been removed from HTML and JavaScript, together with its unused styles and `aria-describedby` reference.
 
-The social preview is rendered from `scripts/social-preview.html` at 1200 × 630. Its image query is refreshed on the homepage and both service pages so previews can request the corrected asset. The experience page continues to use the real headshot for social sharing.
+At widths of 700px and below, the complete portrait, identity, credentials, public-school story, and background link appear after the introduction and before the proof points. Teaching copy and the two hero actions follow. Source order matches this mobile reading order. Desktop keeps the portrait on the right and the introduction, proof points, teaching, and actions on the left.
 
-## Navigation
-
-- The portrait-associated story link uses brighter text, a visible underline, and a readable 14px size. It remains a text link to `experience.html`, with a 44px target and visible keyboard focus.
-- The experience page's Back to home control and both service pages' Back to engagements controls use the existing outline-button treatment with a left arrow. Their original home/services destinations are preserved. Arrows are hidden from assistive technology.
-- The shared stylesheet query is updated on all four pages.
+Get in touch now sits within the footer's identity/social row on all four pages. Its separate padded contact band is removed. The button retains the muted charcoal treatment and a minimum 44px tap target. Desktop centers it between the identity and LinkedIn link; mobile places it alongside the identity/social group.
 
 ## Validation
 
-- `python3 scripts/check.py` passes for four pages and 46 relative references, including local assets, anchors, metadata, prices, hour limits, and homepage structure. Pricing checks now cover homepage metadata, README, and social-preview source as well.
+- The existing static checker passes for all four pages, 46 relative references, local assets, metadata, prices, hour limits, and homepage structure.
 - JavaScript syntax and whitespace checks pass.
-- Chromium review covers all four pages at 1280px, 390px, and 320px: visible prices, metadata, story/back navigation, keyboard focus, 44px targets, and no horizontal overflow or missing assets.
-- The homepage still has two hero buttons and equal-width service-card controls. Original form destinations are preserved. No external requests or form submissions were made during these checks.
-- The refreshed social image and desktop/mobile screenshots were visually reviewed. Artifacts are in `/workspace/artifacts/pricing-navigation/`.
+- Chromium checks cover 1280, 768, 701, 700, 390, and 320px, including both sides of the responsive breakpoint, full portrait-before-KPI order, no helper text with or without JavaScript, two hero actions, equal-width service actions, and no horizontal overflow or missing assets.
+- Footer contact checks cover every page. Original form URLs, keyboard focus, popup opening, closing, and focus restoration pass using a local form fixture; no external form requests or submissions were made.
+- Desktop and mobile screenshots were visually reviewed. Artifacts: `/workspace/artifacts/compact-hero-footer/`.
+
+| Width | Footer before | Footer after | Homepage before | Homepage after |
+| --- | --- | --- | --- | --- |
+| 1280px | 223px | 91px | 1642px | 1478px |
+| 390px | 205px | 122px | 2812px | 2697px |
+| 320px | 205px | 122px | 2897px | 2783px |
+
+Service prices, scopes, images, and the three contact/application destinations are unchanged. Stylesheet and site-script query versions are refreshed across all four pages.
