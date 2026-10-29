@@ -10,6 +10,7 @@
   font-synthesis: none;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 30px; }
 body { margin: 0; background: var(--background); color: var(--text); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
@@ -50,7 +51,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .service-photo-frame img { width: 100%; aspect-ratio: 6 / 5; height: auto; object-fit: cover; background: var(--background); color: var(--muted); font-size: 12px; }
 .service-photo[data-service-image="build"] { object-position: 50% 38%; }
 .service-photo[data-service-image="advisory"] { object-position: 48% 34%; }
-.panel-content { padding: 30px 32px 0; flex: 1; display: flex; flex-direction: column; }
+.panel-content { padding: 36px 32px 0; flex: 1; display: flex; flex-direction: column; }
 .panel-content .eyebrow { margin-bottom: 18px; font-size: 9px; letter-spacing: .14em; }
 .panel-content h3 { font-size: clamp(25px, 2.4vw, 35px); min-height: 80px; margin-bottom: 19px; letter-spacing: -.045em; max-width: 400px; }
 .service-description { font-size: 14px; line-height: 1.85; margin-bottom: 30px; }
@@ -88,9 +89,10 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center; }
 .detail-grid p { font-size: 14px; line-height: 1.85; }
 .detail-grid p:last-child { margin-bottom: 0; }
-.detail-image { width: 100%; height: auto; object-fit: cover; border: 1px solid var(--border); }
-.detail-image[data-service-image="build"] { aspect-ratio: 964 / 809; }
-.detail-image[data-service-image="advisory"] { aspect-ratio: 829 / 941; max-height: 580px; }
+.detail-grid--text-only { grid-template-columns: minmax(0, 760px); }
+.detail-media img { width: 100%; height: auto; object-fit: cover; border: 1px solid var(--border); }
+.detail-media img[data-service-image="build"] { aspect-ratio: 964 / 809; }
+.detail-media img[data-service-image="advisory"] { aspect-ratio: 829 / 941; max-height: 580px; }
 .three-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 35px; }
 .three-columns article { border-top: 1px solid var(--border); padding-top: 22px; }
 .step { color: var(--accent); font-size: 10px; letter-spacing: .1em; }
@@ -147,7 +149,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
   .service-offer p { font-size: 11px; }
   .detail-section { padding-block: 40px; }
   .detail-grid { grid-template-columns: 1fr; gap: 28px; }
-  .detail-grid .detail-image { order: -1; }
+  .detail-grid .detail-media { order: -1; }
   .detail-section h2 { font-size: 31px; }
   .detail-grid p { font-size: 13px; }
   .three-columns { grid-template-columns: 1fr; gap: 20px; }

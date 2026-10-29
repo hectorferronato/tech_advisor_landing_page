@@ -53,15 +53,24 @@
   ];
   serviceImages.forEach(([service, value, alt]) => {
     const source = localAsset(value);
-    if (!source) return;
-    const targets = [...document.querySelectorAll(`[data-service-image="${service}"]`)];
-    if (!targets.length || targets.every(el => el.src === source)) return;
+    const slots = [...document.querySelectorAll(`[data-service-media="${service}"]`)];
+    if (!source || !slots.length) return;
     const image = new Image();
-    image.onload = () => document.querySelectorAll(`[data-service-image="${service}"]`).forEach(el => {
-      el.src = source;
-      if (!el.closest('[aria-hidden="true"]')) el.alt = alt;
-      el.classList.add('service-photo');
-    });
+    image.alt = alt;
+    image.className = 'service-photo';
+    image.dataset.serviceImage = service;
+    image.decoding = 'async';
+    image.onload = () => {
+      image.width = image.naturalWidth;
+      image.height = image.naturalHeight;
+      slots.forEach(slot => {
+        slot.replaceChildren(image.cloneNode());
+        slot.hidden = false;
+        const layout = slot.closest('.detail-grid');
+        if (layout) layout.classList.remove('detail-grid--text-only');
+      });
+    };
+    // Keep the complete text layout when an optional image cannot load.
     image.src = source;
   });
   const analytics = localAsset(config.analyticsScriptUrl);

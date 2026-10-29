@@ -1,28 +1,20 @@
-# Dark minimal redesign review
+# Missing-photo and layout repair
 
-The homepage now has exactly two sections: a name-led introduction and two service panels. A consistent #101216 / #191D23 palette, sans-serif typography, restrained icy-blue accent, subtle borders, and a compact footer replace the light editorial design and decorative content.
+The merged redesign referenced JPGs that were never present in the repository. This left broken image icons and large empty panels. The repair uses the complete dark text-only layout until actual image files are available. It introduces no substitute photos or illustrations.
 
-The two existing service routes keep their prices, advisor-hour limits, founder responsibilities, scope boundaries, and contact/application behavior. Static image sources now point to the requested JPGs on the homepage and each respective detail page. SVG service illustrations are no longer rendered. Metadata, social image, favicon, and theme colors match the redesign.
+Photo slots start hidden, appear only after a configured local image loads successfully, and expand the detail-page layout only when needed. All three pages version their shared stylesheet and scripts so cached files from the old light design cannot mix with the new markup. Application links and the LinkedIn fallback are unchanged.
 
 ## Validation
 
-- JavaScript syntax checks pass for `assets/config.js` and `assets/site.js`.
-- Static validation passes for three page structures, 35 relative links, anchors, metadata, heading hierarchy, two homepage sections, and exact static JPG references with accurate illustrative-scene alt text.
-- Local Chromium checks pass for 12 layouts: all three pages at 320, 375, 768, and 1440 pixels. No horizontal overflow; desktop panels have equal columns and mobile panels stack.
-- Keyboard skip links, LinkedIn fallbacks, independent configured application URLs, and JavaScript-disabled static navigation/image references were verified.
-- Desktop/mobile screenshots were inspected. No external page requests or JavaScript errors occurred.
-- Full validation remains **failed** because required photos are missing. Browser image requests return 404. Image loading, image identity, and face/crop acceptance cannot pass until files are supplied.
+- `python3 scripts/check.py` passes: all rendered/configured files exist; three page structures, 31 relative references, anchors, metadata, two homepage sections, and optional photo slots are valid.
+- JavaScript syntax checks and `git diff --check` pass.
+- Chromium checks pass across all three pages at 320, 375, 768, and 1440 pixels, with screenshots inspected on desktop/mobile.
+- No broken images, visible empty frames, horizontal overflow, HTTP errors, JavaScript errors, or external page requests occur with the default configuration.
+- Every internal navigation link returns HTTP 200 under the GitHub Pages project subdirectory.
+- The correct dark styles load even when the test supplies stale CSS for the old unversioned URL.
+- Keyboard skip links, contact fallbacks, configured form links, and JavaScript-disabled pages pass.
+- Optional photo loading and detail layout expansion pass using an existing local test image. This tests behavior only; no replacement photo is deployed.
 
-## Required assets
+The actual files `assets/hector-building.jpg`, `assets/hector-advisory.jpg`, and `assets/hector-profile.jpg` remain absent. Their configuration fields stay blank. Actual photo identity and face framing cannot be checked until those files exist.
 
-The following paths were absent in both the working checkout and the latest fetched `main`:
-
-- `assets/hector-building.jpg`
-- `assets/hector-advisory.jpg`
-- `assets/hector-profile.jpg`
-
-Upload the actual files at these exact paths. No replacement images or hidden fallbacks have been added. The optional headshot is omitted, but its configured path is ready. After upload, run `python3 scripts/check.py` and recheck source image identity and face framing at desktop/mobile widths. The service images must show separately on the homepage and on their respective detail pages.
-
-## Delivery
-
-Changes are prepared on `redesign/dark-minimal`. `main` and the live GitHub Pages deployment are unchanged pending review. No PR is created. After review, deploy the approved branch contents through the existing Pages deployment branch; no build workflow or environment change is needed.
+This repair targets `main`, where the user has already merged and reviewed the redesign. The live GitHub Pages deployment cannot be verified through this environment's restricted public-site access.

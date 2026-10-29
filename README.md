@@ -33,19 +33,19 @@ Recommended hosted form fields: name, email, company, optional website, service,
 
 ## Local photography
 
-The service photographs are referenced directly in HTML, so they work without JavaScript:
+The repository does not currently contain the supplied JPG photos. The site therefore uses a complete text-only layout, with no substitute images, missing-image requests, or empty photo frames.
 
-| Asset | Usage | Status at redesign review |
+To add the actual files later, place them at these paths and set the matching field in `assets/config.js`:
+
+| Asset | Configuration | Usage |
 | --- | --- | --- |
-| `assets/hector-building.jpg` | Build Sprint panel and detail page | Missing — upload required |
-| `assets/hector-advisory.jpg` | Advisory panel and detail page | Missing — upload required |
-| `assets/hector-profile.jpg` | Optional personal headshot | Missing — upload required; headshot omitted |
+| `assets/hector-building.jpg` | `buildImageUrl` | Build Sprint panel and detail page |
+| `assets/hector-advisory.jpg` | `advisoryImageUrl` | Advisory panel and detail page |
+| `assets/hector-profile.jpg` | `portraitUrl` | Optional headshot; currently omitted |
 
-These files were absent from both the checkout and the fetched `main` branch. No SVG, stock image, or generated substitute is displayed in their place. Until the JPGs are supplied, browsers cannot render the photographs and the asset validation intentionally fails. Keep the filenames exactly as above.
+Leave a field blank while its file is unavailable. Photo slots are hidden until a configured same-origin image loads successfully, so a failed image cannot leave a broken icon or reserve space. The default page layout and contact links also work without JavaScript.
 
-The service scenes are AI-generated illustrations, not documentary photos of client engagements. Their alt text states this. Responsive framing uses `object-fit: cover` and separate positions for the two source compositions; detail pages retain their source proportions. Final face/crop validation requires the actual JPG files.
-
-`assets/config.js` contains matching default photo paths. It can optionally override same-origin images, but the defaults do not depend on JavaScript. The old SVG files remain unused in the repository.
+The service scenes are AI-generated illustrations, not documentary photos of client engagements. Their alt text states this. Framing uses `object-fit: cover` and separate positions for the two compositions; detail pages retain their source proportions. Check face framing once the actual files are available. `scripts/check.py` rejects missing files that are rendered or configured; it does not require unused optional assets.
 
 ## GitHub Pages deployment
 
@@ -68,8 +68,7 @@ Analytics are disabled. `analyticsScriptUrl` can load a same-origin, locally hos
 
 ## Pre-launch checklist
 
-- Upload the three JPG files listed above; confirm both service photographs load on the homepage and detail pages.
-- Inspect face framing with the actual photos on mobile and desktop.
+- If adding photos, upload the actual files before configuring their paths and inspect face framing on mobile and desktop.
 - Confirm the LinkedIn contact fallback, or optionally configure hosted applications/email.
 - Confirm copy, prices, time limits, boundaries, availability, and scheduling expectations.
 - Confirm no employer/client details or unsupported claims are present.
@@ -79,4 +78,4 @@ Analytics are disabled. `analyticsScriptUrl` can load a same-origin, locally hos
 
 ## Change delivery
 
-Commit redesign changes on `redesign/dark-minimal` for review. Do not merge or push to `main` before the user reviews the redesign. No new PR or environment change is required.
+The reviewed redesign has been merged by the user. Repair commits go directly to `main`; no new PR or environment change is needed. Shared stylesheet and script URLs include a version query so old cached assets cannot mismatch the new HTML. Bump it in all three pages when deploying a shared asset change.
