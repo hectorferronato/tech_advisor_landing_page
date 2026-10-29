@@ -33,14 +33,15 @@ Recommended hosted form fields: name, email, company, optional website, service,
 
 ## Local photography
 
-The two supplied service photographs are included directly in HTML on the homepage and their respective detail pages, so they render without JavaScript:
+All supplied photos are included directly in HTML, so they render without JavaScript:
 
 | Asset | Usage |
 | --- | --- |
 | `assets/founder-build-sprint.jpg` | Founder Build Sprint panel and detail page |
 | `assets/technical-advisory.jpg` | Technical Advisory panel and detail page |
+| `assets/hector profile photo.jpeg` | Hero portrait above the name on the right |
 
-Matching `buildImageUrl` and `advisoryImageUrl` defaults are in `assets/config.js`. Optional same-origin overrides can be configured there. The default paths use the actual uploaded filenames. The square headshot is not included in this layout; `portraitUrl` remains blank.
+Matching `buildImageUrl` and `advisoryImageUrl` defaults are in `assets/config.js`. Optional same-origin overrides can be configured there. The default paths use the actual uploaded filenames. `portraitUrl` matches the uploaded headshot; HTML and configuration URL-encode the spaces in its filename. The portrait is 144px on desktop and 112px on mobile. Service-card photos follow the titles at 70% of the card width, with their aspect ratio preserved. Detail-page photos are also displayed at 70% of their previous width.
 
 The service scenes are AI-generated illustrations, not documentary photos of client engagements. Alt text states this. Framing uses `object-fit: cover` with individual positions, preserving face visibility. Both photographs have been visually checked on desktop and mobile. The old SVG illustrations are unused.
 

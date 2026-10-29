@@ -31,6 +31,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .eyebrow { color: var(--muted); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; line-height: 1.7; }
 .introduction { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 80px; align-items: center; padding-block: 76px; }
 .hero-identity { grid-column: 2; grid-row: 1; text-align: right; }
+.hero-portrait { width: 144px; height: 144px; margin: 0 0 26px auto; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .introduction h1 { font-size: clamp(40px, 5.3vw, 76px); font-weight: 650; letter-spacing: -.065em; line-height: .98; }
 .introduction h1 > span { display: block; }
 .introduction h1 > span + span { margin-top: .1em; }
@@ -47,13 +49,14 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .section-heading p { margin-bottom: 0; font-size: 11px; }
 .service-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .service-panel { display: flex; flex-direction: column; border: 1px solid var(--border); background: var(--surface); }
-.service-photo-frame { border-bottom: 1px solid var(--border); }
+.service-photo-frame { width: 70%; margin-inline: auto; border: 1px solid var(--border); }
 .service-photo-frame img { width: 100%; aspect-ratio: 6 / 5; height: auto; object-fit: cover; background: var(--background); color: var(--muted); font-size: 12px; }
 .service-photo[data-service-image="build"] { object-position: 50% 38%; }
 .service-photo[data-service-image="advisory"] { object-position: 48% 34%; }
-.panel-content { padding: 36px 32px 0; flex: 1; display: flex; flex-direction: column; }
-.panel-content .eyebrow { margin-bottom: 18px; font-size: 9px; letter-spacing: .14em; }
-.panel-content h3 { font-size: clamp(25px, 2.4vw, 35px); min-height: 80px; margin-bottom: 19px; letter-spacing: -.045em; max-width: 400px; }
+.panel-heading { padding: 36px 32px 0; }
+.panel-content { padding: 28px 32px 0; flex: 1; display: flex; flex-direction: column; }
+.panel-heading .eyebrow { margin-bottom: 18px; font-size: 9px; letter-spacing: .14em; }
+.panel-heading h3 { font-size: clamp(25px, 2.4vw, 35px); min-height: 80px; margin-bottom: 19px; letter-spacing: -.045em; max-width: 400px; }
 .service-description { font-size: 14px; line-height: 1.85; margin-bottom: 30px; }
 .engagement { margin-top: auto; padding-bottom: 25px; }
 .engagement .price { color: var(--text); font-size: 26px; letter-spacing: -.04em; margin-bottom: 6px; font-weight: 500; }
@@ -103,6 +106,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .detail-grid p { font-size: 14px; line-height: 1.85; }
 .detail-grid p:last-child { margin-bottom: 0; }
 .detail-grid--text-only { grid-template-columns: minmax(0, 760px); }
+.detail-media { width: 70%; justify-self: center; }
 .detail-media img { width: 100%; height: auto; object-fit: cover; border: 1px solid var(--border); }
 .detail-media img[data-service-image="build"] { aspect-ratio: 964 / 809; }
 .detail-media img[data-service-image="advisory"] { aspect-ratio: 829 / 941; max-height: 580px; }
@@ -122,8 +126,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
   .introduction { gap: 40px; }
   .introduction h1 { font-size: 5.3vw; }
   .service-cue { min-width: 160px; }
-  .panel-content { padding-inline: 24px; }
-  .panel-content h3 { min-height: 70px; }
+  .panel-heading, .panel-content { padding-inline: 24px; }
+  .panel-heading h3 { min-height: 70px; }
   .detail-grid { gap: 40px; }
   .footer nav { gap: 16px; }
   .experience { gap: 40px; }
@@ -137,6 +141,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
   .header nav a { gap: 10px; }
   .introduction { grid-template-columns: 1fr; gap: 38px; padding-block: 38px 45px; }
   .hero-identity { grid-column: 1; grid-row: 1; }
+  .hero-portrait { width: 112px; height: 112px; margin-bottom: 20px; }
   .hero-identity .eyebrow { font-size: 8px; margin-top: 16px; max-width: 230px; }
   .introduction h1 { font-size: clamp(28px, 8vw, 40px); }
   .intro-copy { grid-column: 1; grid-row: 2; }
@@ -148,8 +153,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
   .section-heading h2 { font-size: 20px; }
   .section-heading p { font-size: 10px; margin-top: 8px; }
   .service-panels { grid-template-columns: 1fr; gap: 24px; }
-  .panel-content { padding: 25px 24px 0; }
-  .panel-content h3 { font-size: 30px; min-height: 0; margin-bottom: 18px; }
+  .panel-heading { padding: 25px 24px 0; }
+  .panel-content { padding: 24px 24px 0; }
+  .panel-heading h3 { font-size: 30px; min-height: 0; margin-bottom: 18px; }
   .service-description { font-size: 13px; margin-bottom: 25px; }
   .engagement .price { font-size: 25px; }
   .experience { grid-template-columns: 1fr; gap: 30px; padding-block: 35px 45px; }

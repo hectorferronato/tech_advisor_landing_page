@@ -40,7 +40,11 @@
     if (typeof config.availability === 'string' && config.availability.trim()) el.textContent = config.availability;
   });
   const portrait = localAsset(config.portraitUrl);
-  if (portrait && document.querySelector('[data-portrait]')) {
+  const portraitSlots = [...document.querySelectorAll('[data-portrait]')];
+  if (portrait && portraitSlots.some(slot => {
+    const current = slot.querySelector('img');
+    return !current || current.src !== portrait;
+  })) {
     const img = new Image();
     img.alt = 'Hector Ferronato';
     img.width = 800;

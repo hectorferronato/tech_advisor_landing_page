@@ -4,7 +4,7 @@ window.SITE_CONFIG = {
   advisoryApplicationUrl: "",
   contactEmail: "", // Optional verified business email; blank uses LinkedIn
   linkedInUrl: "https://www.linkedin.com/in/hectorferronato/",
-  portraitUrl: "", // Local portrait file, e.g. assets/hector-profile.jpg
+  portraitUrl: "assets/hector%20profile%20photo.jpeg", // Uploaded local headshot; spaces are URL-encoded
   buildImageUrl: "assets/founder-build-sprint.jpg", // Local building-at-a-laptop photo, default: assets/founder-build-sprint.jpg
   advisoryImageUrl: "assets/technical-advisory.jpg", // Local advisory photo, default: assets/technical-advisory.jpg
   availability: "A small, selective advisory practice",
