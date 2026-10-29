@@ -30,4 +30,8 @@ Previews are at `/workspace/artifacts/headerless-mobile/`: `1440-home.png`, `390
 
 The general inquiry URL remains unconfigured; LinkedIn is the working fallback with explicit wording. Existing separate application settings are preserved.
 
-Prepared on `refine/service-selection` for review. This update follows the instruction not to merge automatically. The previous split-portrait/header option remains available in commit `9640343`; main and deployment settings are unchanged.
+The user approved automatic merging and deployment to main. Subsequent authorized refinements publish directly to main unless a review branch is explicitly requested. The previous split-portrait/header option remains available in commit `9640343`; deployment settings are unchanged.
+
+## Portrait size and homepage spacing refinement
+
+Home and experience portraits now use a shared responsive size: 320px desktop, 280px tablet, and 144px mobile. Homepage hero top padding is 48px desktop and 44px mobile. Ten targeted Chromium renders at 1440/1024/768/390/320px verified equal square portrait frames, increased top spacing, image decoding, readable layouts, no overflow/errors, existing routes, and tappable controls. Static checks and whitespace checks pass. Preview files are in `/workspace/artifacts/portrait-spacing/`.

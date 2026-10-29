@@ -63,7 +63,7 @@ All images use the requested direct local paths, with no JavaScript replacement 
 
 The files use the uploaded images, including replacements pulled from main. Original filenames remain available for compatibility. Image URLs include a version query to avoid stale cached copies; bump it in the HTML and matching config defaults when replacing images. The two service scenes are AI-generated illustrations, not documentary photos of client engagements; alt text states this. The portrait is the actual headshot.
 
-Service image areas use shared content-aligned card rows, shallow desktop/tablet frames, and a 16:10 mobile aspect ratio, with independent object positions to keep faces visible. After replacing a photo, inspect the crop on desktop and mobile. Legacy `assets/build.svg` and `assets/advisory.svg` are unused.
+Service image areas use shared content-aligned card rows, shallow desktop/tablet frames, and a 16:10 mobile aspect ratio, with independent object positions to keep faces visible. Home and experience portraits share the responsive `--portrait-size` setting: 320px desktop, 280px tablet, and 144px mobile. After replacing a photo, inspect the crop on desktop and mobile. Legacy `assets/build.svg` and `assets/advisory.svg` are unused.
 
 ## GitHub Pages
 
@@ -81,4 +81,4 @@ Analytics are disabled. `analyticsScriptUrl` accepts a same-origin script and `a
 
 ## Delivery preference
 
-Follow the latest task-specific delivery instruction. The service-selection, alternate hero, and experience-page refinements are prepared on a review branch and must not be merged automatically. Fetch current main first and preserve any images/files uploaded through GitHub. Version shared stylesheet/scripts and image URLs when refreshing the deployed site.
+Push authorized updates directly to main and use the existing GitHub Pages deployment unless the latest task explicitly asks for a review branch. Fetch current main first and preserve any images/files uploaded through GitHub. Version shared stylesheet/scripts and image URLs when refreshing the deployed site.

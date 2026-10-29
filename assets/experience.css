@@ -1,12 +1,12 @@
 /* Experience is an editorial page; all rules stay within its own content. */
 .exp-intro { padding-block: 28px 46px; }
 .exp-intro .breadcrumb { margin-bottom: 25px; }
-.exp-intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) 176px; align-items: center; gap: 72px; }
+.exp-intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) var(--portrait-size); align-items: center; gap: 72px; }
 .exp-intro-copy { max-width: 760px; }
 .exp-intro .eyebrow { margin-bottom: 17px; }
 .exp-intro h1 { max-width: 19ch; font-size: clamp(36px, 4vw, 54px); line-height: 1.13; letter-spacing: -.045em; }
 .exp-lead { max-width: 64ch; margin: 24px 0 0; font-size: 18px; line-height: 1.75; }
-.exp-portrait { width: 176px; margin: 0; }
+.exp-portrait { width: min(100%, var(--portrait-size)); margin: 0; }
 .exp-portrait > div { overflow: hidden; border: 1px solid var(--border); border-radius: 3px; }
 .exp-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
 .exp-portrait figcaption { margin-top: 12px; color: var(--muted); font-size: 12px; }
@@ -32,8 +32,7 @@
 .exp-service-links { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 24px; }
 .exp-service-links .text-link { margin-top: 0; font-size: 13px; }
 @media (max-width: 1050px) {
-  .exp-intro-grid { gap: 40px; grid-template-columns: minmax(0, 1fr) 152px; }
-  .exp-portrait { width: 152px; }
+  .exp-intro-grid { gap: 40px; }
   .exp-section, .exp-ventures-heading, .exp-venture { grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 40px; }
   .exp-domains { grid-template-columns: 1fr; gap: 20px; }
 }
@@ -43,7 +42,6 @@
   .exp-intro-grid { grid-template-columns: minmax(0, 1fr); gap: 25px; }
   .exp-intro h1 { max-width: 20ch; font-size: clamp(33px, 8.5vw, 41px); line-height: 1.18; }
   .exp-lead { font-size: 16px; line-height: 1.8; margin-top: 21px; }
-  .exp-portrait { width: 128px; }
   .exp-portrait figcaption { margin-top: 9px; }
   .exp-section { grid-template-columns: minmax(0, 1fr); gap: 23px; padding-block: 33px; }
   .exp-section-heading .eyebrow, .exp-ventures-heading .eyebrow { margin-bottom: 14px; }

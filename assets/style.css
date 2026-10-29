@@ -8,6 +8,7 @@
   --border: #383e43;
   --accent: #c4d5dd;
   --inset: 28px;
+  --portrait-size: 320px;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   font-synthesis: none;
 }
@@ -26,8 +27,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .arrow-icon { display: inline-block; width: 14px; height: 14px; vertical-align: -1px; }
 .eyebrow { color: var(--accent); font-size: 10px; line-height: 1.6; letter-spacing: .12em; text-transform: uppercase; }
 /* An editorial split hero, with a real portrait and its introduction below. */
-.hero { padding-block: 24px; }
-.hero-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: start; column-gap: 64px; }
+.hero { padding-block: 48px 24px; }
+.hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) var(--portrait-size); align-items: start; column-gap: 64px; }
 .hero-message { grid-column: 1; grid-row: 1; }
 .hero-message .eyebrow { margin-bottom: 17px; }
 .hero h1 { font-size: clamp(38px, 3.6vw, 52px); line-height: 1.12; letter-spacing: -.046em; max-width: 670px; }
@@ -39,7 +40,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .button:hover { background: var(--accent); border-color: var(--accent); color: var(--background); }
 .button.secondary { background: transparent; border-color: #606b72; color: var(--text); }
 .button.secondary:hover { background: var(--surface-hover); border-color: var(--accent); }
-.hero-profile { grid-column: 2; grid-row: 1 / span 3; width: min(100%, 320px); margin: 0; justify-self: end; align-self: center; }
+.hero-profile { grid-column: 2; grid-row: 1 / span 3; width: min(100%, var(--portrait-size)); margin: 0; justify-self: end; align-self: center; }
 .hero-portrait { width: 100%; overflow: hidden; border: 1px solid var(--border); border-radius: 3px; aspect-ratio: 1; }
 .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .hero-profile figcaption { margin-top: 14px; }
@@ -120,10 +121,10 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .text-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--accent); border-bottom: 1px solid var(--border); font-size: 12px; margin-top: 8px; }
 .detail-page .footer { margin-top: 38px; }
 @media (max-width: 1050px) {
+  :root { --portrait-size: 280px; }
   .wrap { width: calc(100% - 64px); }
   .hero h1 { font-size: 46px; }
   .hero-layout { column-gap: 40px; }
-  .hero-profile { width: min(100%, 280px); }
   .hero-actions .button { padding-inline: 15px; gap: 18px; }
   .service-photo-frame img { height: 220px; }
   .detail-grid { gap: 38px; }
@@ -134,9 +135,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .section-heading p { max-width: 170px; }
 }
 @media (max-width: 700px) {
-  :root { --inset: 22px; }
+  :root { --inset: 22px; --portrait-size: 144px; }
   .wrap { width: calc(100% - 40px); }
-  .hero { padding-block: 29px 30px; }
+  .hero { padding-block: 44px 30px; }
   .hero-layout { grid-template-columns: 1fr; gap: 0; }
   .hero-message, .hero-actions, .inquiry-note { grid-column: auto; grid-row: auto; }
   .hero-message { text-align: center; }
@@ -144,7 +145,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .hero h1 { font-size: clamp(32px, 7.8vw, 40px); line-height: 1.15; letter-spacing: -.04em; text-wrap: balance; }
   .hero-support { font-size: 16px; line-height: 1.65; margin: 18px auto 0; max-width: 38ch; }
   .hero-profile { grid-column: auto; grid-row: auto; width: 100%; max-width: 300px; justify-self: center; margin-top: 24px; text-align: center; }
-  .hero-portrait { width: 144px; margin-inline: auto; }
+  .hero-portrait { width: var(--portrait-size); margin-inline: auto; }
   .hero-profile figcaption { max-width: 270px; margin: 12px auto 0; }
   .hero-profile figcaption p { font-size: 16px; }
   .hero-profile figcaption span { text-wrap: balance; }
