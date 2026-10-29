@@ -26,7 +26,7 @@ Run `python3 scripts/check.py` to validate local links/assets, anchors, heading 
 
 ## Files and editing
 
-- `index.html`: customer-focused hero with two action buttons (contact and services) and a portrait-associated background link, plus two stage-specific service panels with visible pricing.
+- `index.html`: customer-focused hero with a visible engineering/founder/teaching credibility paragraph, two action buttons (contact and services), and a portrait-associated story link, plus two stage-specific service panels with visible pricing.
 - `experience.html`: first-person credibility page covering engineering leadership, education, teaching, and selected ventures with honest role/status labels.
 - `assets/experience.css`: page-specific editorial columns, reading widths, and responsive venture rows.
 - `founder-build-sprint.html`, `technical-advisory.html`: unchanged public routes with fuller scope and explanations.
@@ -40,13 +40,13 @@ Update prices/time limits in the homepage, corresponding detail page, SEO/Open G
 
 ## Contact and application configuration
 
-Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTTPS hosted form URLs, such as Tally.
+Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTTPS hosted form URLs, such as Tally. Current destinations: Founder Build Sprint uses https://tally.so/r/J11QEz; Technical Advisory uses https://tally.so/r/DqqjEj. Keep each detail page’s static application link and label in sync for no-JavaScript visitors.
 
 - Homepage **Explore the Sprint** and **Explore Advisory** always go to their existing detail pages. The whole card is one native link, including its title, photo, description, and whitespace; keyboard and no-JavaScript navigation work too.
 - Detail-page application actions use their matching form URL, otherwise the verified `contactEmail`, otherwise the configured LinkedIn profile.
 - The hero uses **Discuss your project** only when a valid HTTPS `projectInquiryUrl` is configured. Otherwise its label explicitly names the actual method: **Message me on LinkedIn**, or **Email me about your project** when `contactEmail` is set. Its supporting copy follows the selected route. Neither service application is reused for the general inquiry.
 - `projectInquiryUrl` is currently empty: a real general inquiry URL still needs configuration if a dedicated project intake is desired. LinkedIn remains the working default. The centered footer **Get in touch** keeps the email/LinkedIn fallback.
-- **Read my background →** sits beneath the portrait credentials and opens `experience.html` directly, independent of form configuration. The two hero buttons stack on mobile.
+- **Read my story and experience →** sits beneath the portrait credentials and opens `experience.html` directly, independent of form configuration. The two hero buttons stack on mobile.
 - Invalid/non-HTTPS form URLs retain the working defaults. No fake form, booking UI, or response collection is implemented here.
 
 Optional hosted intake fields: name, email, company, website, service, current stage, primary challenge, desired outcome, budget, and timeline. Form responses belong on the hosted form service. Never add secrets to this public repository.

@@ -33,8 +33,10 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .hero-message .eyebrow { margin-bottom: 17px; }
 .hero h1 { font-size: clamp(38px, 3.6vw, 52px); line-height: 1.12; letter-spacing: -.046em; max-width: 670px; }
 .hero h1 > span { color: var(--accent); }
-.hero-support { font-size: 17px; line-height: 1.7; max-width: 570px; margin: 21px 0 0; }
-.hero-actions { grid-column: 1; grid-row: 2; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.hero-support { font-size: 17px; line-height: 1.7; max-width: 570px; margin: 16px 0 0; }
+.hero-credibility { font-size: 15px; line-height: 1.7; max-width: 680px; margin: 14px 0 0; }
+.hero-credibility strong { color: var(--text); font-weight: 500; }
+.hero-actions { grid-column: 1; grid-row: 2; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
 .inquiry-note { grid-column: 1; grid-row: 3; max-width: 720px; margin: 12px 0 0; font-size: 12px; line-height: 1.65; }
 .button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 48px; padding: 12px 20px; background: var(--text); border: 1px solid var(--text); border-radius: 2px; color: var(--background); font-size: 13px; font-weight: 500; transition: background .18s, border-color .18s; }
 .button:hover { background: var(--accent); border-color: var(--accent); color: var(--background); }
@@ -46,6 +48,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .hero-profile figcaption { margin-top: 14px; }
 .hero-profile figcaption p { margin: 0; font-size: 16px; color: var(--text); line-height: 1.5; }
 .hero-profile figcaption > span { display: block; font-size: 12px; color: var(--muted); line-height: 1.65; margin-top: 3px; text-wrap: pretty; }
+.hero-profile figcaption .profile-story { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
 .background-link { display: inline-flex; align-items: baseline; gap: 6px; min-height: 44px; margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--border); }
 .background-link:hover { text-decoration-color: currentColor; }
 /* The services are the visual and commercial center of the page. */
@@ -145,13 +148,13 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .hero-message { text-align: center; }
   .hero-message .eyebrow { font-size: 9px; letter-spacing: .08em; margin-bottom: 16px; }
   .hero h1 { font-size: clamp(32px, 7.8vw, 40px); line-height: 1.15; letter-spacing: -.04em; text-wrap: balance; }
-  .hero-support { font-size: 16px; line-height: 1.65; margin: 18px auto 0; max-width: 38ch; }
-  .hero-profile { grid-column: auto; grid-row: auto; width: 100%; max-width: 300px; justify-self: center; margin-top: 24px; text-align: center; }
+  .hero-support { font-size: 16px; line-height: 1.65; margin: 16px auto 0; max-width: 38ch; }
+  .hero-profile { grid-column: auto; grid-row: auto; width: 100%; max-width: 300px; justify-self: center; margin-top: 20px; text-align: center; }
   .hero-portrait { width: var(--portrait-size); margin-inline: auto; }
   .hero-profile figcaption { max-width: 270px; margin: 12px auto 0; }
   .hero-profile figcaption p { font-size: 16px; }
   .hero-profile figcaption > span { text-wrap: balance; }
-  .hero-actions { display: grid; grid-template-columns: 1fr; width: 100%; gap: 10px; margin-top: 24px; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; width: 100%; gap: 10px; margin-top: 20px; }
   .hero-actions .button { min-width: 0; min-height: 50px; font-size: 12px; padding: 12px; gap: 10px; justify-content: center; }
   .hero-actions .arrow-icon { width: 12px; height: 12px; }
   .inquiry-note { text-align: center; max-width: 42ch; margin-inline: auto; }

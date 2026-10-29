@@ -1,8 +1,8 @@
 // Public settings only. Never put secrets here.
 window.SITE_CONFIG = {
   projectInquiryUrl: "", // Optional general project inquiry route (full HTTPS URL)
-  buildApplicationUrl: "", // Full HTTPS Tally (or other hosted form) URL
-  advisoryApplicationUrl: "",
+  buildApplicationUrl: "https://tally.so/r/J11QEz", // Founder Build Sprint application
+  advisoryApplicationUrl: "https://tally.so/r/DqqjEj", // Technical Advisory inquiry
   contactEmail: "", // Optional verified business email; blank uses LinkedIn
   linkedInUrl: "https://www.linkedin.com/in/hectorferronato/",
   portraitUrl: "assets/hector-profile.jpg?v=20261029-selection-1", // Canonical local path for the uploaded headshot
