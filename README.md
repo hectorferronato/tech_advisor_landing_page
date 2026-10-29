@@ -15,7 +15,7 @@ Open the local server in your own development environment. All paths are relativ
 
 ## Architecture and editing
 
-- `index.html`: exactly two main sections — introduction and ways to work together — followed by a minimal footer.
+- `index.html`: three main sections — introduction, ways to work together, and experience — followed by a compact footer with a Get in touch button.
 - `founder-build-sprint.html`, `technical-advisory.html`: detailed service pages.
 - `assets/style.css`: shared responsive design; consistent dark surfaces, icy-blue accents, oversized sans-serif name typography, responsive panels, and reduced-motion support.
 - `assets/config.js`: public application URLs, contact email, LinkedIn fallback, local photo paths, availability, optional local analytics.
@@ -27,7 +27,7 @@ Edit prices and engagement details in the homepage service cards and correspondi
 
 ## Applications and contact
 
-Set `buildApplicationUrl` and `advisoryApplicationUrl` separately to full HTTPS hosted form URLs, for example Tally. Blank or invalid URLs fall back to your verified `contactEmail`, if supplied, otherwise your LinkedIn profile. No fake form is shown and this site collects no responses. Configured form buttons become “Apply for a Build Sprint” and “Request Technical Advisory.”
+Set `buildApplicationUrl` and `advisoryApplicationUrl` separately to full HTTPS hosted form URLs, for example Tally. Blank or invalid URLs fall back to your verified `contactEmail`, if supplied, otherwise your LinkedIn profile. The footer Get in touch button uses the same email/LinkedIn fallback. No fake form is shown and this site collects no responses. Configured form buttons become “Apply for a Build Sprint” and “Request Technical Advisory.”
 
 Recommended hosted form fields: name, email, company, optional website, service, current stage, primary challenge, desired outcome, budget, and timeline. Configure appropriate privacy disclosures and response handling on the form host. Never add secrets to this public repository.
 

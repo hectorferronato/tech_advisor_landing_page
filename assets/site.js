@@ -15,6 +15,7 @@
   const linkedIn = https(config.linkedInUrl) || 'https://www.linkedin.com/in/hectorferronato/';
   const email = typeof config.contactEmail === 'string' ? config.contactEmail.trim() : '';
   const fallback = /^[^\s@?&#]+@[^\s@?&#]+\.[^\s@?&#]+$/.test(email) ? `mailto:${email}` : linkedIn;
+  document.querySelectorAll('[data-contact]').forEach(link => { link.href = fallback; });
   document.querySelectorAll('[data-apply]').forEach(link => {
     const build = link.dataset.apply === 'build';
     const application = https(build ? config.buildApplicationUrl : config.advisoryApplicationUrl);

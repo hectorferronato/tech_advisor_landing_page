@@ -55,7 +55,8 @@ for path, doc in docs.items():
         count += 1
 
 home = docs[ROOT / 'index.html']
-assert home.sections == 2, 'Homepage must have exactly two primary sections'
+assert home.sections == 3, 'Homepage must have introduction, services, and experience sections'
+assert 'experience' in home.ids, 'Missing experience section'
 for service, detail in [
     ('build', 'founder-build-sprint.html'),
     ('advisory', 'technical-advisory.html'),
@@ -71,7 +72,7 @@ for field in ('portraitUrl', 'buildImageUrl', 'advisoryImageUrl'):
         assert target.is_relative_to(ROOT), f'Configured image escapes site: {value}'
         if not target.is_file():
             missing.add(value)
-print(f'PASS: {len(docs)} page structures, {count} relative links, metadata, anchors, two homepage sections, and optional photo slots')
+print(f'PASS: {len(docs)} page structures, {count} relative links, metadata, anchors, three homepage sections, and optional photo slots')
 if missing:
     print('FAIL: referenced files missing:')
     for filename in sorted(missing):
