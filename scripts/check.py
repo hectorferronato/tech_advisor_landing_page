@@ -69,7 +69,7 @@ for service, detail, filename in [
     for doc in [home, docs[ROOT / detail]]:
         assert doc.media.count(service) == 1, f'Missing photo slot for {service} in {doc.path}'
         images = [image for image in doc.images if image.get('data-service-image') == service]
-        assert len(images) == 1 and images[0]['src'] == f'assets/{filename}', f'Incorrect static photo for {service} in {doc.path}'
+        assert len(images) == 1 and urlsplit(images[0]['src']).path == f'assets/{filename}', f'Incorrect static photo for {service} in {doc.path}'
         assert 'AI-generated illustrative scene' in images[0]['alt'], 'Missing accurate scene alt text'
 # Prices and advisor-hour limits must agree across visible copy and social/SEO metadata.
 for filename, price, hours in [

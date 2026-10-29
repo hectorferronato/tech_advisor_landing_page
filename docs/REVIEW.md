@@ -1,44 +1,25 @@
-# Value-first advisory redesign
+# Header, whole-card navigation, and deployment refresh
 
-The previous homepage led with an enormous personal name. This redesign leads with the customer's problem and two ways to hire Hector. The name and “Independent Technical Advisor” are a compact header brand; the hero uses “Build with AI. Backed by real engineering experience.” with the requested supporting message, two clear actions, and a small real-portrait credibility strip.
+Pulled the user's latest image uploads from main before making changes. The updated advisory image now has 1122 × 1402 intrinsic dimensions, reflected in the markup. Uploaded bytes are preserved. All image and shared-asset URLs are versioned so browsers request the new files rather than cached copies.
 
-The homepage retains exactly two main sections: value proposition and services. The services are the visual centerpiece: two stage-specific panels with audience, outcome, prominent uploaded photography, visible price/time allowance, and an obvious next step. The new charcoal/ivory/steel palette, restrained headings, aligned content, and quieter footer remove the oversized personal-portfolio hierarchy.
+Both service cards now have one native link stretched across the entire panel. Duplicate title links are removed. Clicking the heading, photo, description, or whitespace follows the same service destination; configured form URLs continue to target the correct service. Keyboard focus draws a visible full-card outline. No JavaScript card click handlers or nested links were introduced.
 
-## Offers and scope
+The real headshot, VP of Engineering / Founder & Operator / Applied AI credentials, and full-stack experience line move to the right-aligned header on all three pages. The Services and Discuss your project header links are removed; the hero retains its two customer-focused actions. On mobile, the credentials occupy a compact right-aligned second header row.
 
-| Offer | Price | Advisor time | Focus |
-| --- | --- | --- | --- |
-| Founder Build Sprint | $2,500 / 3 weeks | Up to 8 hours total | Guided sessions, assignments, and engineering feedback; the founder builds |
-| Technical Advisor | From $2,000 / month | Up to 4 hours monthly | Senior judgment, focused reviews, and recommendations; month-to-month, with direct-message access |
-
-Detail pages, scope language, metadata, social preview, documentation, and consistency checks use these terms. Sprint expectations and renewal/no-guarantee boundaries remain. Advisory explicitly excludes full-time CTO responsibility, implementation, on-call support, and day-to-day development ownership.
-
-## Images
-
-The requested paths were not present initially, but all three original uploads were available under their earlier filenames. The new canonical paths are exact byte copies:
-
-- `assets/hector-building.jpg` from `assets/founder-build-sprint.jpg`.
-- `assets/hector-advisory.jpg` from `assets/technical-advisory.jpg`.
-- `assets/hector-profile.jpg` from `assets/hector profile photo.jpeg`.
-
-Original paths remain available for compatibility. Images use direct local HTML sources and render without JavaScript. The two service scenes are explicitly described as AI-generated illustrations, not actual client engagements. No new photography, collage, stock substitute, or SVG service illustration is used.
-
-Desktop crops were reviewed and given enough height to keep faces intact and show useful work context. Tablet crops and 16:10 mobile crops were separately inspected.
-
-## Conversion behavior
-
-The hero's Explore services action scrolls to the panels; Discuss your project uses the existing email/LinkedIn fallback. With no forms configured, each panel's Explore action opens its matching existing detail route. When a valid hosted application URL is configured, only that service's primary action opens its configured form, while its service-title link keeps the detail page accessible. Detail application actions retain their form/contact fallback. No fake form or booking UI is introduced.
+The footer Get in touch action is centered, larger, and highlighted as a light button, with identity/copyright and LinkedIn details beneath. Prices, scope, application configuration, two-section homepage, and existing detail routes are unchanged.
 
 ## Validation
 
-- Static checker passes for all three pages: 38 local references, metadata, headings, anchors, exactly two homepage sections, real image assets, and price/scope consistency.
-- Node syntax checks and whitespace validation pass.
-- Chromium: 15 renders across 320, 375, 768, 1024, and 1440px widths. All three pages reviewed; no overflow, broken images, or HTTP/JavaScript errors.
-- Services begin at y=482px on a 1440px-wide desktop viewport and y=467px at 1024px width, well within the first screen. At 375px mobile width they begin at y=513px, after the customer message and actions.
-- All primary CTA targets are at least 44px tall. Default links, independently configured forms, invalid-form fallbacks, contact/email fallbacks, and every internal route pass.
-- Keyboard skip navigation and JavaScript-disabled image/contact behavior pass. No external page requests occur during validation.
-- Desktop, tablet, mobile, and detail-page crops visually inspected. Independent design and pricing/scope audits completed.
+- Static checks pass for all three pages, 35 local references, metadata, image paths, pricing/hour limits, and two homepage sections.
+- JavaScript syntax and whitespace checks pass.
+- 15 local Chromium renders cover three pages at 320, 375, 768, 1024, and 1440px.
+- Verified header right alignment, removed header links, centered footer button dimensions/position, updated image decoding, and no overflow or broken assets.
+- Actual mouse clicks on card photos and descriptions navigate to each service detail page. Native keyboard Enter and no-JavaScript card navigation work.
+- Hit testing confirms the link covers the full card, with exactly one interactive target in each panel.
+- With separate hosted form URLs configured, full-card clicks reach the correct corresponding form. Invalid URLs preserve working defaults. Test form destinations were intercepted locally; no external requests occurred.
+- Internal navigation, contact/email fallbacks, metadata, and all photo paths pass. No HTTP/JavaScript errors.
+- Desktop, mobile, and tablet screenshots inspected. Latest image bytes remain untouched by this change.
 
 ## Delivery
 
-Prepared on `redesign/value-first` for user review. No merge, PR, live deployment, environment change, framework, backend, or dependency installation is performed. The existing GitHub Pages project structure and both detail routes are retained. Main and the live site remain unchanged until the user approves publishing.
+The user merged the value-first redesign and explicitly authorized direct main updates. This change goes directly to main without a PR and uses the existing GitHub Pages branch deployment. No environment settings or deployment workflow changes are needed. Live deployment status is not independently verified from this environment.

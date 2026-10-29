@@ -1,6 +1,6 @@
 # Hector Ferronato — independent technical advisory
 
-A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. Hector's name is the header brand; the real portrait and engineering/founder credentials support the offer.
+A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. Hector's name is the header brand; the real portrait and credentials sit at the top right of the header. The hero remains focused on the customer value proposition.
 
 Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No framework, build step, backend, database, or installation is required.
 
@@ -40,10 +40,10 @@ Update prices/time limits in the homepage, corresponding detail page, SEO/Open G
 
 Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTTPS hosted form URLs, such as Tally.
 
-- With no form configured, homepage **Explore the Sprint** and **Explore Advisory** go to their existing detail pages. Service title links always offer those detail routes.
-- A valid configured form URL changes only its matching homepage service action to **Apply for a Build Sprint** or **Request advisory**, opening the correct form.
+- With no form configured, homepage **Explore the Sprint** and **Explore Advisory** go to their existing detail pages. The whole card is one native link, including its title, photo, description, and whitespace; keyboard and no-JavaScript navigation work too.
+- A valid configured form URL changes only its matching whole-card service action to **Apply for a Build Sprint** or **Request advisory**, opening the correct form.
 - Detail-page application actions use their matching form URL, otherwise the verified `contactEmail`, otherwise the configured LinkedIn profile.
-- **Discuss your project** and footer **Get in touch** use the email/LinkedIn contact fallback.
+- The hero **Discuss your project** and centered footer **Get in touch** button use the email/LinkedIn contact fallback.
 - Invalid/non-HTTPS form URLs retain the working defaults. No fake form, booking UI, or response collection is implemented here.
 
 Optional hosted intake fields: name, email, company, website, service, current stage, primary challenge, desired outcome, budget, and timeline. Form responses belong on the hosted form service. Never add secrets to this public repository.
@@ -56,9 +56,9 @@ All images use the requested direct local paths, with no JavaScript replacement 
 | --- | --- | --- |
 | `assets/hector-building.jpg` | Sprint card and detail page | `assets/founder-build-sprint.jpg` |
 | `assets/hector-advisory.jpg` | Advisory card and detail page | `assets/technical-advisory.jpg` |
-| `assets/hector-profile.jpg` | Small real headshot in hero credibility strip | `assets/hector profile photo.jpeg` |
+| `assets/hector-profile.jpg` | Small real headshot in the right-aligned header credentials | `assets/hector profile photo.jpeg` |
 
-The canonical files are exact byte copies of the existing uploads, not newly generated images. Original filenames remain available for compatibility. The two service scenes are AI-generated illustrations, not documentary photos of client engagements; alt text states this. The portrait is the actual headshot.
+The files use the uploaded images, including replacements pulled from main. Original filenames remain available for compatibility. Image URLs include a version query to avoid stale cached copies; bump it in the HTML and matching config defaults when replacing images. The two service scenes are AI-generated illustrations, not documentary photos of client engagements; alt text states this. The portrait is the actual headshot.
 
 Service image areas share consistent desktop/tablet heights and a 16:10 mobile aspect ratio, with independent object positions to keep faces visible. After replacing a photo, inspect the crop on desktop and mobile. Legacy `assets/build.svg` and `assets/advisory.svg` are unused.
 
@@ -76,6 +76,6 @@ For a custom domain, configure it in Pages, add the documented DNS records, enab
 
 Analytics are disabled. `analyticsScriptUrl` accepts a same-origin script and `analyticsSiteId` becomes its `data-website-id` attribute. Other providers may require adapting the script. The site does not need analytics to run.
 
-## Review delivery
+## Delivery preference
 
-Prepared on `redesign/value-first`; do not merge or deploy to main before user review. No new PR or environment changes are required. Review pricing, form/contact destinations, desktop/mobile crops, navigation, and the deployed project path before publishing approved content.
+Push authorized updates directly to `main` and use the existing GitHub Pages deployment. Create a PR only when the user explicitly requests one. Fetch current main first and preserve any images/files uploaded through GitHub. Version shared stylesheet/scripts and image URLs when refreshing the deployed site.
