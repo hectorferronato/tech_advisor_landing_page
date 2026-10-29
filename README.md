@@ -17,7 +17,7 @@ Open the local server in your own development environment. All paths are relativ
 
 - `index.html`: three main sections — introduction, ways to work together, and experience — with an introduction that places enlarged value-proposition text on the left and a smaller name on the right, followed by a footer with a large centered Get in touch button.
 - `founder-build-sprint.html`, `technical-advisory.html`: detailed service pages.
-- `assets/style.css`: shared responsive design; consistent dark surfaces, icy-blue accents, oversized sans-serif name typography, responsive panels, and reduced-motion support.
+- `assets/style.css`: shared responsive design; contrasting dark surfaces, brighter secondary copy, icy-blue accents, a larger lead statement, aligned identity/service panels, and reduced-motion support.
 - `assets/config.js`: public application URLs, contact email, LinkedIn fallback, local photo paths, availability, optional local analytics.
 - `assets/site.js`: progressive enhancement of working static links. Without JavaScript, LinkedIn remains available.
 - `assets/build.svg`, `assets/advisory.svg`: original local product illustrations; retained unless local photos are configured.
@@ -41,7 +41,7 @@ All supplied photos are included directly in HTML, so they render without JavaSc
 | `assets/technical-advisory.jpg` | Technical Advisory panel and detail page |
 | `assets/hector profile photo.jpeg` | Hero portrait above the name on the right |
 
-Matching `buildImageUrl` and `advisoryImageUrl` defaults are in `assets/config.js`. Optional same-origin overrides can be configured there. The default paths use the actual uploaded filenames. `portraitUrl` matches the uploaded headshot; HTML and configuration URL-encode the spaces in its filename. The portrait is 144px on desktop and 112px on mobile. Service-card photos follow the titles at 70% of the card width, with their aspect ratio preserved. Detail-page photos are also displayed at 70% of their previous width.
+Matching `buildImageUrl` and `advisoryImageUrl` defaults are in `assets/config.js`. Optional same-origin overrides can be configured there. The default paths use the actual uploaded filenames. `portraitUrl` matches the uploaded headshot; HTML and configuration URL-encode the spaces in its filename. The portrait is 168px on desktop, 152px on tablet, and 112px on mobile, grouped with the name in a right-side identity panel. Service-card photos follow the titles at 70% of the card width, with their aspect ratio preserved and their left edges aligned with the title and description. Detail-page photos are also displayed at 70% of their previous width.
 
 The service scenes are AI-generated illustrations, not documentary photos of client engagements. Alt text states this. Framing uses `object-fit: cover` with individual positions, preserving face visibility. Both photographs have been visually checked on desktop and mobile. The old SVG illustrations are unused.
 
