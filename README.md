@@ -30,7 +30,7 @@ Edit prices and engagement details in the homepage service cards and correspondi
 | Service | Price | Advisor time | Structure |
 | --- | --- | --- | --- |
 | Founder Build Sprint | $3,000 / 3-week sprint | Up to 8 hours total | One-time teaching and founder-led building; renewable by agreement |
-| Technical Advisor | $2,000 / month | Up to 3 hours per month | Month-to-month technical judgment, reviews, and recommendations |
+| Technical Advisor | $2,000 / month | Up to 4 hours per month | Month-to-month technical judgment, reviews, recommendations, and direct-message access |
 
 The founder does the building in a sprint. Advisory excludes full implementation and on-call CTO work. The detailed scope and no-guarantee boundaries remain on the existing service pages. There are no FAQ blocks in the current site.
 
@@ -87,4 +87,4 @@ Analytics are disabled. `analyticsScriptUrl` can load a same-origin, locally hos
 
 ## Change delivery
 
-This refinement is prepared on `refine/executive-review`. Do not merge it or deploy it to `main` before user review. No new PR or environment changes are required. Shared stylesheet/script URLs are versioned in all three pages to prevent stale cached assets from mismatching the HTML.
+The executive refinement was reviewed and merged by the user. Further authorized copy changes go directly to `main`, without a PR. Shared stylesheet/script URLs are versioned in all three pages to prevent stale cached assets from mismatching the HTML.

@@ -74,7 +74,7 @@ for service, detail, filename in [
 # Prices and advisor-hour limits must agree across visible copy and social/SEO metadata.
 for filename, price, hours in [
     ('founder-build-sprint.html', '$3,000', '8 advisor hours'),
-    ('technical-advisory.html', '$2,000', '3 advisor hours'),
+    ('technical-advisory.html', '$2,000', '4 advisor hours'),
 ]:
     doc = docs[ROOT / filename]
     visible = ' '.join(doc.text)
@@ -83,9 +83,14 @@ for filename, price, hours in [
         assert price in doc.metadata[key] and hours in doc.metadata[key], f'Wrong offer metadata in {filename}'
 for path in docs:
     source = path.read_text()
-    assert not any(old in source for old in ('$2,500', 'From $2,000', 'Starting at $2,000', '4 advisor hours', 'four advisor hours')), f'Stale pricing/scope in {path}'
+    assert not any(old in source for old in ('$2,500', 'From $2,000', 'Starting at $2,000', '3 advisor hours', 'three advisor hours')), f'Stale pricing/scope in {path}'
 home_text = ' '.join(home.text)
-assert all(value in home_text for value in ('$3,000', '$2,000', '8 advisor hours', '3 advisor hours')), 'Homepage offer mismatch'
+assert all(value in home_text for value in ('$3,000', '$2,000', '8 advisor hours', '4 advisor hours')), 'Homepage offer mismatch'
+assert 'direct-message access' in home_text.lower(), 'Homepage missing direct-message access'
+advisory = docs[ROOT / 'technical-advisory.html']
+assert 'direct-message access' in ' '.join(advisory.text).lower(), 'Detail page missing direct-message access'
+for key in ('description', 'og:description'):
+    assert 'direct-message access' in advisory.metadata[key], 'Metadata missing direct-message access'
 # A missing configured image is a deployment error; an unconfigured optional image is not requested.
 config = (ROOT / 'assets/config.js').read_text()
 for field in ('portraitUrl', 'buildImageUrl', 'advisoryImageUrl'):

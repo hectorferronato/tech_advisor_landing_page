@@ -9,7 +9,7 @@ Both service cards retain their uploaded photos, now in full-width matching 16:1
 | Offer | Price | Advisor time | Engagement |
 | --- | --- | --- | --- |
 | Founder Build Sprint | $3,000 / 3-week sprint | Up to 8 hours total | One-time teaching and structured founder-led building; renewable by agreement |
-| Technical Advisor | $2,000 / month | Up to 3 hours per month | Month-to-month focused technical judgment, reviews, and recommendations |
+| Technical Advisor | $2,000 / month | Up to 4 hours per month | Month-to-month technical judgment, reviews, recommendations, and direct-message access |
 
 Both existing detail routes are preserved. Prices, advisor-hour limits, scope prose, SEO descriptions, Open Graph descriptions/titles, CTA labels, and README are updated consistently. Sprint no-guarantee language is retained. Advisory excludes full implementation, on-call CTO work, day-to-day management, unlimited debugging, and production ownership. There are no FAQ blocks in the current site.
 
@@ -25,8 +25,10 @@ The social preview image uses the new headline and credentials. All three real/l
 - Verified keyboard skip links, LinkedIn/email fallbacks, independent hosted application URLs, and static image/contact behavior with JavaScript disabled.
 - Desktop and mobile screenshots inspected; an independent audit confirmed offer/scope consistency and photo framing.
 
-## Review and deployment
+## Advisory access update
 
-Prepared on `refine/executive-review` for user review. Main and the live GitHub Pages site remain unchanged. No PR or merge is performed automatically.
+Technical Advisor now includes up to four advisor hours per month and direct-message access. Homepage copy, detail-page scope, SEO/Open Graph descriptions, documentation, and consistency checks use the new allowance. Message reviews share the monthly limit; response expectations are agreed before starting, and on-call CTO work remains excluded. Static consistency checks pass, and the homepage/advisory page were rechecked at 375px and 1440px with no overflow, broken images, HTTP errors, or JavaScript errors.
 
-After approval, publish the approved branch contents through the existing GitHub Pages deployment branch. No build step or workflow change is required. Live deployment is not part of this review branch validation.
+## Delivery
+
+The user merged the executive refinement into main (merge commit 0289a54). This authorized copy update targets main directly without a PR. A public-site check was blocked by this environment's network policy, so live Pages deployment cannot be confirmed here. The existing branch-based Pages workflow is unchanged.
