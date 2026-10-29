@@ -52,8 +52,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .hero-profile figcaption p { margin: 0; font-size: 16px; color: var(--text); line-height: 1.5; }
 .hero-profile figcaption > span { display: block; font-size: 12px; color: var(--muted); line-height: 1.65; margin-top: 3px; text-wrap: pretty; }
 .hero-profile figcaption .profile-story { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
-.background-link { display: inline-flex; align-items: baseline; gap: 6px; min-height: 44px; margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--border); }
-.background-link:hover { text-decoration-color: currentColor; }
+.background-link { display: inline-flex; align-items: baseline; gap: 6px; min-height: 44px; margin-top: 14px; color: var(--text); font-size: 14px; font-weight: 500; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--accent); }
+.background-link:hover { color: var(--accent); text-decoration-color: currentColor; }
 /* The services are the visual and commercial center of the page. */
 .services { border-top: 1px solid var(--border); padding-block: 30px 46px; }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
@@ -74,7 +74,6 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .engagement { margin-inline: var(--inset); padding-block: 16px 20px; border-top: 1px solid var(--border); }
 .price { color: var(--text); font-size: 28px; line-height: 1.25; font-weight: 500; letter-spacing: -.035em; margin-bottom: 9px; }
 .price > span { color: var(--muted); font-size: 13px; font-weight: 400; letter-spacing: 0; }
-.price > .price-prefix { color: var(--text); font-size: 17px; letter-spacing: -.015em; }
 .engagement-duration { font-size: 13px; margin: 0; }
 .service-scope { margin: 0; padding: 20px var(--inset); list-style: none; color: var(--muted); font-size: 13px; line-height: 1.65; }
 .service-scope li { position: relative; padding-left: 13px; }
@@ -97,7 +96,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .skip:focus { top: 10px; }
 /* Existing detail routes retain their full scope and readable explanations. */
 .service-intro { padding-top: 28px; padding-bottom: 38px; }
-.breadcrumb { display: inline-block; min-height: 40px; font-size: 12px; color: var(--muted); margin-bottom: 24px; }
+.breadcrumb { min-height: 44px; gap: 10px; margin-bottom: 24px; }
+.breadcrumb > span { font-size: 18px; line-height: 1; }
 .service-intro .eyebrow { margin-bottom: 16px; }
 .service-intro h1 { font-size: clamp(35px, 4.3vw, 54px); max-width: 900px; margin-bottom: 21px; }
 .lead { font-size: 18px; line-height: 1.65; max-width: 700px; }

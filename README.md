@@ -8,8 +8,8 @@ Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No fr
 
 | Offer | Price | Advisor time | Focus |
 | --- | --- | --- | --- |
-| Founder Build Sprint | $2,500 / 3 weeks | Up to 8 hours total | Private guided sessions, structured assignments, and engineering feedback; the founder builds |
-| Technical Advisory | From $2,000 / month | Up to 4 hours monthly | Senior technical judgment, focused reviews, and recommendations; month-to-month with direct-message access |
+| Founder Build Sprint | $3,000 / 3 weeks | Up to 8 hours total | Private guided sessions, structured assignments, and engineering feedback; the founder builds |
+| Technical Advisory | $2,000 / month | Up to 4 hours monthly | Senior technical judgment, focused reviews, and recommendations; month-to-month with direct-message access |
 
 The detail pages retain scope, exclusions, scheduling expectations, and renewal/no-guarantee language. Advisory is not full-time CTO responsibility, on-call support, or day-to-day development ownership. There are no FAQ blocks in the current site.
 
@@ -37,7 +37,7 @@ Run `python3 scripts/check.py` to validate local links/assets, anchors, heading 
 - `assets/social.png`, `assets/favicon.svg`: social preview and favicon consistent with the current visual direction.
 - `.nojekyll`: bypasses Jekyll for GitHub Pages.
 
-Update prices/time limits in the homepage, corresponding detail page, SEO/Open Graph descriptions, README table, and static check expectations together. Footer markup is shared by convention across all four HTML pages; update all four. Bump the shared stylesheet/script query version in all four pages when publishing asset changes.
+Update prices/time limits in the homepage, corresponding detail page, SEO/Open Graph descriptions, README table, social preview source (`scripts/social-preview.html`), and static check expectations together. Re-render the preview source at 1200 × 630 into `assets/social.png` using a browser screenshot, then bump the social image query wherever that preview is referenced. Footer markup is shared by convention across all four HTML pages; update all four. Bump the shared stylesheet/script query version in all four pages when publishing asset changes.
 
 ## Contact and application configuration
 
