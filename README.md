@@ -1,6 +1,6 @@
 # Hector Ferronato — independent technical advisory
 
-A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. Hector's name is the header brand; his real portrait and credentials introduce him beneath the hero promise. Each service card presents its audience, price, and duration before a supporting image.
+A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. Hector's name is the header brand; his larger real portrait sits beside the hero promise, with his name and credentials beneath the photograph. Each service card presents its audience, price, and duration before a supporting image.
 
 Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No framework, build step, backend, database, or installation is required.
 
@@ -27,7 +27,8 @@ Run `python3 scripts/check.py` to validate local links/assets, anchors, heading 
 ## Files and editing
 
 - `index.html`: customer-focused hero with three actions (services, contact, and experience), plus two stage-specific service panels with visible pricing.
-- `experience.html`: editorial profile with the actual portrait, confirmed engineering/business dates, leadership perspective, and background.
+- `experience.html`: first-person credibility page covering engineering leadership, education, teaching, and selected ventures with honest role/status labels.
+- `assets/experience.css`: page-specific editorial columns, reading widths, and responsive venture rows.
 - `founder-build-sprint.html`, `technical-advisory.html`: unchanged public routes with fuller scope and explanations.
 - `assets/style.css`: charcoal palette, shared layouts, responsive crops, focus/hover states, and reduced-motion support.
 - `assets/config.js`: public general inquiry and separate service application URLs, contact fallback, local photo overrides, and optional local analytics.
@@ -80,4 +81,4 @@ Analytics are disabled. `analyticsScriptUrl` accepts a same-origin script and `a
 
 ## Delivery preference
 
-Follow the latest task-specific delivery instruction. This service-selection refinement is prepared on a review branch and must not be merged automatically. Fetch current main first and preserve any images/files uploaded through GitHub. Version shared stylesheet/scripts and image URLs when refreshing the deployed site.
+Follow the latest task-specific delivery instruction. The service-selection, alternate hero, and experience-page refinements are prepared on a review branch and must not be merged automatically. Fetch current main first and preserve any images/files uploaded through GitHub. Version shared stylesheet/scripts and image URLs when refreshing the deployed site.

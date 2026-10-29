@@ -23,29 +23,34 @@ svg { flex-shrink: 0; }
 p { margin: 0 0 20px; color: var(--muted); }
 h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.04em; }
 .wrap { width: min(1200px, calc(100% - 96px)); margin-inline: auto; }
-.header { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-block: 24px; border-bottom: 1px solid var(--border); }
-.brand { display: inline-flex; flex-direction: column; gap: 4px; }
-.brand > span { font-size: 17px; font-weight: 600; letter-spacing: .035em; line-height: 1.3; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 18px; border-bottom: 1px solid var(--border); }
+.brand { display: inline-flex; flex-direction: column; gap: 2px; }
+.brand > span { font-size: 19px; font-weight: 500; letter-spacing: -.025em; line-height: 1.3; }
 .brand small { font-size: 12px; line-height: 1.4; color: var(--muted); }
+.header-nav a { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; color: var(--muted); font-size: 13px; }
+.header-nav a:hover, .header-nav [aria-current="page"] { color: var(--text); }
 .arrow-icon { display: inline-block; width: 14px; height: 14px; vertical-align: -1px; }
 .eyebrow { color: var(--accent); font-size: 10px; line-height: 1.6; letter-spacing: .12em; text-transform: uppercase; }
-/* A compact customer promise, with the person as supporting proof. */
+/* An editorial split hero, with a real portrait and its introduction below. */
 .hero { padding-block: 24px; }
-.hero > .eyebrow { margin-bottom: 13px; }
-.hero h1 { font-size: clamp(38px, 3.7vw, 53px); line-height: 1.12; letter-spacing: -.046em; max-width: 1070px; }
+.hero-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: start; column-gap: 64px; }
+.hero-message { grid-column: 1; grid-row: 1; }
+.hero-message .eyebrow { margin-bottom: 17px; }
+.hero h1 { font-size: clamp(38px, 3.6vw, 52px); line-height: 1.12; letter-spacing: -.046em; max-width: 670px; }
 .hero h1 > span { color: var(--accent); }
-.hero-support { font-size: 18px; line-height: 1.65; max-width: 720px; margin-top: 16px; margin-bottom: 18px; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.inquiry-note { max-width: 720px; margin: 12px 0 0; font-size: 12px; line-height: 1.65; }
+.hero-support { font-size: 17px; line-height: 1.7; max-width: 570px; margin: 21px 0 0; }
+.hero-actions { grid-column: 1; grid-row: 2; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.inquiry-note { grid-column: 1; grid-row: 3; max-width: 720px; margin: 12px 0 0; font-size: 12px; line-height: 1.65; }
 .button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 48px; padding: 12px 20px; background: var(--text); border: 1px solid var(--text); border-radius: 2px; color: var(--background); font-size: 13px; font-weight: 500; transition: background .18s, border-color .18s; }
 .button:hover { background: var(--accent); border-color: var(--accent); color: var(--background); }
 .button.secondary { background: transparent; border-color: #606b72; color: var(--text); }
 .button.secondary:hover { background: var(--surface-hover); border-color: var(--accent); }
-.credibility { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
-.hero-portrait { width: 72px; height: 72px; flex: 0 0 72px; overflow: hidden; border: 1px solid var(--border); border-radius: 3px; }
+.hero-profile { grid-column: 2; grid-row: 1 / span 3; width: min(100%, 320px); margin: 0; justify-self: end; align-self: center; }
+.hero-portrait { width: 100%; overflow: hidden; border: 1px solid var(--border); border-radius: 3px; aspect-ratio: 1; }
 .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
-.credibility p { margin: 0; font-size: 15px; color: var(--text); line-height: 1.5; }
-.credibility span { display: block; font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 3px; }
+.hero-profile figcaption { margin-top: 14px; }
+.hero-profile figcaption p { margin: 0; font-size: 16px; color: var(--text); line-height: 1.5; }
+.hero-profile figcaption span { display: block; font-size: 12px; color: var(--muted); line-height: 1.65; margin-top: 3px; text-wrap: pretty; }
 /* The services are the visual and commercial center of the page. */
 .services { border-top: 1px solid var(--border); padding-block: 30px 46px; }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
@@ -120,41 +125,14 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .scope-band .detail-section { border-top: 0; align-items: start; }
 .text-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--accent); border-bottom: 1px solid var(--border); font-size: 12px; margin-top: 8px; }
 .detail-page .footer { margin-top: 38px; }
-/* An editorial experience page, using confirmed background and the real portrait. */
-.experience-intro { padding-block: 28px 45px; }
-.experience-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 192px; align-items: center; gap: 72px; }
-.experience-intro .eyebrow { margin-bottom: 17px; }
-.experience-intro h1 { font-size: clamp(36px, 4.2vw, 54px); line-height: 1.15; max-width: 760px; }
-.experience-lead { font-size: 18px; line-height: 1.75; max-width: 640px; margin: 23px 0 17px; }
-.experience-portrait { width: 192px; margin: 0; }
-.experience-photo { overflow: hidden; border: 1px solid var(--border); border-radius: 3px; }
-.experience-photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
-.experience-portrait figcaption { font-size: 13px; line-height: 1.6; margin-top: 12px; }
-.experience-portrait figcaption span { display: block; font-size: 11px; color: var(--muted); }
-.experience-history, .experience-perspective { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr); gap: 80px; border-top: 1px solid var(--border); padding-block: 44px; }
-.experience-section-heading .eyebrow { margin-bottom: 16px; }
-.experience-section-heading h2 { font-size: clamp(27px, 2.6vw, 35px); line-height: 1.2; margin-bottom: 19px; }
-.experience-section-heading > p:last-child { max-width: 315px; font-size: 14px; margin-bottom: 0; }
-.experience-entry { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 24px; border-top: 1px solid var(--border); padding-block: 25px; }
-.experience-entry:first-child { padding-top: 0; border-top: 0; }
-.experience-entry:last-child { padding-bottom: 0; }
-.experience-date { color: var(--accent); font-size: 11px; letter-spacing: .06em; margin: 3px 0 0; }
-.experience-entry h3, .experience-perspective-copy h3 { font-size: 22px; margin-bottom: 13px; }
-.experience-entry div > p, .experience-perspective-copy p { font-size: 14px; line-height: 1.85; margin-bottom: 0; }
-.experience-perspective-copy { display: grid; gap: 28px; }
-.experience-next { display: flex; justify-content: space-between; align-items: center; gap: 24px; border-top: 1px solid var(--border); padding-block: 23px 29px; }
-.experience-next > p { color: var(--text); font-size: 14px; margin: 0; }
-.experience-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 30px; }
-.experience-actions .text-link { margin: 0; }
 @media (max-width: 1050px) {
   .wrap { width: calc(100% - 64px); }
   .hero h1 { font-size: 46px; }
+  .hero-layout { column-gap: 40px; }
+  .hero-profile { width: min(100%, 280px); }
   .hero-actions .button { padding-inline: 15px; gap: 18px; }
   .service-photo-frame img { height: 220px; }
   .detail-grid { gap: 38px; }
-  .experience-hero-grid { gap: 40px; }
-  .experience-history, .experience-perspective { gap: 40px; }
-  .experience-entry { grid-template-columns: 1fr; gap: 12px; }
 }
 @media (max-width: 800px) {
   .panel-heading h3 { font-size: 25px; }
@@ -164,21 +142,23 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 @media (max-width: 700px) {
   :root { --inset: 22px; }
   .wrap { width: calc(100% - 40px); }
-  .header { flex-wrap: wrap; padding-block: 18px; gap: 15px; }
-  .brand > span { font-size: 14px; letter-spacing: .025em; }
+  .header { padding-block: 14px; gap: 16px; }
+  .brand > span { font-size: 17px; }
   .brand small { font-size: 11px; }
+  .header-nav a { font-size: 12px; gap: 9px; }
   .hero { padding-block: 29px 30px; }
-  .hero > .eyebrow { font-size: 9px; letter-spacing: .08em; margin-bottom: 16px; }
+  .hero-layout { grid-template-columns: 1fr; gap: 0; }
+  .hero-message, .hero-actions, .inquiry-note { grid-column: auto; grid-row: auto; }
+  .hero-message .eyebrow { font-size: 9px; letter-spacing: .08em; margin-bottom: 16px; }
   .hero h1 { font-size: clamp(32px, 7.8vw, 40px); line-height: 1.15; letter-spacing: -.04em; }
-  .hero-support { font-size: 16px; line-height: 1.65; margin-top: 18px; margin-bottom: 21px; }
+  .hero-support { font-size: 16px; line-height: 1.65; margin-top: 18px; margin-bottom: 0; }
+  .hero-profile { grid-column: auto; grid-row: auto; display: grid; grid-template-columns: 132px minmax(0, 1fr); align-items: end; gap: 18px; width: 100%; max-width: 430px; justify-self: start; margin-top: 24px; }
+  .hero-profile figcaption { margin: 0; padding-bottom: 3px; }
+  .hero-profile figcaption p { font-size: 15px; }
   .hero-actions { width: 100%; gap: 10px; }
   .hero-actions .button { flex: 1; min-width: 0; font-size: 12px; padding: 12px; gap: 10px; justify-content: center; }
   .hero-actions .arrow-icon { width: 12px; height: 12px; }
   .hero-actions .experience-link { flex-basis: 100%; justify-content: space-between; padding-inline: 16px; }
-  .credibility { gap: 14px; margin-bottom: 20px; }
-  .hero-portrait { width: 64px; height: 64px; flex-basis: 64px; }
-  .credibility p { font-size: 14px; }
-  .credibility span { font-size: 12px; }
   .services { padding-top: 26px; padding-bottom: 28px; }
   .section-heading { display: block; margin-bottom: 22px; }
   .section-heading h2 { font-size: 25px; }
@@ -212,22 +192,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .three-columns { grid-template-columns: 1fr; gap: 22px; }
   .three-columns p { margin-bottom: 0; }
   .detail-page .footer { margin-top: 30px; }
-  .experience-intro { padding-block: 22px 34px; }
-  .experience-hero-grid { grid-template-columns: 1fr; gap: 26px; }
-  .experience-intro h1 { font-size: clamp(34px, 8.2vw, 42px); }
-  .experience-lead { font-size: 16px; margin-top: 20px; }
-  .experience-portrait { display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: end; gap: 17px; width: 100%; max-width: 360px; }
-  .experience-portrait figcaption { margin-top: 0; }
-  .experience-history, .experience-perspective { grid-template-columns: 1fr; gap: 28px; padding-block: 32px; }
-  .experience-section-heading h2 { font-size: 29px; }
-  .experience-section-heading > p:last-child { max-width: none; }
-  .experience-entry { gap: 13px; padding-block: 23px; }
-  .experience-entry h3, .experience-perspective-copy h3 { font-size: 22px; }
-  .experience-perspective-copy { gap: 25px; }
-  .experience-next { align-items: flex-start; flex-direction: column; gap: 15px; padding-block: 24px; }
-  .experience-actions { gap: 20px; }
 }
 @media (max-width: 360px) {
+  .hero-profile { grid-template-columns: 120px minmax(0, 1fr); gap: 15px; }
   .hero-actions { flex-direction: column; }
   .hero-actions .button { flex: auto; justify-content: space-between; padding-inline: 16px; }
   .footer nav { justify-content: flex-start; gap: 22px; }
