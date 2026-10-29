@@ -40,16 +40,24 @@
     link.href = application || fallback;
     setActionLabel(link, application ? (build ? 'Apply for a Build Sprint' : 'Request advisory') : (build ? 'Discuss a Build Sprint' : 'Discuss advisory'));
   });
-  // With no form configured, homepage actions keep their real detail-page links.
-  document.querySelectorAll('[data-service-cta]').forEach(link => {
-    const build = link.dataset.serviceCta === 'build';
-    const application = applications[build ? 'build' : 'advisory'];
-    if (!application) return;
-    link.href = application;
-    setActionLabel(link, build ? 'Apply for a Build Sprint' : 'Request advisory');
+  // Explore actions always explain the offer first; applications stay on detail pages.
+  const inquiry = https(config.projectInquiryUrl);
+  const byEmail = fallback.startsWith('mailto:');
+  document.querySelectorAll('[data-inquiry]').forEach(link => {
+    link.href = inquiry || fallback;
+    setActionLabel(link, inquiry ? 'Discuss your project' : (byEmail ? 'Email me about your project' : 'Message me on LinkedIn'));
+  });
+  document.querySelectorAll('[data-inquiry-note]').forEach(note => {
+    note.textContent = inquiry
+      ? 'Share what you’re building. We’ll determine whether a sprint or advisory engagement fits.'
+      : (byEmail ? 'Email me' : 'Message me on LinkedIn') + ' with what you’re building. We’ll determine whether a sprint or advisory engagement fits.';
   });
   document.querySelectorAll('[data-contact-note]').forEach(note => {
-    note.textContent = 'Contact Hector ' + (fallback.startsWith('mailto:') ? 'by email' : 'on LinkedIn') + ' to discuss fit, or use a configured application link. No information is collected on this website.';
+    const action = note.closest('.service-intro').querySelector('[data-apply]');
+    const service = action.dataset.apply;
+    note.textContent = applications[service]
+      ? 'Share your project through the application form. We’ll discuss fit, scope, and next steps before agreeing to an engagement.'
+      : 'Contact Hector ' + (byEmail ? 'by email' : 'on LinkedIn') + ' to discuss fit and next steps. No information is collected on this website.';
   });
   document.querySelectorAll('[data-availability]').forEach(el => {
     if (typeof config.availability === 'string' && config.availability.trim()) el.textContent = config.availability;

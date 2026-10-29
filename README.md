@@ -1,6 +1,6 @@
 # Hector Ferronato — independent technical advisory
 
-A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. Hector's name is the header brand; the real portrait and credentials sit at the top right of the header. The hero remains focused on the customer value proposition.
+A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. Hector's name is the header brand; his real portrait and credentials introduce him beneath the hero promise. Each service card presents its audience, price, and duration before a supporting image.
 
 Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No framework, build step, backend, database, or installation is required.
 
@@ -9,7 +9,7 @@ Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No fr
 | Offer | Price | Advisor time | Focus |
 | --- | --- | --- | --- |
 | Founder Build Sprint | $2,500 / 3 weeks | Up to 8 hours total | Private guided sessions, structured assignments, and engineering feedback; the founder builds |
-| Technical Advisor | From $2,000 / month | Up to 4 hours monthly | Senior technical judgment, focused reviews, and recommendations; month-to-month with direct-message access |
+| Technical Advisory | From $2,000 / month | Up to 4 hours monthly | Senior technical judgment, focused reviews, and recommendations; month-to-month with direct-message access |
 
 The detail pages retain scope, exclusions, scheduling expectations, and renewal/no-guarantee language. Advisory is not full-time CTO responsibility, on-call support, or day-to-day development ownership. There are no FAQ blocks in the current site.
 
@@ -30,7 +30,7 @@ Run `python3 scripts/check.py` to validate local links/assets, anchors, heading 
 - `experience.html`: editorial profile with the actual portrait, confirmed engineering/business dates, leadership perspective, and background.
 - `founder-build-sprint.html`, `technical-advisory.html`: unchanged public routes with fuller scope and explanations.
 - `assets/style.css`: charcoal palette, shared layouts, responsive crops, focus/hover states, and reduced-motion support.
-- `assets/config.js`: public application URLs, contact fallback, local photo overrides, and optional local analytics.
+- `assets/config.js`: public general inquiry and separate service application URLs, contact fallback, local photo overrides, and optional local analytics.
 - `assets/site.js`: applies configured destinations and same-origin image overrides while retaining working static defaults.
 - `assets/social.png`, `assets/favicon.svg`: social preview and favicon consistent with the current visual direction.
 - `.nojekyll`: bypasses Jekyll for GitHub Pages.
@@ -41,10 +41,10 @@ Update prices/time limits in the homepage, corresponding detail page, SEO/Open G
 
 Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTTPS hosted form URLs, such as Tally.
 
-- With no form configured, homepage **Explore the Sprint** and **Explore Advisory** go to their existing detail pages. The whole card is one native link, including its title, photo, description, and whitespace; keyboard and no-JavaScript navigation work too.
-- A valid configured form URL changes only its matching whole-card service action to **Apply for a Build Sprint** or **Request advisory**, opening the correct form.
+- Homepage **Explore the Sprint** and **Explore Advisory** always go to their existing detail pages. The whole card is one native link, including its title, photo, description, and whitespace; keyboard and no-JavaScript navigation work too.
 - Detail-page application actions use their matching form URL, otherwise the verified `contactEmail`, otherwise the configured LinkedIn profile.
-- The hero **Discuss your project** and centered footer **Get in touch** button use the email/LinkedIn contact fallback.
+- The hero uses **Discuss your project** only when a valid HTTPS `projectInquiryUrl` is configured. Otherwise its label explicitly names the actual method: **Message me on LinkedIn**, or **Email me about your project** when `contactEmail` is set. Its supporting copy follows the selected route. Neither service application is reused for the general inquiry.
+- `projectInquiryUrl` is currently empty: a real general inquiry URL still needs configuration if a dedicated project intake is desired. LinkedIn remains the working default. The centered footer **Get in touch** keeps the email/LinkedIn fallback.
 - **Hector’s experience** opens `experience.html` directly, independent of form configuration. It spans a full action row on mobile.
 - Invalid/non-HTTPS form URLs retain the working defaults. No fake form, booking UI, or response collection is implemented here.
 
@@ -58,11 +58,11 @@ All images use the requested direct local paths, with no JavaScript replacement 
 | --- | --- | --- |
 | `assets/hector-building.jpg` | Sprint card and detail page | `assets/founder-build-sprint.jpg` |
 | `assets/hector-advisory.jpg` | Advisory card and detail page | `assets/technical-advisory.jpg` |
-| `assets/hector-profile.jpg` | Header credentials and the experience-page portrait | `assets/hector profile photo.jpeg` |
+| `assets/hector-profile.jpg` | Homepage hero and the experience-page portrait | `assets/hector profile photo.jpeg` |
 
 The files use the uploaded images, including replacements pulled from main. Original filenames remain available for compatibility. Image URLs include a version query to avoid stale cached copies; bump it in the HTML and matching config defaults when replacing images. The two service scenes are AI-generated illustrations, not documentary photos of client engagements; alt text states this. The portrait is the actual headshot.
 
-Service image areas share consistent desktop/tablet heights and a 16:10 mobile aspect ratio, with independent object positions to keep faces visible. After replacing a photo, inspect the crop on desktop and mobile. Legacy `assets/build.svg` and `assets/advisory.svg` are unused.
+Service image areas use shared content-aligned card rows, shallow desktop/tablet frames, and a 16:10 mobile aspect ratio, with independent object positions to keep faces visible. After replacing a photo, inspect the crop on desktop and mobile. Legacy `assets/build.svg` and `assets/advisory.svg` are unused.
 
 ## GitHub Pages
 
@@ -80,4 +80,4 @@ Analytics are disabled. `analyticsScriptUrl` accepts a same-origin script and `a
 
 ## Delivery preference
 
-Push authorized updates directly to `main` and use the existing GitHub Pages deployment. Create a PR only when the user explicitly requests one. Fetch current main first and preserve any images/files uploaded through GitHub. Version shared stylesheet/scripts and image URLs when refreshing the deployed site.
+Follow the latest task-specific delivery instruction. This service-selection refinement is prepared on a review branch and must not be merged automatically. Fetch current main first and preserve any images/files uploaded through GitHub. Version shared stylesheet/scripts and image URLs when refreshing the deployed site.

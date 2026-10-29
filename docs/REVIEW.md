@@ -1,23 +1,31 @@
-# Experience page and third hero action
+# Service selection and inquiry refinement
 
-Added a third homepage action, “Hector’s experience,” linking directly to `experience.html`. Explore services remains the filled primary action; the existing project-contact fallback is preserved. On mobile the experience link uses its own full-width row so all three actions remain easy to tap.
+The existing charcoal palette, typography, borders, muted accent, two-section homepage, static architecture, and public routes are preserved. This change puts buying information ahead of imagery and makes the inquiry destination explicit.
 
-The new page uses the established charcoal palette, real headshot, editorial columns, restrained typography, and thin timeline rules. It introduces Hector's practical engineering/business perspective, two dated experience entries, leadership and Applied AI approach, and a short personal background paragraph. Links return to the homepage and both services, with the same header and centered contact footer used throughout the site.
+## Changes for review
 
-All biographical copy stays within previously supplied facts: programming since 2009, full-stack experience, VP of Engineering, building businesses since 2022, Computer Science/Economics studies in the United States, and Brazil public-school background. No degrees, employers, tenure dates, case-study results, or testimonials were invented.
+- The real local headshot and existing credentials now introduce Hector under the hero description, before the actions. Headers contain only the personal brand; the experience page retains its own portrait and background.
+- Both full-card links present category, service name, audience, price and duration before the photo, followed by three scope points and a service-specific Explore action. Content-driven grid rows align both desktop offers without fixed text heights.
+- Prices and scope remain $2,500 total / three weeks / up to eight total advisor hours, and from $2,000 per month / month-to-month / up to four total advisor hours. Direct-message access is retained within the advisory allocation.
+- The service name is consistently Technical Advisory; Technical Advisor remains Hector's professional role. Detail-page changes are limited to naming, explicitly counting preparation, and clarifying existing CTO/security-review boundaries. Sprint renewal and no-guarantee terms remain intact.
+- Current uploaded images are preserved, including the latest advisory replacement from main. Frames are 260px on desktop (slightly above the suggested starting range to preserve both faces), 220px on tablet, and 16:10 on mobile, with individual object positions. Alt text continues to identify service scenes as AI-generated illustrations.
+- Explore actions always lead to the corresponding detail page. Separate service application URLs remain supported on those pages.
+- The hero uses a separate optional `projectInquiryUrl`. With the current empty inquiry URL and email, it honestly says Message me on LinkedIn and explains what to send. A valid general inquiry URL enables Discuss your project; a configured email gets an explicit email label. No placeholder form or booking interface was created.
 
-The page includes its own title, description, canonical URL, Open Graph metadata, and real-portrait social image. Shared asset versions are bumped across all four pages. The homepage still has exactly two main sections; pricing, application destinations, full-card click behavior, and uploaded image files are unchanged. No new JavaScript or dependencies were needed.
+## Checks performed
 
-## Validation
+- `python3 scripts/check.py`: four page structures, 45 local references, anchors, metadata, asset existence, exactly two homepage sections, canonical images, pricing, and hour allocations passed.
+- `node --check assets/site.js`, `node --check assets/config.js`, and `git diff --check` passed.
+- Installed Chromium rendered all four pages at 1440, 1024, 390, and 320px: 16 responsive renders, visually inspected at desktop/mobile. Both offer durations end around y882 in the 1440×900 homepage viewport.
+- Verified offer information precedes each photo; desktop titles, pricing, images and CTAs align; real portrait and all images decode; CTA targets are at least 44px tall; footer action remains centered.
+- Actual navigation from card photos, audience text, prices and keyboard Enter reaches the correct detail page. Compare services and experience navigation work. Native no-JavaScript card navigation and image loading also pass.
+- Tested blank/general inquiry/email/invalid URL configurations, independently configured Sprint and Advisory applications, correct labels and microcopy, and fixed Explore destinations.
+- Local previews were served under `/tech_advisor_landing_page/`. All internal requests returned 200; no horizontal overflow, console/page errors, or external requests occurred.
 
-- Static checker passes across four pages and 48 local references, including metadata, anchors, real images, pricing consistency, and homepage structure.
-- Node syntax checks and whitespace checks pass.
-- 20 responsive renders cover all four pages at 320, 375, 768, 1024, and 1440px widths; final experience layout also rechecked at mobile/desktop after removing a duplicate credential line.
-- Actual hero-button navigation to experience and Back to home navigation pass.
-- Verified the three hero actions, mobile full-width experience action, confirmed dates, real portrait decoding, no horizontal overflow, and all internal routes under the GitHub Pages project subdirectory.
-- Existing full-card mouse/keyboard/no-JavaScript behavior, contact fallbacks, and configured forms remain verified. No HTTP/JavaScript errors or external page requests occurred.
-- Desktop/mobile screenshots inspected and an independent review found no visual blockers or unsupported claims.
+Screenshots are available in the execution workspace at `/workspace/artifacts/service-selection/`: `1440-home.png`, `desktop-viewport.png`, `390-home.png`, `320-home.png`, and all detail/experience pages at the four widths. These are local rendered previews, not verification of a live deployment.
 
-## Delivery
+## Configuration and delivery
 
-This authorized update goes directly to main without a PR and uses the existing GitHub Pages deployment. No environment settings or workflow changes are required. Live deployment is not independently verified from this environment.
+A dedicated general inquiry URL is still unconfigured. The existing LinkedIn profile is the working contact fallback; no further information is needed to review or use the current flow.
+
+Prepared on `refine/service-selection` for review, following this brief's instruction not to merge automatically. Main and GitHub Pages deployment settings are unchanged. The branch starts from main commit `2c3879f`, preserving the latest GitHub image upload.

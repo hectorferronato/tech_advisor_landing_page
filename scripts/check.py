@@ -86,7 +86,7 @@ for path in docs:
     assert not any(old in source for old in ('$3,000', '3 advisor hours', 'three advisor hours')), f'Stale pricing/scope in {path}'
 home_text = ' '.join(' '.join(home.text).split())
 assert 'From $2,000' in home_text and 'From $2,000' in ' '.join(docs[ROOT / 'technical-advisory.html'].text), 'Advisory must use starting-at pricing'
-assert all(value in home_text for value in ('$2,500', '$2,000', '8 advisor hours', '4 advisor hours')), 'Homepage offer mismatch'
+assert all(value in home_text for value in ('$2,500', '$2,000', '8 total advisor hours', '4 total advisor hours')), 'Homepage offer mismatch'
 assert 'direct-message access' in home_text.lower(), 'Homepage missing direct-message access'
 advisory = docs[ROOT / 'technical-advisory.html']
 assert 'direct-message access' in ' '.join(advisory.text).lower(), 'Detail page missing direct-message access'
