@@ -1,34 +1,44 @@
-# Executive homepage refinement
+# Value-first advisory redesign
 
-This branch refines the existing dark static site. The name is the dominant, unboxed hero element, followed by “Build smarter. Move faster.” and the requested supporting copy and credentials. The uploaded headshot remains in the hero. The separate Experience section is removed, leaving exactly two main sections: hero and services.
+The previous homepage led with an enormous personal name. This redesign leads with the customer's problem and two ways to hire Hector. The name and “Independent Technical Advisor” are a compact header brand; the hero uses “Build with AI. Backed by real engineering experience.” with the requested supporting message, two clear actions, and a small real-portrait credibility strip.
 
-Both service cards retain their uploaded photos, now in full-width matching 16:10 frames. Individual crop positions preserve face visibility. Titles and concise descriptions are left aligned; prices and engagement terms are clearly separated. Mobile uses deliberate name/headline line breaks, compact spacing, and service CTA targets at least 44px tall. The footer retains a compact contact action and links.
+The homepage retains exactly two main sections: value proposition and services. The services are the visual centerpiece: two stage-specific panels with audience, outcome, prominent uploaded photography, visible price/time allowance, and an obvious next step. The new charcoal/ivory/steel palette, restrained headings, aligned content, and quieter footer remove the oversized personal-portfolio hierarchy.
 
 ## Offers and scope
 
-| Offer | Price | Advisor time | Engagement |
+| Offer | Price | Advisor time | Focus |
 | --- | --- | --- | --- |
-| Founder Build Sprint | $3,000 / 3-week sprint | Up to 8 hours total | One-time teaching and structured founder-led building; renewable by agreement |
-| Technical Advisor | $2,000 / month | Up to 4 hours per month | Month-to-month technical judgment, reviews, recommendations, and direct-message access |
+| Founder Build Sprint | $2,500 / 3 weeks | Up to 8 hours total | Guided sessions, assignments, and engineering feedback; the founder builds |
+| Technical Advisor | From $2,000 / month | Up to 4 hours monthly | Senior judgment, focused reviews, and recommendations; month-to-month, with direct-message access |
 
-Both existing detail routes are preserved. Prices, advisor-hour limits, scope prose, SEO descriptions, Open Graph descriptions/titles, CTA labels, and README are updated consistently. Sprint no-guarantee language is retained. Advisory excludes full implementation, on-call CTO work, day-to-day management, unlimited debugging, and production ownership. There are no FAQ blocks in the current site.
+Detail pages, scope language, metadata, social preview, documentation, and consistency checks use these terms. Sprint expectations and renewal/no-guarantee boundaries remain. Advisory explicitly excludes full-time CTO responsibility, implementation, on-call support, and day-to-day development ownership.
 
-The social preview image uses the new headline and credentials. All three real/local image files are preserved. No replacement photos, SVG service illustrations, frameworks, dependencies, backend, or environment changes were introduced.
+## Images
+
+The requested paths were not present initially, but all three original uploads were available under their earlier filenames. The new canonical paths are exact byte copies:
+
+- `assets/hector-building.jpg` from `assets/founder-build-sprint.jpg`.
+- `assets/hector-advisory.jpg` from `assets/technical-advisory.jpg`.
+- `assets/hector-profile.jpg` from `assets/hector profile photo.jpeg`.
+
+Original paths remain available for compatibility. Images use direct local HTML sources and render without JavaScript. The two service scenes are explicitly described as AI-generated illustrations, not actual client engagements. No new photography, collage, stock substitute, or SVG service illustration is used.
+
+Desktop crops were reviewed and given enough height to keep faces intact and show useful work context. Tablet crops and 16:10 mobile crops were separately inspected.
+
+## Conversion behavior
+
+The hero's Explore services action scrolls to the panels; Discuss your project uses the existing email/LinkedIn fallback. With no forms configured, each panel's Explore action opens its matching existing detail route. When a valid hosted application URL is configured, only that service's primary action opens its configured form, while its service-title link keeps the detail page accessible. Detail application actions retain their form/contact fallback. No fake form or booking UI is introduced.
 
 ## Validation
 
-- Existing static validation passes for three pages, 35 local references, metadata, headings, anchors, exactly two homepage sections, distinct photographs, and matching visible/metadata pricing and advisor-hour limits.
-- Node syntax checks and `git diff --check` pass.
-- Local Chromium: 15 page renders, covering all three pages at 320, 375, 768, 1024, and 1440 pixels.
-- Verified dominant unboxed name, requested hero text/credentials, full-width matching photo frames, actual photo decoding, balanced desktop cards, and service CTA touch targets of at least 44px.
-- All internal links return HTTP 200 under `/tech_advisor_landing_page/`. No overflow, broken images, HTTP/JavaScript errors, or external page requests.
-- Verified keyboard skip links, LinkedIn/email fallbacks, independent hosted application URLs, and static image/contact behavior with JavaScript disabled.
-- Desktop and mobile screenshots inspected; an independent audit confirmed offer/scope consistency and photo framing.
-
-## Advisory access update
-
-Technical Advisor now includes up to four advisor hours per month and direct-message access. Homepage copy, detail-page scope, SEO/Open Graph descriptions, documentation, and consistency checks use the new allowance. Message reviews share the monthly limit; response expectations are agreed before starting, and on-call CTO work remains excluded. Static consistency checks pass, and the homepage/advisory page were rechecked at 375px and 1440px with no overflow, broken images, HTTP errors, or JavaScript errors.
+- Static checker passes for all three pages: 38 local references, metadata, headings, anchors, exactly two homepage sections, real image assets, and price/scope consistency.
+- Node syntax checks and whitespace validation pass.
+- Chromium: 15 renders across 320, 375, 768, 1024, and 1440px widths. All three pages reviewed; no overflow, broken images, or HTTP/JavaScript errors.
+- Services begin at y=482px on a 1440px-wide desktop viewport and y=467px at 1024px width, well within the first screen. At 375px mobile width they begin at y=513px, after the customer message and actions.
+- All primary CTA targets are at least 44px tall. Default links, independently configured forms, invalid-form fallbacks, contact/email fallbacks, and every internal route pass.
+- Keyboard skip navigation and JavaScript-disabled image/contact behavior pass. No external page requests occur during validation.
+- Desktop, tablet, mobile, and detail-page crops visually inspected. Independent design and pricing/scope audits completed.
 
 ## Delivery
 
-The user merged the executive refinement into main (merge commit 0289a54). This authorized copy update targets main directly without a PR. A public-site check was blocked by this environment's network policy, so live Pages deployment cannot be confirmed here. The existing branch-based Pages workflow is unchanged.
+Prepared on `redesign/value-first` for user review. No merge, PR, live deployment, environment change, framework, backend, or dependency installation is performed. The existing GitHub Pages project structure and both detail routes are retained. Main and the live site remain unchanged until the user approves publishing.

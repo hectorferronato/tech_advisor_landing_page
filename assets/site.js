@@ -16,11 +16,12 @@
   const email = typeof config.contactEmail === 'string' ? config.contactEmail.trim() : '';
   const fallback = /^[^\s@?&#]+@[^\s@?&#]+\.[^\s@?&#]+$/.test(email) ? `mailto:${email}` : linkedIn;
   document.querySelectorAll('[data-contact]').forEach(link => { link.href = fallback; });
-  document.querySelectorAll('[data-apply]').forEach(link => {
-    const build = link.dataset.apply === 'build';
-    const application = https(build ? config.buildApplicationUrl : config.advisoryApplicationUrl);
-    link.href = application || fallback;
-    link.textContent = (application ? (build ? 'Apply for a Build Sprint' : 'Request advisory') : (build ? 'Discuss a Build Sprint' : 'Discuss advisory')) + ' ';
+  const applications = {
+    build: https(config.buildApplicationUrl),
+    advisory: https(config.advisoryApplicationUrl)
+  };
+  const setActionLabel = (link, label) => {
+    link.textContent = label + ' ';
     const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     arrow.setAttribute('viewBox', '0 0 16 16');
     arrow.setAttribute('class', 'arrow-icon');
@@ -32,6 +33,20 @@
     path.setAttribute('stroke-width', '1.3');
     arrow.append(path);
     link.append(arrow);
+  };
+  document.querySelectorAll('[data-apply]').forEach(link => {
+    const build = link.dataset.apply === 'build';
+    const application = applications[build ? 'build' : 'advisory'];
+    link.href = application || fallback;
+    setActionLabel(link, application ? (build ? 'Apply for a Build Sprint' : 'Request advisory') : (build ? 'Discuss a Build Sprint' : 'Discuss advisory'));
+  });
+  // With no form configured, homepage actions keep their real detail-page links.
+  document.querySelectorAll('[data-service-cta]').forEach(link => {
+    const build = link.dataset.serviceCta === 'build';
+    const application = applications[build ? 'build' : 'advisory'];
+    if (!application) return;
+    link.href = application;
+    setActionLabel(link, build ? 'Apply for a Build Sprint' : 'Request advisory');
   });
   document.querySelectorAll('[data-contact-note]').forEach(note => {
     note.textContent = 'Contact Hector ' + (fallback.startsWith('mailto:') ? 'by email' : 'on LinkedIn') + ' to discuss fit, or use a configured application link. No information is collected on this website.';

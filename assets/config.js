@@ -4,9 +4,9 @@ window.SITE_CONFIG = {
   advisoryApplicationUrl: "",
   contactEmail: "", // Optional verified business email; blank uses LinkedIn
   linkedInUrl: "https://www.linkedin.com/in/hectorferronato/",
-  portraitUrl: "assets/hector%20profile%20photo.jpeg", // Uploaded local headshot; spaces are URL-encoded
-  buildImageUrl: "assets/founder-build-sprint.jpg", // Local building-at-a-laptop photo, default: assets/founder-build-sprint.jpg
-  advisoryImageUrl: "assets/technical-advisory.jpg", // Local advisory photo, default: assets/technical-advisory.jpg
+  portraitUrl: "assets/hector-profile.jpg", // Canonical local path for the uploaded headshot
+  buildImageUrl: "assets/hector-building.jpg", // Local building-at-a-laptop photo, default: assets/hector-building.jpg
+  advisoryImageUrl: "assets/hector-advisory.jpg", // Local advisory photo, default: assets/hector-advisory.jpg
   availability: "A small, selective advisory practice",
   analyticsScriptUrl: "", // Optional locally hosted script; disabled by default
   analyticsSiteId: ""
