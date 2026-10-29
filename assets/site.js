@@ -49,7 +49,7 @@
   });
   document.querySelectorAll('[data-inquiry-note]').forEach(note => {
     note.textContent = inquiry
-      ? 'Send a question or share what you’re building through the message form.'
+      ? 'Share what you’re building, or ask a question.'
       : (byEmail ? 'Email me' : 'Message me on LinkedIn') + ' with what you’re building. We’ll determine whether a sprint or advisory engagement fits.';
   });
   document.querySelectorAll('[data-contact-note]').forEach(note => {
