@@ -20,7 +20,7 @@
     const build = link.dataset.apply === 'build';
     const application = https(build ? config.buildApplicationUrl : config.advisoryApplicationUrl);
     link.href = application || fallback;
-    link.textContent = (application ? (build ? 'Apply for a Build Sprint' : 'Request Technical Advisory') : (build ? 'Discuss a Build Sprint' : 'Discuss Technical Advisory')) + ' ';
+    link.textContent = (application ? (build ? 'Apply for a Build Sprint' : 'Request advisory') : (build ? 'Discuss a Build Sprint' : 'Discuss advisory')) + ' ';
     const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     arrow.setAttribute('viewBox', '0 0 16 16');
     arrow.setAttribute('class', 'arrow-icon');

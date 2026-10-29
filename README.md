@@ -1,6 +1,6 @@
 # Hector Ferronato — independent technical advisory
 
-A responsive static marketing site for Founder Build Sprint and AI Product & Technical Advisory. Programming since 2009, full-stack experience, and building businesses since 2022. No framework, build, backend, database, or runtime dependencies.
+A responsive static marketing site for Founder Build Sprint and Technical Advisor. Programming since 2009, full-stack experience, and building businesses since 2022. No framework, build, backend, database, or runtime dependencies.
 
 ## Local development
 
@@ -15,19 +15,28 @@ Open the local server in your own development environment. All paths are relativ
 
 ## Architecture and editing
 
-- `index.html`: three main sections — introduction, ways to work together, and experience — with an introduction that places enlarged value-proposition text on the left and a smaller name on the right, followed by a footer with a large centered Get in touch button.
+- `index.html`: exactly two main sections — a large, unboxed name-led hero and services — followed by a compact contact footer. Professional credibility sits in the hero.
 - `founder-build-sprint.html`, `technical-advisory.html`: detailed service pages.
-- `assets/style.css`: shared responsive design; contrasting dark surfaces, brighter secondary copy, icy-blue accents, a larger lead statement, aligned identity/service panels, and reduced-motion support.
+- `assets/style.css`: shared responsive design; the existing charcoal palette, dominant sans-serif name typography, compact mobile hierarchy, full-width service photos, and reduced-motion support.
 - `assets/config.js`: public application URLs, contact email, LinkedIn fallback, local photo paths, availability, optional local analytics.
 - `assets/site.js`: progressive enhancement of working static links. Without JavaScript, LinkedIn remains available.
-- `assets/build.svg`, `assets/advisory.svg`: original local product illustrations; retained unless local photos are configured.
+- `assets/build.svg`, `assets/advisory.svg`: legacy assets, unused by the website.
 - `.nojekyll`: bypasses Jekyll.
 
-Edit prices and engagement details in the homepage service cards and corresponding service pages together. Keep the detail-page scope statements in sync when changing an engagement. Search for `$2,500`, `$2,000`, `8 hours`, and `4 hours`. Update availability through `assets/config.js`; keep the static homepage fallback in sync. Shared header/footer markup is intentionally duplicated across only three pages; update all three when changing navigation or contact wording.
+Edit prices and engagement details in the homepage service cards and corresponding service pages together. Keep the detail-page scope statements in sync when changing an engagement. Current offers are below; update the visible prices, hour limits, SEO/Open Graph descriptions, and this documentation together. The static checker rejects old prices and hour limits. Availability configuration is reserved in `assets/config.js` for any future availability label. Shared header/footer markup is intentionally duplicated across only three pages; update all three when changing navigation or contact wording.
+
+## Current offers
+
+| Service | Price | Advisor time | Structure |
+| --- | --- | --- | --- |
+| Founder Build Sprint | $3,000 / 3-week sprint | Up to 8 hours total | One-time teaching and founder-led building; renewable by agreement |
+| Technical Advisor | $2,000 / month | Up to 3 hours per month | Month-to-month technical judgment, reviews, and recommendations |
+
+The founder does the building in a sprint. Advisory excludes full implementation and on-call CTO work. The detailed scope and no-guarantee boundaries remain on the existing service pages. There are no FAQ blocks in the current site.
 
 ## Applications and contact
 
-Set `buildApplicationUrl` and `advisoryApplicationUrl` separately to full HTTPS hosted form URLs, for example Tally. Blank or invalid URLs fall back to your verified `contactEmail`, if supplied, otherwise your LinkedIn profile. The footer Get in touch button uses the same email/LinkedIn fallback. No fake form is shown and this site collects no responses. Configured form buttons become “Apply for a Build Sprint” and “Request Technical Advisory.”
+Set `buildApplicationUrl` and `advisoryApplicationUrl` separately to full HTTPS hosted form URLs, for example Tally. Blank or invalid URLs fall back to your verified `contactEmail`, if supplied, otherwise your LinkedIn profile. The footer Get in touch button uses the same email/LinkedIn fallback. No fake form is shown and this site collects no responses. Configured form buttons become “Apply for a Build Sprint” and “Request advisory.”
 
 Recommended hosted form fields: name, email, company, optional website, service, current stage, primary challenge, desired outcome, budget, and timeline. Configure appropriate privacy disclosures and response handling on the form host. Never add secrets to this public repository.
 
@@ -38,10 +47,10 @@ All supplied photos are included directly in HTML, so they render without JavaSc
 | Asset | Usage |
 | --- | --- |
 | `assets/founder-build-sprint.jpg` | Founder Build Sprint panel and detail page |
-| `assets/technical-advisory.jpg` | Technical Advisory panel and detail page |
-| `assets/hector profile photo.jpeg` | Hero portrait above the name on the right |
+| `assets/technical-advisory.jpg` | Technical Advisor panel and detail page |
+| `assets/hector profile photo.jpeg` | Compact headshot beside the hero summary |
 
-Matching `buildImageUrl` and `advisoryImageUrl` defaults are in `assets/config.js`. Optional same-origin overrides can be configured there. The default paths use the actual uploaded filenames. `portraitUrl` matches the uploaded headshot; HTML and configuration URL-encode the spaces in its filename. The portrait is 168px on desktop, 152px on tablet, and 112px on mobile, grouped with the name in a right-side identity panel. Service-card photos follow the titles at 70% of the card width, with their aspect ratio preserved and their left edges aligned with the title and description. Detail-page photos are also displayed at 70% of their previous width.
+Matching `buildImageUrl` and `advisoryImageUrl` defaults are in `assets/config.js`. Optional same-origin overrides can be configured there. The default paths use the actual uploaded filenames. `portraitUrl` matches the uploaded headshot; HTML and configuration URL-encode the spaces in its filename. The headshot is 128px on desktop, 116px on tablet, and 72px on mobile. Both service cards use edge-to-edge 16:10 photo areas, with individual positions chosen to keep faces visible. The detail-page photos preserve their existing proportions.
 
 The service scenes are AI-generated illustrations, not documentary photos of client engagements. Alt text states this. Framing uses `object-fit: cover` with individual positions, preserving face visibility. Both photographs have been visually checked on desktop and mobile. The old SVG illustrations are unused.
 
@@ -49,7 +58,7 @@ Run `python3 scripts/check.py` after replacing an image: it verifies both distin
 
 ## GitHub Pages deployment
 
-Pages has **not** been enabled by this implementation. When the site files are on the deployment branch (`main` below):
+The existing GitHub Pages publishing setup is unchanged. After reviewing and approving the branch, the approved files can go to the deployment branch. To confirm or configure branch-based publishing:
 
 1. Go to the repository **Settings → Pages**.
 2. Under Build and deployment choose **Deploy from a branch**.
@@ -72,10 +81,10 @@ Analytics are disabled. `analyticsScriptUrl` can load a same-origin, locally hos
 - Confirm the LinkedIn contact fallback, or optionally configure hosted applications/email.
 - Confirm copy, prices, time limits, boundaries, availability, and scheduling expectations.
 - Confirm no employer/client details or unsupported claims are present.
-- Run static checks and test keyboard navigation, native FAQ controls, and mobile layouts.
+- Run static checks and test keyboard navigation, CTA touch targets, and mobile layouts.
 - Verify metadata/social preview, all navigation, and images at the deployed project URL.
 - Enable Pages and confirm deployment. Enable analytics only when ready.
 
 ## Change delivery
 
-The reviewed redesign has been merged by the user. Repair commits go directly to `main`; no new PR or environment change is needed. Shared stylesheet and script URLs include a version query so old cached assets cannot mismatch the new HTML. Bump it in all three pages when deploying a shared asset change.
+This refinement is prepared on `refine/executive-review`. Do not merge it or deploy it to `main` before user review. No new PR or environment changes are required. Shared stylesheet/script URLs are versioned in all three pages to prevent stale cached assets from mismatching the HTML.
