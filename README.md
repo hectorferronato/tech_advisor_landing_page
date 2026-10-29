@@ -1,6 +1,6 @@
 # Hector Ferronato — independent technical advisory
 
-A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. There is no site header. Hector's larger real portrait sits beside the desktop hero promise, with his name and credentials beneath the photograph. Mobile uses a centered introduction and portrait, a full-width primary contact action, and two secondary actions that stack on narrow screens. Each service card presents its audience, price, and duration before a supporting image.
+A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. There is no site header. Hector's larger real portrait sits beside the desktop hero promise, with his name and credentials beneath the photograph. Mobile uses a centered introduction and portrait, two stacked contact/service buttons and an understated background link beneath the portrait credentials. Each service card presents its audience, price, and duration before a supporting image.
 
 Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No framework, build step, backend, database, or installation is required.
 
@@ -26,7 +26,7 @@ Run `python3 scripts/check.py` to validate local links/assets, anchors, heading 
 
 ## Files and editing
 
-- `index.html`: customer-focused hero with three actions (services, contact, and experience), plus two stage-specific service panels with visible pricing.
+- `index.html`: customer-focused hero with two action buttons (contact and services) and a portrait-associated background link, plus two stage-specific service panels with visible pricing.
 - `experience.html`: first-person credibility page covering engineering leadership, education, teaching, and selected ventures with honest role/status labels.
 - `assets/experience.css`: page-specific editorial columns, reading widths, and responsive venture rows.
 - `founder-build-sprint.html`, `technical-advisory.html`: unchanged public routes with fuller scope and explanations.
@@ -46,7 +46,7 @@ Set `buildApplicationUrl` and `advisoryApplicationUrl` independently to full HTT
 - Detail-page application actions use their matching form URL, otherwise the verified `contactEmail`, otherwise the configured LinkedIn profile.
 - The hero uses **Discuss your project** only when a valid HTTPS `projectInquiryUrl` is configured. Otherwise its label explicitly names the actual method: **Message me on LinkedIn**, or **Email me about your project** when `contactEmail` is set. Its supporting copy follows the selected route. Neither service application is reused for the general inquiry.
 - `projectInquiryUrl` is currently empty: a real general inquiry URL still needs configuration if a dedicated project intake is desired. LinkedIn remains the working default. The centered footer **Get in touch** keeps the email/LinkedIn fallback.
-- **Hector’s experience** opens `experience.html` directly, independent of form configuration. It shares the secondary action row with Compare services on mobile; all three hero actions stack on narrow screens.
+- **Read my background →** sits beneath the portrait credentials and opens `experience.html` directly, independent of form configuration. The two hero buttons stack on mobile.
 - Invalid/non-HTTPS form URLs retain the working defaults. No fake form, booking UI, or response collection is implemented here.
 
 Optional hosted intake fields: name, email, company, website, service, current stage, primary challenge, desired outcome, budget, and timeline. Form responses belong on the hosted form service. Never add secrets to this public repository.

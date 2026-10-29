@@ -4,7 +4,7 @@ The homepage keeps the existing charcoal identity, customer headline, two-sectio
 
 ## Changes for review
 
-- A split desktop hero places the customer promise and actions on the left, with the real 320px headshot on the right. Hector's name and existing credentials sit beneath the portrait. On mobile, the centered promise leads into a 144px centered portrait with name and credentials below. A full-width inquiry action leads a two-column row of secondary actions; below 360px all three actions stack.
+- A split desktop hero places the customer promise and actions on the left, with the real 320px headshot on the right. Hector's name and existing credentials sit beneath the portrait. On mobile, the centered promise leads into a 144px centered portrait with name and credentials below. Two stacked inquiry/service buttons follow the portrait block. The background link sits beneath the portrait credentials rather than in the main action group.
 - The site header and its unused styles are removed from all four pages. Homepage experience/service actions, detail-page back links, and footer home links preserve navigation.
 - Desktop hero spacing keeps the key buying information visible: both service durations end around y771 in a 1440×900 viewport. Card audience, price, duration, photo order, full-card click behavior, and footer remain intact.
 - `experience.html` is rewritten in first person around engineering leadership, company-building, and teaching. Current engineering depth comes first, followed by a specific personal/education story, teaching and social impact, four selected venture rows, and relevance to a prospective founder.
@@ -35,3 +35,9 @@ The user approved automatic merging and deployment to main. Subsequent authorize
 ## Portrait size and homepage spacing refinement
 
 Home and experience portraits now use a shared responsive size: 320px desktop, 280px tablet, and 144px mobile. Homepage hero top padding is 48px desktop and 44px mobile. Ten targeted Chromium renders at 1440/1024/768/390/320px verified equal square portrait frames, increased top spacing, image decoding, readable layouts, no overflow/errors, existing routes, and tappable controls. Static checks and whitespace checks pass. Preview files are in `/workspace/artifacts/portrait-spacing/`.
+
+## Homepage CTA hierarchy refinement
+
+The hero now has exactly two buttons: the existing inquiry action and Compare services. Read my background → is a plain experience.html text link beneath the portrait credentials, with a 14px gap, subtle underline, visible keyboard focus, and a 44px tap target. Mobile keeps the same component order with two stacked buttons. Configuration and JavaScript are unchanged, including existing form/email/LinkedIn routing. Service cards, pricing, scope, all other page content, portrait dimensions, and typography are unchanged; other pages only refresh the shared CSS version.
+
+Static checks pass for four pages and 42 relative links. Five local Chromium previews at 1440/1024/768/390/320px verified the exact button count, link placement/styling/focus/target size, real keyboard navigation to experience.html, services anchor navigation, no-JavaScript navigation, current LinkedIn wording and configured inquiry/email fallbacks, and no overflow, missing assets or JavaScript errors. Independent visual review found no blockers. Previews are in `/workspace/artifacts/cta-hierarchy/`; their background-link outline shows the active keyboard focus state used during testing.

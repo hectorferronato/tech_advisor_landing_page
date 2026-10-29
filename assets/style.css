@@ -45,7 +45,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .hero-profile figcaption { margin-top: 14px; }
 .hero-profile figcaption p { margin: 0; font-size: 16px; color: var(--text); line-height: 1.5; }
-.hero-profile figcaption span { display: block; font-size: 12px; color: var(--muted); line-height: 1.65; margin-top: 3px; text-wrap: pretty; }
+.hero-profile figcaption > span { display: block; font-size: 12px; color: var(--muted); line-height: 1.65; margin-top: 3px; text-wrap: pretty; }
+.background-link { display: inline-flex; align-items: baseline; gap: 6px; min-height: 44px; margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--border); }
+.background-link:hover { text-decoration-color: currentColor; }
 /* The services are the visual and commercial center of the page. */
 .services { border-top: 1px solid var(--border); padding-block: 30px 46px; }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
@@ -148,10 +150,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .hero-portrait { width: var(--portrait-size); margin-inline: auto; }
   .hero-profile figcaption { max-width: 270px; margin: 12px auto 0; }
   .hero-profile figcaption p { font-size: 16px; }
-  .hero-profile figcaption span { text-wrap: balance; }
-  .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 10px; margin-top: 24px; }
+  .hero-profile figcaption > span { text-wrap: balance; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; width: 100%; gap: 10px; margin-top: 24px; }
   .hero-actions .button { min-width: 0; min-height: 50px; font-size: 12px; padding: 12px; gap: 10px; justify-content: center; }
-  .hero-actions .button:first-child { grid-column: 1 / -1; }
   .hero-actions .arrow-icon { width: 12px; height: 12px; }
   .inquiry-note { text-align: center; max-width: 42ch; margin-inline: auto; }
   .services { padding-top: 26px; padding-bottom: 28px; }
@@ -189,7 +190,6 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .detail-page .footer { margin-top: 30px; }
 }
 @media (max-width: 360px) {
-  .hero-actions { grid-template-columns: 1fr; }
   .hero-actions .button { padding-inline: 16px; }
   .footer nav { justify-content: flex-start; gap: 22px; }
 }
