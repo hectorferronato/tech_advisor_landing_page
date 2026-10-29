@@ -33,13 +33,13 @@
     link.append(arrow);
   });
   document.querySelectorAll('[data-contact-note]').forEach(note => {
-    note.textContent = 'Applications use a hosted form when available. Otherwise, contact Hector ' + (fallback.startsWith('mailto:') ? 'by email' : 'on LinkedIn') + ' to discuss fit. No information is collected on this website.';
+    note.textContent = 'Contact Hector ' + (fallback.startsWith('mailto:') ? 'by email' : 'on LinkedIn') + ' to discuss fit, or use a configured application link. No information is collected on this website.';
   });
   document.querySelectorAll('[data-availability]').forEach(el => {
     if (typeof config.availability === 'string' && config.availability.trim()) el.textContent = config.availability;
   });
   const portrait = localAsset(config.portraitUrl);
-  if (portrait) {
+  if (portrait && document.querySelector('[data-portrait]')) {
     const img = new Image();
     img.alt = 'Hector Ferronato';
     img.width = 800;
@@ -48,12 +48,14 @@
     img.src = portrait;
   }
   const serviceImages = [
-    ['build', config.buildImageUrl, 'Hector working on a laptop'],
-    ['advisory', config.advisoryImageUrl, 'Hector discussing software architecture']
+    ['build', config.buildImageUrl, 'AI-generated illustrative scene of Hector building software at a laptop'],
+    ['advisory', config.advisoryImageUrl, 'AI-generated illustrative scene of Hector discussing software architecture with another person']
   ];
   serviceImages.forEach(([service, value, alt]) => {
     const source = localAsset(value);
     if (!source) return;
+    const targets = [...document.querySelectorAll(`[data-service-image="${service}"]`)];
+    if (!targets.length || targets.every(el => el.src === source)) return;
     const image = new Image();
     image.onload = () => document.querySelectorAll(`[data-service-image="${service}"]`).forEach(el => {
       el.src = source;

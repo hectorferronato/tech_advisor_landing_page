@@ -15,15 +15,15 @@ Open the local server in your own development environment. All paths are relativ
 
 ## Architecture and editing
 
-- `index.html`: homepage, services, background, process, FAQ.
+- `index.html`: exactly two main sections — introduction and ways to work together — followed by a minimal footer.
 - `founder-build-sprint.html`, `technical-advisory.html`: detailed service pages.
-- `assets/style.css`: shared responsive design; warm neutrals, deep teal, editorial serif headings, system sans-serif body text, reduced-motion support.
+- `assets/style.css`: shared responsive design; consistent dark surfaces, icy-blue accents, oversized sans-serif name typography, responsive panels, and reduced-motion support.
 - `assets/config.js`: public application URLs, contact email, LinkedIn fallback, local photo paths, availability, optional local analytics.
 - `assets/site.js`: progressive enhancement of working static links. Without JavaScript, LinkedIn remains available.
 - `assets/build.svg`, `assets/advisory.svg`: original local product illustrations; retained unless local photos are configured.
 - `.nojekyll`: bypasses Jekyll.
 
-Edit prices and engagement details in the homepage service cards and corresponding service pages together. Edit FAQ scope statements when changing an engagement. Search for `$2,500`, `$2,000`, `8 hours`, and `4 hours`. Update availability through `assets/config.js`; keep the static homepage fallback in sync. Shared header/footer markup is intentionally duplicated across only three pages; update all three when changing navigation or contact wording.
+Edit prices and engagement details in the homepage service cards and corresponding service pages together. Keep the detail-page scope statements in sync when changing an engagement. Search for `$2,500`, `$2,000`, `8 hours`, and `4 hours`. Update availability through `assets/config.js`; keep the static homepage fallback in sync. Shared header/footer markup is intentionally duplicated across only three pages; update all three when changing navigation or contact wording.
 
 ## Applications and contact
 
@@ -33,17 +33,19 @@ Recommended hosted form fields: name, email, company, optional website, service,
 
 ## Local photography
 
-The design works with its local illustrations and HF monogram. No LinkedIn download, stock-image service, external API, or environment publication is required. Supplied photos can replace the illustrations without changing the layout:
+The service photographs are referenced directly in HTML, so they work without JavaScript:
 
-| Photo | Local filename | Configuration field |
+| Asset | Usage | Status at redesign review |
 | --- | --- | --- |
-| Square headshot | `assets/hector-profile.jpg` | `portraitUrl` |
-| Working at a laptop | `assets/hector-building.jpg` | `buildImageUrl` |
-| Discussing architecture | `assets/hector-advisory.jpg` | `advisoryImageUrl` |
+| `assets/hector-building.jpg` | Build Sprint panel and detail page | Missing — upload required |
+| `assets/hector-advisory.jpg` | Advisory panel and detail page | Missing — upload required |
+| `assets/hector-profile.jpg` | Optional personal headshot | Missing — upload required; headshot omitted |
 
-Set each field to its project-relative filename after adding the file. Portrait and service photo slots accept only same-origin assets. If a file cannot load, the existing visual remains. Image frames crop responsively; the service cards use decorative alt text, and detail pages describe the photo without claiming a client engagement or outcome.
+These files were absent from both the checkout and the fetched `main` branch. No SVG, stock image, or generated substitute is displayed in their place. Until the JPGs are supplied, browsers cannot render the photographs and the asset validation intentionally fails. Keep the filenames exactly as above.
 
-Photo configuration is optional and remains blank until the corresponding files are present. The site works with its existing local visuals.
+The service scenes are AI-generated illustrations, not documentary photos of client engagements. Their alt text states this. Responsive framing uses `object-fit: cover` and separate positions for the two source compositions; detail pages retain their source proportions. Final face/crop validation requires the actual JPG files.
+
+`assets/config.js` contains matching default photo paths. It can optionally override same-origin images, but the defaults do not depend on JavaScript. The old SVG files remain unused in the repository.
 
 ## GitHub Pages deployment
 
@@ -66,7 +68,8 @@ Analytics are disabled. `analyticsScriptUrl` can load a same-origin, locally hos
 
 ## Pre-launch checklist
 
-- Optionally add the supplied local photos; existing visuals work without them.
+- Upload the three JPG files listed above; confirm both service photographs load on the homepage and detail pages.
+- Inspect face framing with the actual photos on mobile and desktop.
 - Confirm the LinkedIn contact fallback, or optionally configure hosted applications/email.
 - Confirm copy, prices, time limits, boundaries, availability, and scheduling expectations.
 - Confirm no employer/client details or unsupported claims are present.
@@ -76,4 +79,4 @@ Analytics are disabled. `analyticsScriptUrl` can load a same-origin, locally hos
 
 ## Change delivery
 
-Commit directly on the working branch. Do not create a new pull request unless requested. The user has already handled the initial PR. No network or environment changes are prerequisites for completing local work.
+Commit redesign changes on `redesign/dark-minimal` for review. Do not merge or push to `main` before the user reviews the redesign. No new PR or environment change is required.
