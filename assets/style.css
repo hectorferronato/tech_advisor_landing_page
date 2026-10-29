@@ -29,17 +29,17 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .header nav a { display: flex; align-items: center; gap: 15px; }
 .arrow-icon { width: 13px; height: 13px; display: inline-block; vertical-align: -1px; }
 .eyebrow { color: var(--muted); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; line-height: 1.7; }
-.introduction { padding-top: 72px; padding-bottom: 74px; }
-.introduction > .eyebrow { margin-bottom: 38px; }
-.introduction h1 { font-size: clamp(56px, 9vw, 128px); font-weight: 650; letter-spacing: -.075em; line-height: .88; margin-left: -.065em; }
+.introduction { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 80px; align-items: center; padding-block: 76px; }
+.hero-identity { grid-column: 2; grid-row: 1; text-align: right; }
+.introduction h1 { font-size: clamp(40px, 5.3vw, 76px); font-weight: 650; letter-spacing: -.065em; line-height: .98; }
 .introduction h1 > span { display: block; }
-.introduction h1 > span + span { margin-top: .08em; }
+.introduction h1 > span + span { margin-top: .1em; }
 .name-period { color: var(--accent); }
-.intro-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 64px; margin-top: 46px; }
-.intro-copy { max-width: 615px; }
-.intro-copy h2 { font-size: clamp(21px, 2vw, 29px); letter-spacing: -.035em; margin-bottom: 16px; }
-.intro-copy p { font-size: 15px; line-height: 1.8; margin-bottom: 0; max-width: 580px; }
-.service-cue { display: flex; align-items: center; justify-content: space-between; gap: 26px; min-width: 190px; padding-bottom: 12px; border-bottom: 1px solid var(--border); font-size: 11px; }
+.hero-identity .eyebrow { margin: 24px 0 0 auto; max-width: 310px; font-size: 9px; letter-spacing: .08em; }
+.intro-copy { grid-column: 1; grid-row: 1; }
+.intro-copy h2 { font-size: 18px; letter-spacing: -.025em; color: var(--accent); margin-bottom: 22px; }
+.intro-copy .intro-statement { font-size: clamp(23px, 2.25vw, 32px); line-height: 1.5; color: var(--text); letter-spacing: -.035em; margin-bottom: 28px; }
+.service-cue { display: inline-flex; align-items: center; justify-content: space-between; gap: 26px; min-width: 190px; padding-bottom: 12px; border-bottom: 1px solid var(--border); font-size: 11px; }
 .service-cue svg { width: 21px; height: 21px; color: var(--accent); }
 .services { padding-top: 37px; padding-bottom: 58px; border-top: 1px solid var(--border); }
 .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 28px; }
@@ -62,7 +62,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .engagement .scope-note { color: var(--muted); font-size: 10px; }
 .panel-link { border-top: 1px solid var(--border); padding-block: 21px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 12px; font-weight: 500; }
 .panel-link:hover { color: var(--accent); }
-.footer { display: flex; justify-content: space-between; gap: 32px; border-top: 1px solid var(--border); padding-block: 30px 35px; }
+.footer { border-top: 1px solid var(--border); padding-block: 0 30px; }
+.footer-action { display: flex; justify-content: center; padding-block: 42px; }
+.footer-meta { display: flex; align-items: center; justify-content: space-between; gap: 28px; border-top: 1px solid var(--border); padding-top: 25px; }
 .footer-identity { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
 .footer-identity span { color: var(--muted); font-size: 10px; }
 .footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 23px; font-size: 10px; }
@@ -79,8 +81,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .experience-date { font-size: 11px; color: var(--accent); letter-spacing: .04em; margin-bottom: 15px; }
 .experience-list h3 { font-size: 20px; letter-spacing: -.03em; margin-bottom: 14px; }
 .experience-list article > p:last-child { font-size: 13px; line-height: 1.85; margin-bottom: 0; }
-.footer { align-items: center; }
-.footer .footer-contact { font-size: 11px; padding: 10px 16px; color: var(--background); gap: 18px; }
+.footer .footer-contact { justify-content: center; min-width: 280px; max-width: 100%; font-size: 18px; padding: 18px 32px; color: var(--background); gap: 32px; }
+.footer-contact .arrow-icon { width: 18px; height: 18px; }
 /* Detail pages retain clear scope and pricing within the same restrained system. */
 .service-intro { padding-top: 36px; padding-bottom: 48px; }
 .breadcrumb { display: inline-block; color: var(--muted); border-bottom: 1px solid var(--border); margin-bottom: 52px; font-size: 11px; }
@@ -114,12 +116,11 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
 .scope-band .detail-section { border-top: 0; align-items: start; }
 .text-link { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 6px; font-size: 12px; margin-top: 10px; }
 .detail-page .footer { margin-top: 58px; }
-@media (min-width: 1700px) { .introduction { padding-top: 85px; } }
+@media (min-width: 1700px) { .introduction { padding-block: 90px; } }
 @media (max-width: 1000px) {
   .wrap { width: calc(100% - 64px); }
-  .introduction h1 { font-size: 9vw; }
-  .intro-bottom { gap: 40px; }
-  .intro-copy { max-width: 520px; }
+  .introduction { gap: 40px; }
+  .introduction h1 { font-size: 5.3vw; }
   .service-cue { min-width: 160px; }
   .panel-content { padding-inline: 24px; }
   .panel-content h3 { min-height: 70px; }
@@ -134,12 +135,13 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
   .header-label { display: none; }
   .header nav { font-size: 10px; }
   .header nav a { gap: 10px; }
-  .introduction { padding-top: 52px; padding-bottom: 48px; }
-  .introduction > .eyebrow { font-size: 8px; letter-spacing: .07em; margin-bottom: 30px; }
-  .introduction h1 { font-size: clamp(32px, 10.5vw, 64px); font-weight: 650; }
-  .intro-bottom { flex-direction: column; align-items: stretch; margin-top: 31px; gap: 29px; }
-  .intro-copy h2 { font-size: clamp(20px, 5vw, 28px); }
-  .intro-copy p { font-size: 13px; line-height: 1.85; }
+  .introduction { grid-template-columns: 1fr; gap: 38px; padding-block: 38px 45px; }
+  .hero-identity { grid-column: 1; grid-row: 1; }
+  .hero-identity .eyebrow { font-size: 8px; margin-top: 16px; max-width: 230px; }
+  .introduction h1 { font-size: clamp(28px, 8vw, 40px); }
+  .intro-copy { grid-column: 1; grid-row: 2; }
+  .intro-copy h2 { font-size: 16px; line-height: 1.5; margin-bottom: 18px; }
+  .intro-copy .intro-statement { font-size: 23px; line-height: 1.55; }
   .service-cue { align-self: flex-start; min-width: 190px; }
   .services { padding-top: 27px; padding-bottom: 48px; }
   .section-heading { display: block; margin-bottom: 23px; }
@@ -154,7 +156,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.15; letter-spacing: -.0
   .experience-list { gap: 25px; }
   .experience-list h3 { font-size: 18px; }
   .experience-intro > p:last-child { font-size: 13px; }
-  .footer { flex-direction: column; align-items: flex-start; gap: 23px; padding-block: 26px; }
+  .footer { padding-bottom: 26px; }
+  .footer-action { padding-block: 35px; }
+  .footer-meta { flex-direction: column; align-items: flex-start; gap: 22px; }
   .footer nav { gap: 15px 22px; }
   .footer nav a { font-size: 10px; }
   .service-intro { padding-top: 25px; padding-bottom: 35px; }

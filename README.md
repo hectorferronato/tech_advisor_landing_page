@@ -15,7 +15,7 @@ Open the local server in your own development environment. All paths are relativ
 
 ## Architecture and editing
 
-- `index.html`: three main sections — introduction, ways to work together, and experience — followed by a compact footer with a Get in touch button.
+- `index.html`: three main sections — introduction, ways to work together, and experience — with an introduction that places enlarged value-proposition text on the left and a smaller name on the right, followed by a footer with a large centered Get in touch button.
 - `founder-build-sprint.html`, `technical-advisory.html`: detailed service pages.
 - `assets/style.css`: shared responsive design; consistent dark surfaces, icy-blue accents, oversized sans-serif name typography, responsive panels, and reduced-motion support.
 - `assets/config.js`: public application URLs, contact email, LinkedIn fallback, local photo paths, availability, optional local analytics.

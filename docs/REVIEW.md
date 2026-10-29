@@ -24,3 +24,9 @@ This repair targets `main`, where the user has already merged and reviewed the r
 Reduced the name's maximum size from 184px to 128px, with smaller tablet/mobile sizing. Added an experience section immediately after the service panels, using confirmed programming-since-2009 and business-building-since-2022 dates plus the VP of Engineering background. Added a Get in touch footer button on all three pages using the configured email/LinkedIn fallback. Shared asset versions were bumped.
 
 The 12-layout Chromium checks pass with these changes, including experience placement, the smaller computed name size, both contact destinations, and the existing link/layout checks. All actual photo files remain absent in both the local checkout and the latest fetched main branch.
+
+## Split hero and centered contact update
+
+The homepage now places the enlarged introductory paragraph on the left and the smaller Hector Ferronato heading on the right at desktop/tablet widths. The name has a 76px maximum, and the statement uses 23–32px text. On mobile, the smaller right-aligned identity appears above the introduction. The footer contact action sits on its own centered row across all three pages, with a minimum 280px width, 18px text, and larger padding. Contact links and identity details follow below. Shared asset URLs are versioned again.
+
+All 12 responsive page checks pass, including geometric assertions for the split hero and the centered button's size/position. No actual photo files exist in the repository; photo inclusion remains pending receipt of the original files.
