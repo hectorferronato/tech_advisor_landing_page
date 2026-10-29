@@ -1,6 +1,5 @@
 /* Experience is an editorial page; all rules stay within its own content. */
 .exp-intro { padding-block: 28px 46px; }
-.exp-intro .breadcrumb { margin-bottom: 25px; }
 .exp-intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) var(--portrait-size); align-items: center; gap: 72px; }
 .exp-intro-copy { max-width: 760px; }
 .exp-intro .eyebrow { margin-bottom: 17px; }
@@ -38,7 +37,6 @@
 }
 @media (max-width: 700px) {
   .exp-intro { padding-block: 22px 34px; }
-  .exp-intro .breadcrumb { margin-bottom: 22px; }
   .exp-intro-grid { grid-template-columns: minmax(0, 1fr); gap: 25px; }
   .exp-intro h1 { max-width: 20ch; font-size: clamp(33px, 8.5vw, 41px); line-height: 1.18; }
   .exp-lead { font-size: 16px; line-height: 1.8; margin-top: 21px; }
