@@ -12,6 +12,7 @@ class Document(HTMLParser):
         super().__init__()
         self.path, self.ids, self.links, self.h1, self.meta = path, set(), [], 0, set()
         self.sections, self.images, self.media = 0, [], []
+        self.text, self.metadata = [], {}
         self.feed(path.read_text())
 
     def handle_starttag(self, tag, attrs):
@@ -24,7 +25,9 @@ class Document(HTMLParser):
         if tag == 'section':
             self.sections += 1
         if tag == 'meta':
-            self.meta.add(attrs.get('name') or attrs.get('property'))
+            key = attrs.get('name') or attrs.get('property')
+            self.meta.add(key)
+            self.metadata[key] = attrs.get('content', '')
         for name in ('src', 'href'):
             if attrs.get(name):
                 self.links.append(attrs[name])
@@ -33,6 +36,9 @@ class Document(HTMLParser):
         if tag == 'img':
             assert 'alt' in attrs, f'Missing image alt in {self.path}'
             self.images.append(attrs)
+
+    def handle_data(self, data):
+        self.text.append(data)
 
 
 docs = {f: Document(f) for f in ROOT.glob('*.html')}
@@ -54,8 +60,8 @@ for path, doc in docs.items():
         count += 1
 
 home = docs[ROOT / 'index.html']
-assert home.sections == 3, 'Homepage must have introduction, services, and experience sections'
-assert 'experience' in home.ids, 'Missing experience section'
+assert home.sections == 2, 'Homepage must have exactly two sections: hero and services'
+assert 'experience' not in home.ids, 'Experience must be integrated into the hero'
 for service, detail, filename in [
     ('build', 'founder-build-sprint.html', 'founder-build-sprint.jpg'),
     ('advisory', 'technical-advisory.html', 'technical-advisory.jpg'),
@@ -65,6 +71,21 @@ for service, detail, filename in [
         images = [image for image in doc.images if image.get('data-service-image') == service]
         assert len(images) == 1 and images[0]['src'] == f'assets/{filename}', f'Incorrect static photo for {service} in {doc.path}'
         assert 'AI-generated illustrative scene' in images[0]['alt'], 'Missing accurate scene alt text'
+# Prices and advisor-hour limits must agree across visible copy and social/SEO metadata.
+for filename, price, hours in [
+    ('founder-build-sprint.html', '$3,000', '8 advisor hours'),
+    ('technical-advisory.html', '$2,000', '3 advisor hours'),
+]:
+    doc = docs[ROOT / filename]
+    visible = ' '.join(doc.text)
+    assert price in visible and hours in visible, f'Wrong visible offer in {filename}'
+    for key in ('description', 'og:description'):
+        assert price in doc.metadata[key] and hours in doc.metadata[key], f'Wrong offer metadata in {filename}'
+for path in docs:
+    source = path.read_text()
+    assert not any(old in source for old in ('$2,500', 'From $2,000', 'Starting at $2,000', '4 advisor hours', 'four advisor hours')), f'Stale pricing/scope in {path}'
+home_text = ' '.join(home.text)
+assert all(value in home_text for value in ('$3,000', '$2,000', '8 advisor hours', '3 advisor hours')), 'Homepage offer mismatch'
 # A missing configured image is a deployment error; an unconfigured optional image is not requested.
 config = (ROOT / 'assets/config.js').read_text()
 for field in ('portraitUrl', 'buildImageUrl', 'advisoryImageUrl'):
@@ -74,7 +95,7 @@ for field in ('portraitUrl', 'buildImageUrl', 'advisoryImageUrl'):
         assert target.is_relative_to(ROOT), f'Configured image escapes site: {value}'
         if not target.is_file():
             missing.add(value)
-print(f'PASS: {len(docs)} page structures, {count} relative links, metadata, anchors, three homepage sections, and distinct static service photos')
+print(f'PASS: {len(docs)} page structures, {count} relative links, metadata, anchors, two homepage sections, and distinct static service photos')
 if missing:
     print('FAIL: referenced files missing:')
     for filename in sorted(missing):
