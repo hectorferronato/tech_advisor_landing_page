@@ -59,6 +59,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
 .section-heading h2 { font-size: clamp(26px, 2.4vw, 31px); }
 .section-heading p { font-size: 12px; margin-bottom: 0; }
+.service-jumps { display: none; }
 .service-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
 /* Shared content-driven rows align both offers without fixed text heights. */
 .service-panel { display: grid; grid-row: span 6; grid-template-rows: subgrid; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 3px; text-align: left; transition: border-color .18s; }
@@ -75,7 +76,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .price { color: var(--text); font-size: 28px; line-height: 1.25; font-weight: 500; letter-spacing: -.035em; margin-bottom: 9px; }
 .price > span { color: var(--muted); font-size: 13px; font-weight: 400; letter-spacing: 0; }
 .engagement-duration { font-size: 13px; margin: 0; }
-.service-scope { margin: 0; padding: 20px var(--inset); list-style: none; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.service-scope { margin: 0; padding: 0 var(--inset) 20px; list-style: none; color: var(--muted); font-size: 13px; line-height: 1.65; }
 .service-scope li { position: relative; padding-left: 13px; }
 .service-scope li + li { margin-top: 7px; }
 .service-scope li::before { content: "·"; position: absolute; left: 0; color: var(--accent); }
@@ -103,6 +104,10 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .service-offer { display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-top: 30px; border-top: 1px solid var(--border); padding-top: 24px; }
 .service-offer p { font-size: 13px; margin-bottom: 3px; }
 .service-offer .offer-price { font-size: 27px; color: var(--text); font-weight: 500; letter-spacing: -.03em; margin-bottom: 8px; }
+.inquiry-next { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-top: 32px; }
+.inquiry-next h2 { font-size: clamp(26px, 2.4vw, 32px); }
+.inquiry-next p { max-width: 54ch; margin: 12px 0 0; font-size: 14px; }
+.inquiry-next > .button { flex-shrink: 0; }
 .contact-note { font-size: 11px; margin-top: 18px; margin-bottom: 0; }
 .detail-section { padding-block: 44px; border-top: 1px solid var(--border); }
 .detail-section .eyebrow { margin-bottom: 16px; }
@@ -180,6 +185,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .section-heading { display: block; margin-bottom: 22px; }
   .section-heading h2 { font-size: 25px; }
   .section-heading p { max-width: none; margin-top: 8px; font-size: 12px; }
+  .service-jumps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 22px; }
+  .service-jumps a { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; padding-block: 8px; border-bottom: 1px solid var(--border); font-size: 13px; }
   .service-panels { grid-template-columns: 1fr; gap: 22px; }
   .service-panel { grid-row: auto; grid-template-rows: auto; }
   .panel-actions { gap: 8px; }
@@ -202,6 +209,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .service-intro h1 { font-size: 36px; }
   .lead { font-size: 17px; }
   .service-offer { flex-direction: column; align-items: flex-start; gap: 22px; margin-top: 25px; }
+  .inquiry-next { flex-direction: column; align-items: stretch; gap: 20px; }
+  .inquiry-next > .button { justify-content: center; }
   .service-offer .offer-price { font-size: 25px; }
   .service-offer p { font-size: 12px; }
   .detail-section { padding-block: 34px; }
@@ -217,6 +226,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .form-dialog-footer { padding-inline: 16px; }
 }
 @media (max-width: 360px) {
+  .panel-actions { grid-template-columns: 1fr; }
   .hero-proof { grid-template-columns: 1fr; gap: 12px; }
   .hero-proof li { display: grid; grid-template-columns: minmax(0, 140px) minmax(0, 1fr); align-items: center; gap: 12px; text-align: left; }
   .proof-label { margin-top: 0; }

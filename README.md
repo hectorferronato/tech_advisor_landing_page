@@ -1,6 +1,6 @@
 # Hector Ferronato — independent technical advisory
 
-A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. There is no site header. Hector's larger real portrait sits beside the desktop hero promise, with his name and credentials beneath the photograph. At the single-column mobile breakpoint (700px and below), the introduction is followed by the portrait and story link, then the proof points, teaching copy, and two stacked contact/service buttons. Each service card presents its audience, price, and duration before a supporting image. A compact footer combines the identity, general-contact button, and LinkedIn link.
+A lightweight, conversion-focused marketing site for founders and business owners. The homepage has exactly two main sections: a compact customer value proposition and two service panels. There is no site header. Hector's larger real portrait sits beside the desktop hero promise, with his name and credentials beneath the photograph. At the single-column mobile breakpoint (700px and below), the introduction is followed by the portrait and story link, then the proof points, teaching copy, and two stacked contact/service buttons. Each service card presents its audience, price, duration, scope, and application/detail actions before a supporting image. Mobile service shortcuts jump directly to either offer, and each service detail page repeats its matching application action after the scope explanation. A compact footer combines the identity, general-contact button, and LinkedIn link.
 
 Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No framework, build step, backend, database, or installation is required.
 
@@ -11,7 +11,7 @@ Semantic HTML, shared CSS, and minimal progressive-enhancement JavaScript. No fr
 | Founder Build Sprint | $3,000 / 3 weeks | Up to 8 hours total | Private guided sessions, structured assignments, and engineering feedback; the founder builds |
 | Technical Advisory | $2,000 / month | Up to 4 hours monthly | Senior technical judgment, focused reviews, and recommendations; month-to-month with direct-message access |
 
-The detail pages retain scope, exclusions, scheduling expectations, and renewal/no-guarantee language. Advisory is not full-time CTO responsibility, on-call support, or day-to-day development ownership. There are no FAQ blocks in the current site.
+The detail pages retain scope, exclusions, scheduling expectations, and renewal/no-guarantee language. Their opening and closing application buttons route to the same service-specific form, with general contact remaining in the footer. Advisory is not full-time CTO responsibility, on-call support, or day-to-day development ownership. There are no FAQ blocks in the current site.
 
 ## Local development and checks
 
