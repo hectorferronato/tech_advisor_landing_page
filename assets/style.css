@@ -112,6 +112,10 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .skip:focus { top: 10px; }
 /* Existing detail routes retain their full scope and readable explanations. */
 .service-intro { padding-top: 28px; padding-bottom: 38px; }
+.service-hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) var(--portrait-size); column-gap: 64px; align-items: start; }
+.service-hero-copy, .service-hero-layout > .service-offer, .service-hero-layout > .contact-note, .service-hero-layout > .page-jumps { grid-column: 1; }
+.service-profile { grid-row: 1 / span 4; }
+.service-hero-copy .lead { margin-bottom: 0; }
 .breadcrumb { min-height: 44px; gap: 10px; margin-bottom: 24px; }
 .breadcrumb > span { font-size: 18px; line-height: 1; }
 .service-intro .eyebrow { margin-bottom: 16px; }
@@ -165,6 +169,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .wrap { width: calc(100% - 64px); }
   .hero h1 { font-size: 46px; }
   .hero-layout { column-gap: 40px; }
+  .service-hero-layout { column-gap: 40px; }
   .hero-actions .button { padding-inline: 15px; gap: 18px; }
   .service-photo-frame img { height: 220px; }
   .detail-grid { gap: 38px; }
@@ -227,6 +232,12 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .footer nav a { gap: 8px; }
   .footer .arrow-icon { width: 12px; height: 12px; }
   .service-intro { padding-top: 22px; padding-bottom: 32px; }
+  .service-hero-layout { grid-template-columns: minmax(0, 1fr); }
+  .service-hero-copy, .service-hero-layout > .service-offer, .service-hero-layout > .contact-note, .service-hero-layout > .page-jumps, .service-profile { grid-column: auto; grid-row: auto; }
+  .service-profile { gap: 8px 16px; padding-block: 16px; }
+  .service-profile .hero-portrait { grid-row: 1 / span 2; }
+  .service-profile .background-link { grid-column: 2; justify-content: flex-start; text-align: left; font-size: 13px; }
+  .service-hero-layout > .service-offer { margin-top: 0; border-top: 0; padding-top: 22px; }
   .breadcrumb { margin-bottom: 20px; }
   .service-intro h1 { font-size: 36px; }
   .lead { font-size: 17px; }
