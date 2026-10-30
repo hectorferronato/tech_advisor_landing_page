@@ -69,8 +69,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .panel-heading h3 { font-size: 28px; line-height: 1.2; letter-spacing: -.04em; }
 .service-photo-frame { width: 100%; margin: 0; border-block: 1px solid var(--border); overflow: hidden; }
 .service-photo-frame img { width: 100%; height: 260px; object-fit: cover; background: var(--background); }
-.service-photo[data-service-image="build"] { object-position: 50% 0%; }
-.service-photo[data-service-image="advisory"] { object-position: 48% 19%; }
+.service-photo[data-service-image="build"] { object-position: 50% 50%; }
+.service-photo[data-service-image="advisory"] { object-position: 50% 50%; }
 .service-audience { color: var(--text); font-size: 16px; line-height: 1.5; font-weight: 400; letter-spacing: -.015em; margin: 0; padding: 0 var(--inset) 18px; }
 .engagement { margin-inline: var(--inset); padding-block: 16px 20px; border-top: 1px solid var(--border); }
 .price { color: var(--text); font-size: 28px; line-height: 1.25; font-weight: 500; letter-spacing: -.035em; margin-bottom: 9px; }

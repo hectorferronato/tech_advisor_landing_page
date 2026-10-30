@@ -71,8 +71,8 @@
     img.src = portrait;
   }
   const serviceImages = [
-    ['build', config.buildImageUrl, 'AI-generated illustrative scene of Hector building software at a laptop'],
-    ['advisory', config.advisoryImageUrl, 'AI-generated illustrative scene of Hector discussing software architecture with another person']
+    ['build', config.buildImageUrl, 'AI-generated illustrative scene of hands working on a laptop beside product sketches'],
+    ['advisory', config.advisoryImageUrl, 'AI-generated illustrative scene of two people reviewing plans on a laptop']
   ];
   serviceImages.forEach(([service, value, alt]) => {
     const source = localAsset(value);
