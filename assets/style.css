@@ -60,6 +60,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .section-heading h2 { font-size: clamp(26px, 2.4vw, 31px); }
 .section-heading p { font-size: 12px; margin-bottom: 0; }
 .service-jumps { display: none; }
+.mobile-service-link, .page-jumps { display: none; }
 .service-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
 /* Shared content-driven rows align both offers without fixed text heights. */
 .service-panel { display: grid; grid-row: span 6; grid-template-rows: subgrid; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 3px; text-align: left; transition: border-color .18s; }
@@ -83,6 +84,21 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
 .panel-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-inline: var(--inset); padding-block: 16px 18px; border-top: 1px solid var(--border); }
 .panel-actions .button { min-width: 0; justify-content: center; padding-inline: 10px; gap: 8px; }
 .panel-details { align-self: stretch; white-space: normal; }
+.work-example { display: grid; grid-template-columns: minmax(0, .55fr) minmax(0, 1.45fr); gap: 32px; margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border); }
+.work-example .eyebrow { margin-bottom: 8px; }
+.work-example h3 { font-size: 25px; }
+.work-example p { max-width: 70ch; font-size: 14px; margin-bottom: 0; }
+.work-example .eyebrow { font-size: 10px; }
+.case-example > p { max-width: 70ch; }
+.case-example .case-person { margin-top: -10px; font-size: 14px; }
+.case-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin: 28px 0 0; }
+.case-facts > div { border-top: 1px solid var(--border); padding-top: 16px; }
+.case-facts dt { font-size: 17px; color: var(--text); margin-bottom: 10px; }
+.case-facts dd { margin: 0; font-size: 14px; color: var(--muted); }
+.reading-list { margin: 0 0 20px; padding-left: 20px; color: var(--muted); font-size: 14px; }
+.reading-list li + li { margin-top: 10px; }
+.scope-details summary { min-height: 44px; cursor: pointer; font-size: 22px; line-height: 1.4; letter-spacing: -.04em; color: var(--text); }
+.scope-details[open] summary { margin-bottom: 17px; }
 /* Contact shares one compact footer with the identity and social link. */
 .footer { border-top: 1px solid var(--border); padding-block: 22px; }
 .footer-meta { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 24px; }
@@ -168,6 +184,12 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .hero-message .eyebrow { font-size: 9px; letter-spacing: .08em; margin-bottom: 16px; }
   .hero h1 { font-size: clamp(32px, 7.8vw, 40px); line-height: 1.15; letter-spacing: -.04em; text-wrap: balance; }
   .hero-support { font-size: 16px; line-height: 1.65; margin: 16px auto 0; max-width: 38ch; }
+  .mobile-service-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 8px; font-size: 13px; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  .page-jumps { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 18px; }
+  .page-jumps a { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; color: var(--accent); border-bottom: 1px solid var(--border); }
+  .work-example { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 24px; padding-top: 24px; }
+  .case-facts { grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 22px; }
+  .case-example > p:not(.eyebrow), .case-facts dd { font-size: 15px; }
   .hero-proof { gap: 12px; margin-top: 18px; }
   .hero-proof strong { font-size: 28px; }
   .hero-profile { grid-column: auto; grid-row: auto; display: grid; grid-template-columns: clamp(96px, 28vw, var(--portrait-size)) minmax(0, 1fr); align-items: start; gap: 16px; width: 100%; max-width: 480px; justify-self: center; margin-top: 20px; padding-block: 20px; border-block: 1px solid var(--border); text-align: left; }

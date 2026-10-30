@@ -1,6 +1,11 @@
 (() => {
   'use strict';
   const config = window.SITE_CONFIG || {};
+  // Keep full scope available without a long initial read on small screens.
+  // With JavaScript disabled, the HTML defaults to showing all details.
+  if (window.matchMedia('(max-width: 700px)').matches) {
+    document.querySelectorAll('.scope-details').forEach(details => { details.open = false; });
+  }
   const localAsset = value => {
     if (typeof value !== 'string' || !value.trim()) return '';
     try {
@@ -51,7 +56,7 @@
     const action = note.closest('.service-intro').querySelector('[data-apply]');
     const service = action.dataset.apply;
     note.textContent = applications[service]
-      ? 'Share your project through the application form. We’ll discuss fit, scope, and next steps before agreeing to an engagement.'
+      ? 'Share your project. We’ll discuss fit and scope before you commit.'
       : 'Contact Hector ' + (byEmail ? 'by email' : 'on LinkedIn') + ' to discuss fit and next steps. No information is collected on this website.';
   });
   document.querySelectorAll('[data-availability]').forEach(el => {
@@ -72,7 +77,7 @@
   }
   const serviceImages = [
     ['build', config.buildImageUrl, 'AI-generated illustrative scene of hands working on a laptop beside product sketches'],
-    ['advisory', config.advisoryImageUrl, 'AI-generated illustrative scene of two people reviewing plans on a laptop']
+    ['advisory', config.advisoryImageUrl, 'AI-generated illustrative scene of two people reviewing software code on a laptop']
   ];
   serviceImages.forEach(([service, value, alt]) => {
     const source = localAsset(value);
