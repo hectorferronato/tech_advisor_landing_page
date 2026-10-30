@@ -165,11 +165,11 @@ h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.16; letter-spacing: -.0
   .hero-support { font-size: 16px; line-height: 1.65; margin: 16px auto 0; max-width: 38ch; }
   .hero-proof { gap: 12px; margin-top: 18px; }
   .hero-proof strong { font-size: 28px; }
-  .hero-profile { grid-column: auto; grid-row: auto; width: 100%; max-width: 300px; justify-self: center; margin-top: 20px; text-align: center; }
-  .hero-portrait { width: var(--portrait-size); margin-inline: auto; }
-  .hero-profile figcaption { max-width: 270px; margin: 12px auto 0; }
+  .hero-profile { grid-column: auto; grid-row: auto; display: grid; grid-template-columns: clamp(96px, 28vw, var(--portrait-size)) minmax(0, 1fr); align-items: start; gap: 16px; width: 100%; max-width: 480px; justify-self: center; margin-top: 20px; text-align: left; }
+  .hero-portrait { width: 100%; margin: 0; }
+  .hero-profile figcaption { min-width: 0; margin: 0; }
   .hero-profile figcaption p { font-size: 16px; }
-  .hero-profile figcaption > span { text-wrap: balance; }
+  .hero-profile figcaption > span { text-wrap: wrap; }
   .hero-actions { display: grid; grid-template-columns: 1fr; width: 100%; gap: 10px; margin-top: 20px; }
   .hero-actions .button { min-width: 0; min-height: 50px; font-size: 12px; padding: 12px; gap: 10px; justify-content: center; }
   .hero-actions .arrow-icon { width: 12px; height: 12px; }
