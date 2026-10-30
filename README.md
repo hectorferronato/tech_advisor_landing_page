@@ -65,7 +65,7 @@ All images use the requested direct local paths, with no JavaScript replacement 
 | --- | --- | --- |
 | `assets/hector-building.jpg` | Sprint card and detail page | `assets/founder-build-sprint.jpg` |
 | `assets/hector-advisory.jpg` | Advisory card and detail page | `assets/technical-advisory.jpg` |
-| `assets/hector-profile.jpg` | Homepage hero and the experience-page portrait | `assets/hector profile photo.jpeg` |
+| `assets/hector-profile.png` | Homepage hero, experience-page portrait, and Experience social image | Previous portraits retained as `assets/hector-profile.jpg` and `assets/hector profile photo.jpeg` |
 
 The files use the uploaded images, including replacements pulled from main. Original filenames remain available for compatibility. Image URLs include a version query to avoid stale cached copies; bump it in the HTML and matching config defaults when replacing images. The two service scenes are AI-generated illustrations, not documentary photos of client engagements; alt text states this. The portrait is the actual headshot.
 
