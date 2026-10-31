@@ -23,16 +23,17 @@
 .exp-ventures-heading { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); align-items: start; gap: 84px; margin-bottom: 28px; }
 .exp-ventures-heading .eyebrow { margin-bottom: 17px; }
 .exp-ventures-heading > p { max-width: 68ch; margin: 0; font-size: 15px; line-height: 1.9; }
-.exp-venture { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 84px; border-top: 1px solid var(--border); padding-block: 25px; }
-.exp-venture h3 { margin-bottom: 9px; font-size: 24px; line-height: 1.25; letter-spacing: -.03em; }
-.exp-venture-role { max-width: 33ch; color: var(--accent); font-size: 11px; line-height: 1.7; margin-bottom: 0; }
+.exp-venture-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.exp-venture { display: flex; flex-direction: column; gap: 16px; padding: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: 3px; }
+.exp-venture h3 { margin-bottom: 9px; font-size: 22px; line-height: 1.25; letter-spacing: -.03em; }
+.exp-venture-role { color: var(--accent); font-size: 12px; line-height: 1.7; margin-bottom: 0; }
 .exp-venture > p { max-width: 68ch; margin: 0; font-size: 15px; line-height: 1.9; }
 .exp-relevance { padding-bottom: 38px; }
 .exp-service-links { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 24px; }
 .exp-service-links .text-link { margin-top: 0; font-size: 13px; }
 @media (max-width: 1050px) {
   .exp-intro-grid { gap: 40px; }
-  .exp-section, .exp-ventures-heading, .exp-venture { grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 40px; }
+  .exp-section, .exp-ventures-heading { grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 40px; }
   .exp-domains { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width: 700px) {
@@ -50,8 +51,7 @@
   .exp-domains p { font-size: 14px; line-height: 1.8; }
   .exp-ventures { padding-block: 33px 12px; }
   .exp-ventures-heading { grid-template-columns: minmax(0, 1fr); gap: 23px; margin-bottom: 25px; }
-  .exp-venture { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 25px; }
-  .exp-venture h3 { font-size: 24px; }
-  .exp-venture-role { max-width: none; }
+  .exp-venture-list { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .exp-venture { padding: 22px; }
   .exp-service-links { gap: 15px 24px; }
 }
